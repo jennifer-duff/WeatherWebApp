@@ -1,0 +1,232 @@
+/* --------------------------- GENERAL ---------------------------*/
+:root{
+    --brandColor: rgb(95, 167, 172);
+    --softBlack: rgb(44, 44, 44);
+    --softWhite: rgb(255, 251, 246);
+    --shadow: rgb(65, 65, 65);
+    --rainy: rgb(174, 207, 230);
+}
+
+body{
+    box-sizing: border-box;
+    margin: 0;
+    font-family: stratos, stratos-lights, Inter, 'Helvetica Nue', sans-serif;
+    scroll-behavior: smooth;
+}
+
+
+/* --------------------------- HEADER ---------------------------*/
+header{
+    box-sizing: border-box;
+    padding: 20px 25%;
+    height: 155px;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    background-color: var(--rainy);
+    margin: 0px;
+    /* background-color: pink; */
+}
+
+#geotagIcon{
+    width: 18px;
+    /* position: relative;
+    top: 8.5px; */
+    margin-right: 7px;
+}
+
+#locationInput{
+    font-family: stratos-lights, stratos, Inter, 'Helvetica Nue', sans-serif;
+    font-weight: 300;
+    font-size: 12pt;
+    width: 250px;
+    border-radius: 5px;
+    border: 1px solid var(--softBlack);
+    padding: 3px 6px;
+    box-shadow: 3px 3px 0px var(--softBlack);
+    height: 24px;
+    background-color: var(--rainy);
+    color: var(--softBlack)
+}
+
+#locationInput::placeholder{
+    color: var(--softBlack);
+}
+
+/* --------------------------- MAIN ---------------------------*/
+main{
+    box-sizing: border-box;
+    padding: 0;
+}
+
+section{
+    box-sizing: border-box;
+    padding: 0 25%;
+    margin: 0;
+    height: calc(100vh - 155px);
+    border-radius: 10px
+}
+
+
+/* ---------- Current Weather Box ----------*/
+
+#currWeatherSection{
+    background-color: var(--rainy);
+    box-shadow: 10px 10px 0px var(--shadow);
+    z-index: 2;
+}
+
+h1{
+    font-weight: 500;
+    font-size: 60pt;
+    margin: 0 0 3vh 0;
+    line-height: 100%;
+    text-align: center;
+}
+
+#highLow{
+    font-family: stratos-lights, stratos, Inter, 'Helvetica Nue', sans-serif;
+    text-align: center;
+    font-size: 25pt;
+    font-weight: 300;
+    margin-bottom: 5vh;
+}
+
+#highLow span{
+    font-family: stratos, Inter, 'Helvetica Nue', sans-serif;
+    font-weight: 400;
+}
+
+#weatherIconDiv{
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    background-image: url('Assets/raincloud.svg');
+    /* background-clip: border-box; */
+    background-origin: border-box;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 55vh;
+    margin: 0;
+    padding: 0;
+}
+
+#currTempBox{
+    font-size: 90pt;
+    line-height: 100%;
+    position: relative;
+    left: 15px;
+}
+
+
+/* ---------- Hourly Forecast Box ----------*/
+#hourlyForecastSection{
+    margin-top: 10px;
+    background-color: var(--softWhite);   
+}
+
+h2{
+    font-size: 45pt;
+    font-weight: 600;
+    margin: 0 0 50px 0;
+    padding-top: 75px;
+    position: relative;
+}
+
+.underline{
+    height: 15px;
+    width: 430px;
+    background-color: var(--brandColor);
+    position: relative;
+    top: 153px;
+}
+
+h3{
+    font-size: 25pt;
+    font-weight: 400;
+    margin: 0 0 10px 0;
+    line-height: 100%;
+}
+
+#nowLabel{
+    font-weight: 600;
+    font-size: 30pt;
+    margin-top: -5px;
+}
+
+#carouselContainer{
+    margin-top: 70px;
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    /* border: 1px solid black; */
+}
+
+#carousel{
+    display: flex;
+    align-content: flex-start;
+    width: calc(9.5vw * 4.75);
+    flex-wrap: nowrap;
+    position: relative;
+    left: -30px;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    margin: 0;
+}
+
+body::-webkit-scrollbar-track{
+    /* display: none; */
+}
+
+
+.arrow{
+    width: 30px;
+    height: 20px;
+    cursor: pointer;
+    position: relative;
+    margin-top: 10px;
+    z-index: 2;
+}
+
+.arrow:first-of-type{
+    /* margin-left: -6vw; */
+    left: -65px;
+}
+
+.forecastBox{
+    margin: 0 1vw 20px 1vw;
+    scroll-snap-align: start;
+}
+
+.forecastBox:first-of-type{
+    margin-left: 0;
+}
+
+.weatherBox{
+    box-sizing: border-box;
+    width: 9.5vw;
+    height: 9.5vw;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30pt;
+    background-color: var(--rainy);
+    background-image: url('Assets/raincloud.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 75%;
+    border-radius: 10px;
+    box-shadow: 8px 8px 0 var(--shadow);
+}
+
+.hourlyTemp{
+    position: relative;
+    top: -19px;
+    left: 5px;
+    line-height: 100%;
+}
+

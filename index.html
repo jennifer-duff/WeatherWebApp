@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel = 'stylesheet' href = 'weatherStylesheet.css'>
+    <link rel="stylesheet" href="https://use.typekit.net/fvp7dsa.css">
+    <title>WeatherChecker</title>
+</head>
+
+<body>
+    <header>
+        <img src = 'Assets/geotag_icon.svg' id = 'geotagIcon'>
+        <input id = 'locationInput' type = text placeholder = 'Enter a city to get started!'>
+    </header>
+
+    <main>
+        <section id = 'currWeatherSection'>
+            <h1>Looks Like Rain</h1>
+            <p id = 'highLow'>
+                high: <span id = 'highTemp'>65</span>&deg;
+                 /&nbsp;	
+                low: <span id = 'lowTemp'>45</span>&deg;
+            </p>
+            <div id = 'weatherIconDiv'>
+                <p id = 'currTempBox'>
+                    <span id = 'currTemp'>57</span>&deg;
+                </p>
+                <!-- <img id = 'currWeatherIcon' src = 'Assets/raincloud.svg'> -->
+            </div>
+        </section>
+        <section id = 'hourlyForecastSection'>
+            <div class = 'underline'></div>
+            <h2>hourly forecast</h2>
+            
+
+
+            <div id = 'carouselContainer'>
+                <img src = 'Assets/leftArrow.svg' class = 'arrow' id = 'leftArrow'>
+
+                <div id = 'carousel'>
+
+                    <div class = 'forecastBox' id = 'nowBox'>
+                        <h3 id = 'nowLabel'>now</h3>
+                        <div class = 'weatherBox'>
+                            <p class = 'hourlyTemp'>
+                                <span class = 'forecastTemp'>57</span>&deg;
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class = 'forecastBox'>
+                        <h3 class = 'timeLabel'>01:00</h3>
+                        <div class = 'weatherBox'>
+                            <p class = 'hourlyTemp'>
+                                <span class = 'forecastTemp'>57</span>&deg;
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class = 'forecastBox'>
+                        <h3 class = 'timeLabel'>02:00</h3>
+                        <div class = 'weatherBox'>
+                            <p class = 'hourlyTemp'>
+                                <span class = 'forecastTemp'>57</span>&deg;
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class = 'forecastBox'>
+                        <h3 class = 'timeLabel'>03:00</h3>
+                        <div class = 'weatherBox'>
+                            <p class = 'hourlyTemp'>
+                                <span class = 'forecastTemp'>57</span>&deg;
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class = 'forecastBox'>
+                        <h3 class = 'timeLabel'>04:00</h3>
+                        <div class = 'weatherBox'>
+                            <p class = 'hourlyTemp'>
+                                <span class = 'forecastTemp'>57</span>&deg;
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class = 'forecastBox'>
+                        <h3 class = 'timeLabel'>05:00</h3>
+                        <div class = 'weatherBox'>
+                            <p class = 'hourlyTemp'>
+                                <span class = 'forecastTemp'>57</span>&deg;
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class = 'forecastBox'>
+                        <h3 class = 'timeLabel'>06:00</h3>
+                        <div class = 'weatherBox'>
+                            <p class = 'hourlyTemp'>
+                                <span class = 'forecastTemp'>57</span>&deg;
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class = 'forecastBox'>
+                        <h3 class = 'timeLabel'>07:00</h3>
+                        <div class = 'weatherBox'>
+                            <p class = 'hourlyTemp'>
+                                <span class = 'forecastTemp'>57</span>&deg;
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class = 'forecastBox'>
+                        <h3 class = 'timeLabel'>08:00</h3>
+                        <div class = 'weatherBox'>
+                            <p class = 'hourlyTemp'>
+                                <span class = 'forecastTemp'>57</span>&deg;
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class = 'forecastBox'>
+                        <h3 class = 'timeLabel'>09:00</h3>
+                        <div class = 'weatherBox'>
+                            <p class = 'hourlyTemp'>
+                                <span class = 'forecastTemp'>57</span>&deg;
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class = 'forecastBox'>
+                        <h3 class = 'timeLabel'>10:00</h3>
+                        <div class = 'weatherBox'>
+                            <p class = 'hourlyTemp'>
+                                <span class = 'forecastTemp'>57</span>&deg;
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class = 'forecastBox'>
+                        <h3 class = 'timeLabel'>11:00</h3>
+                        <div class = 'weatherBox'>
+                            <p class = 'hourlyTemp'>
+                                <span class = 'forecastTemp'>57</span>&deg;
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class = 'forecastBox'>
+                        <h3 class = 'timeLabel'>12:00</h3>
+                        <div class = 'weatherBox'>
+                            <p class = 'hourlyTemp'>
+                                <span class = 'forecastTemp'>57</span>&deg;
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class = 'forecastBox'>
+                        <h3 class = 'timeLabel'>13:00</h3>
+                        <div class = 'weatherBox'>
+                            <p class = 'hourlyTemp'>
+                                <span class = 'forecastTemp'>57</span>&deg;
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class = 'forecastBox'>
+                        <h3 class = 'timeLabel'>14:00</h3>
+                        <div class = 'weatherBox'>
+                            <p class = 'hourlyTemp'>
+                                <span class = 'forecastTemp'>57</span>&deg;
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class = 'forecastBox'>
+                        <h3 class = 'timeLabel'>15:00</h3>
+                        <div class = 'weatherBox'>
+                            <p class = 'hourlyTemp'>
+                                <span class = 'forecastTemp'>57</span>&deg;
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class = 'forecastBox'>
+                        <h3 class = 'timeLabel'>16:00</h3>
+                        <div class = 'weatherBox'>
+                            <p class = 'hourlyTemp'>
+                                <span class = 'forecastTemp'>57</span>&deg;
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class = 'forecastBox'>
+                        <h3 class = 'timeLabel'>17:00</h3>
+                        <div class = 'weatherBox'>
+                            <p class = 'hourlyTemp'>
+                                <span class = 'forecastTemp'>57</span>&deg;
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class = 'forecastBox'>
+                        <h3 class = 'timeLabel'>18:00</h3>
+                        <div class = 'weatherBox'>
+                            <p class = 'hourlyTemp'>
+                                <span class = 'forecastTemp'>57</span>&deg;
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class = 'forecastBox'>
+                        <h3 class = 'timeLabel'>19:00</h3>
+                        <div class = 'weatherBox'>
+                            <p class = 'hourlyTemp'>
+                                <span class = 'forecastTemp'>57</span>&deg;
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class = 'forecastBox'>
+                        <h3 class = 'timeLabel'>20:00</h3>
+                        <div class = 'weatherBox'>
+                            <p class = 'hourlyTemp'>
+                                <span class = 'forecastTemp'>57</span>&deg;
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class = 'forecastBox'>
+                        <h3 class = 'timeLabel'>21:00</h3>
+                        <div class = 'weatherBox'>
+                            <p class = 'hourlyTemp'>
+                                <span class = 'forecastTemp'>57</span>&deg;
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class = 'forecastBox'>
+                        <h3 class = 'timeLabel'>22:00</h3>
+                        <div class = 'weatherBox'>
+                            <p class = 'hourlyTemp'>
+                                <span class = 'forecastTemp'>57</span>&deg;
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class = 'forecastBox'>
+                        <h3 class = 'timeLabel'>23:00</h3>
+                        <div class = 'weatherBox'>
+                            <p class = 'hourlyTemp'>
+                                <span class = 'forecastTemp'>57</span>&deg;
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+                <img src = 'Assets/rightArrow.svg' class = 'arrow' id = 'rightArrow'>
+            </div>
+
+        </section>
+    </main>
+
+    <footer>
+
+    </footer>
+    <script src = 'weatherScripts.js'></script>
+</body>
+</html>
