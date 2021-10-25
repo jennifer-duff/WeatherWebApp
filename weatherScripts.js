@@ -40,14 +40,14 @@ let lowTemp = document.querySelector('#lowTemp');
 
 
 async function getLocationKey(location) {
-    let response = await axios.get(`http://dataservice.accuweather.com/locations/v1/cities/search?apikey=mZDDGnloK5jU8t1fbOA952AYshZ4mJYN&q=${location}`)
+    let response = await axios.get(`https://dataservice.accuweather.com/locations/v1/cities/search?apikey=mZDDGnloK5jU8t1fbOA952AYshZ4mJYN&q=${location}`)
     console.log(response.data[0].Key);
     return response.data[0].Key;
 }
 
 async function getCurrTemp(location){
     let key = await getLocationKey(location);
-    await axios.get(`http://dataservice.accuweather.com/currentconditions/v1/${key}?apikey=mZDDGnloK5jU8t1fbOA952AYshZ4mJYN`)
+    await axios.get(`https://dataservice.accuweather.com/currentconditions/v1/${key}?apikey=mZDDGnloK5jU8t1fbOA952AYshZ4mJYN`)
         .then(function (response) {
             let temp = response.data[0].Temperature.Imperial.Value;
             currTemp.innerText = temp;
@@ -59,7 +59,7 @@ async function getCurrTemp(location){
 
 async function getCurrCondition(location){
     let key = await getLocationKey(location);
-    await axios.get(`http://dataservice.accuweather.com/currentconditions/v1/${key}?apikey=mZDDGnloK5jU8t1fbOA952AYshZ4mJYN`)
+    await axios.get(`https://dataservice.accuweather.com/currentconditions/v1/${key}?apikey=mZDDGnloK5jU8t1fbOA952AYshZ4mJYN`)
         .then(function (response) {
             let condition = response.data[0].WeatherText;
             currCondition.innerText = condition;
@@ -71,7 +71,7 @@ async function getCurrCondition(location){
 
 async function getHighTemp(location){
     let key = await getLocationKey(location);
-    await axios.get(`http://dataservice.accuweather.com/forecasts/v1/daily/1day/${key}?apikey=mZDDGnloK5jU8t1fbOA952AYshZ4mJYN`)
+    await axios.get(`https://dataservice.accuweather.com/forecasts/v1/daily/1day/${key}?apikey=mZDDGnloK5jU8t1fbOA952AYshZ4mJYN`)
     .then(function (response) {
         console.log(response);
         let htemp = response.data.DailyForecasts[0].Temperature.Maximum.Value;
@@ -84,7 +84,7 @@ async function getHighTemp(location){
 
 async function getLowTemp(location){
     let key = await getLocationKey(location);
-    await axios.get(`http://dataservice.accuweather.com/forecasts/v1/daily/1day/${key}?apikey=mZDDGnloK5jU8t1fbOA952AYshZ4mJYN`)
+    await axios.get(`https://dataservice.accuweather.com/forecasts/v1/daily/1day/${key}?apikey=mZDDGnloK5jU8t1fbOA952AYshZ4mJYN`)
     .then(function (response) {
         console.log(response);
         let ltemp = response.data.DailyForecasts[0].Temperature.Minimum.Value;
