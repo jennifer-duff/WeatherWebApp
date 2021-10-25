@@ -177,9 +177,8 @@ h3{
     margin: 0;
 }
 
-body::-webkit-scrollbar-track{
-    /* display: none; */
-}
+/* body::-webkit-scrollbar-track{
+} */
 
 
 .arrow{

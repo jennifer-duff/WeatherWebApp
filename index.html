@@ -13,11 +13,12 @@
     <header>
         <img src = 'Assets/geotag_icon.svg' id = 'geotagIcon'>
         <input id = 'locationInput' type = text placeholder = 'Enter a city to get started!'>
+        <!-- <button>go!</button> -->
     </header>
 
     <main>
         <section id = 'currWeatherSection'>
-            <h1>Looks Like Rain</h1>
+            <h1 id = 'currCondition'>Looks Like Rain</h1>
             <p id = 'highLow'>
                 high: <span id = 'highTemp'>65</span>&deg;
                  /&nbsp;	
@@ -25,7 +26,7 @@
             </p>
             <div id = 'weatherIconDiv'>
                 <p id = 'currTempBox'>
-                    <span id = 'currTemp'>57</span>&deg;
+                    <span id = 'currTemp'>52</span>&deg;
                 </p>
                 <!-- <img id = 'currWeatherIcon' src = 'Assets/raincloud.svg'> -->
             </div>
@@ -267,6 +268,7 @@
     <footer>
 
     </footer>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src = 'weatherScripts.js'></script>
 </body>
 </html>
