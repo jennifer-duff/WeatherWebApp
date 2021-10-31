@@ -64,7 +64,8 @@ section{
     padding: 0 25%;
     margin: 0;
     height: calc(100vh - 155px);
-    border-radius: 10px
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
 
 
@@ -153,6 +154,7 @@ h3{
     font-weight: 600;
     font-size: 30pt;
     margin-top: -5px;
+    margin-bottom: 8px;
 }
 
 #carouselContainer{
@@ -162,6 +164,7 @@ h3{
     flex-wrap: nowrap;
     justify-content: flex-start;
     align-items: center;
+    width: calc(9.5vw * 4.75 * 4);
     /* border: 1px solid black; */
 }
 
@@ -175,10 +178,12 @@ h3{
     overflow-x: scroll;
     scroll-snap-type: x mandatory;
     margin: 0;
+    direction: ltr;
 }
 
-/* body::-webkit-scrollbar-track{
-} */
+#carousel::-webkit-scrollbar{
+    display: none;
+}
 
 
 .arrow{
@@ -196,12 +201,17 @@ h3{
 }
 
 .forecastBox{
-    margin: 0 1vw 20px 1vw;
+    width: 1fr;
+    margin: 0 1vw 8px 1vw;
     scroll-snap-align: start;
 }
 
 .forecastBox:first-of-type{
     margin-left: 0;
+}
+
+.forecastBox:last-of-type{
+    margin-right: 8px;
 }
 
 .weatherBox{
@@ -229,3 +239,28 @@ h3{
     line-height: 100%;
 }
 
+#dotNavContainer{
+    display: flex;
+    justify-content: center;
+    height: 20px;
+    width: calc(9.5vw * 4.75);
+    margin-top: 20px;
+}
+
+.dotNav{
+    background-color: rgb(190, 190, 190);
+    width: 15px;
+    height: 15px;
+    border-radius: 100%;
+    margin: 0 5px 0 5px;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.dotNavActive{
+    background-color: rgb(138, 135, 135);
+}
+
+.dotNav:hover{
+    cursor: pointer;
+    background-color: rgb(138, 135, 135);
+}
