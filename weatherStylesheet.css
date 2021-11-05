@@ -190,13 +190,17 @@ h3{
     height: 20px;
     cursor: pointer;
     position: relative;
-    margin-top: 10px;
+    margin-top: 53px;
     z-index: 2;
 }
 
 .arrow:first-of-type{
     /* margin-left: -6vw; */
     left: -65px;
+}
+
+.arrow:last-of-type{
+    left: -10px;
 }
 
 .forecastBox{
