@@ -1,6 +1,6 @@
 'use strict'
 
-// -------------------------------------- Carousel functionality --------------------------------------
+// --------------------------------- Carousel functionality ---------------------------------
 let prevArrow = document.querySelector('#leftArrow');
 let nextArrow = document.querySelector('#rightArrow');
 let forecastBox = document.querySelector('#nowBox');
@@ -163,6 +163,203 @@ for (let i = 0; i < dotNavs.length; i++){
     dotNavs[i].addEventListener('click', scroll);
 }
 
+
+//----------------------- Set background image + color based on weather----------------------------
+//Get objects
+let header = document.querySelector('header');
+let inputBox = document.querySelector('#locationInput');
+let currWeatherSection = document.querySelector('#currWeatherSection');
+let weatherIconDiv = document.querySelector('#weatherIconDiv');
+let currTempBox = document.querySelector('#currTempBox');
+let weatherBoxes = document.querySelectorAll('.weatherBox');
+let hourlyTemp = document.querySelectorAll('.hourlyTemp')
+
+//set weather colors + icons
+let sunColor = '#FFE194';
+let sunImg = "url('Assets/sun.svg')";
+
+let rainColor = '#AECFE6';
+let rainImg = "url('Assets/raincloud.svg')";
+
+let cloudColor = '#E6EEF2';
+let cloudImg = "url('Assets/cloud.svg')";
+
+let mostlySunnyColor = '#FFEFC9';
+let mostlySunnyImg = "url('Assets/mostlySunny.svg')";
+
+let mostlyCloudyColor = '#FCF3DE';
+let mostlyCloudyImg = "url('Assets/mostlyCloudy.svg')";
+
+let snowColor = '#FAFAFA';
+let snowImg = "url('Assets/snow.svg')";
+let hailImg = "url('Assets/hail.svg')";
+let sleetImg = "url('Assets/sleet.svg')";
+
+let windColor = '#FFFEFA';
+let windImg = "url('Assets/wind.svg')";
+
+let hazeColor = '#E3DDD5';
+let hazeImg = "url('Assets/haze.svg')";
+
+let stormColor = '#B8B8B8';
+let stormImg = "url('Assets/stormCloud.svg')";
+
+
+function setBackgroundColor(weather, element){
+    switch(weather){
+        case 'Sunny':
+            element.style.backgroundColor = sunColor;
+            break;
+        case 'Showers':
+        case 'Mostly Cloudy w/ Showers':
+        case 'Rain':
+            element.style.backgroundColor = rainColor;
+            break;
+
+        case 'Cloudy':
+        case 'Dreary (Overcast)':
+            element.style.backgroundColor = cloudColor;
+            break;
+        
+        case 'Mostly Sunny':
+        case 'Partly Sunny':
+            element.style.backgroundColor = mostlySunnyColor;
+            break;
+
+        case 'Intermittent Clouds':
+        case 'Mostly Cloudy':
+            element.style.backgroundColor = mostlyCloudyColor;
+            break;
+        
+        case 'Flurries':
+        case 'Partly Sunny w/ Flurries':
+        case 'Mostly Cloudy w/ Flurries':
+        case 'Mostly Cloudy w/ Snow':
+        case 'Snow':
+        case 'Ice':
+        case 'Freezing Rain':
+        case 'Sleet':
+        case 'Rain and Snow':
+            element.style.backgroundColor = snowColor;
+            break;
+
+        case 'Windy':
+            element.style.backgroundColor = windColor;
+            break;
+        
+        case 'Hazy Sunshine':
+        case 'Fog':
+            element.style.backgroundColor = hazeColor;
+            break;
+        
+        case 'T-Storms':
+        case 'Mostly Cloudy w/ T-Storms':
+        case 'Partly Sunny w/ T-Storms':
+            element.style.backgroundColor = stormColor;
+            break;
+    }
+}
+
+function setWholeBackground(weather, element){
+    setBackgroundColor(weather, element);
+    switch(weather){
+        case 'Showers':
+        case 'Mostly Cloudy w/ Showers':
+        case 'Rain':
+            element.style.backgroundImage = rainImg;
+            break;
+
+        case 'Sunny':
+            element.style.backgroundImage = sunImg;
+            if(element === weatherIconDiv){
+                currTempBox.style.top = '72px';
+            }
+            break;
+        
+        case 'Cloudy':
+        case 'Dreary (Overcast)':
+            element.style.backgroundImage = cloudImg;
+            if(element === weatherIconDiv){
+                currTempBox.style.top = '80px';
+            }
+            else if (element.parentElement.parentElement === carousel){
+                element.childNodes[1].style.top = '3px';
+            }
+            break
+        
+        case 'Mostly Sunny':
+        case 'Partly Sunny':
+            element.style.backgroundImage = mostlySunnyImg;
+            if(element === weatherIconDiv){
+                currTempBox.style.top = '76px';
+                currTempBox.style.left = '-33px';
+            }
+            break;
+        
+        case 'Intermittent Clouds':
+        case 'Mostly Cloudy':
+            element.style.backgroundImage = mostlyCloudyImg;
+            if(element === weatherIconDiv){
+                currTempBox.style.top = '140px';
+                currTempBox.style.left = '85px';
+            }
+            break;
+        
+        case 'Flurries':
+        case 'Partly Sunny w/ Flurries':
+        case 'Mostly Cloudy w/ Flurries':
+        case 'Mostly Cloudy w/ Snow':
+        case 'Snow':
+            element.style.backgroundImage = snowImg;
+            if(element === weatherIconDiv){
+                currTempBox.style.top = '10px';
+            }
+            break;
+        
+        case 'Ice':
+        case 'Freezing Rain':
+            element.style.backgroundImage = hailImg;
+            if(element === weatherIconDiv){
+                currTempBox.style.top = '20px';
+                currTempBox.style.left = '20px';
+            }
+            break;
+
+        case 'Sleet':
+        case 'Rain and Snow':
+            element.style.backgroundImage = sleetImg;
+            if(element === weatherIconDiv){
+                currTempBox.style.left = '20px';
+            }
+            break;
+        
+        case 'Windy':
+            element.style.backgroundImage = windImg;
+            if(element === weatherIconDiv){
+                currTempBox.style.top = '70px';
+                currTempBox.style.left = '20px';
+            }
+            break;
+
+        case 'Hazy Sunshine':
+        case 'Fog':
+            element.style.backgroundImage = hazeImg;
+            if(element === weatherIconDiv){
+                currTempBox.style.top = '55px';
+            }
+            break;
+        
+            case 'T-Storms':
+            case 'Mostly Cloudy w/ T-Storms':
+            case 'Partly Sunny w/ T-Storms':
+                element.style.backgroundImage = stormImg;
+                break;
+    }
+}
+
+
+
+
 //------------------------- Get location + Current Conditions ------------------------------
 let locationInputElement = document.querySelector('#locationInput');
 let strUserLocation = 'userLocation';
@@ -196,6 +393,10 @@ async function getCurrCondition(key){
         .then(function (response) {
             let condition = response.data[0].WeatherText;
             currCondition.innerText = condition;
+            setWholeBackground(condition, weatherIconDiv);
+            setBackgroundColor(condition, currWeatherSection);
+            setBackgroundColor(condition, header);
+            setBackgroundColor(condition, inputBox);
         })
         .catch(function (error) {
             console.log(error);
@@ -235,8 +436,8 @@ async function getHourlyTemps(key){
     await axios.get(`https://dataservice.accuweather.com/forecasts/v1/hourly/12hour/${key}?apikey=mZDDGnloK5jU8t1fbOA952AYshZ4mJYN`)
     .then(function (response) {
         let hourlyData = response.data
-        console.log(hourlyData);
-        console.log(hourlyData[0].DateTime);
+        // console.log(hourlyData);
+        // console.log(hourlyData[0].DateTime);
         
         for(let i = 0; i < forecastTemps.length; i++)
         {
@@ -249,6 +450,8 @@ async function getHourlyTemps(key){
             forecastTemps[i].innerText = hourlyData[i].Temperature.Value
 
             //set background image + color
+            let condition = hourlyData[i].IconPhrase;
+            setWholeBackground(condition, weatherBoxes[i]);
         }
     })
     .catch(function (error) {
@@ -278,9 +481,10 @@ locationInputElement.addEventListener('change', async function() {
     }
 })
 
+// function addSun(){
+//     for (let i = 0; i < weatherBoxes.length; i++){
+//         weatherBoxes[i].classList.add('sun');
+//     }
+// }
 
-
-
-
-    
-
+// addSun();

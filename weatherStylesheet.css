@@ -4,7 +4,8 @@
     --softBlack: rgb(44, 44, 44);
     --softWhite: rgb(255, 251, 246);
     --shadow: rgb(65, 65, 65);
-    --rainy: rgb(174, 207, 230);
+    --rainColor: rgb(174, 207, 230);
+    --sun: #FFE194;
 }
 
 body{
@@ -15,6 +16,25 @@ body{
 }
 
 
+/* ---------------------- WEATHER CLASSES -----------------------*/
+
+/* .rain {
+    background-color: var(--rainColor);
+    background-image: url('Assets/raincloud.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-origin: border-box;
+
+}
+
+.sun{
+    background-color: var(--sun);
+    background-image: url('Assets/sun.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-origin: border-box;
+} */
+
 /* --------------------------- HEADER ---------------------------*/
 header{
     box-sizing: border-box;
@@ -23,9 +43,10 @@ header{
     display: flex;
     flex-wrap: nowrap;
     align-items: center;
-    background-color: var(--rainy);
     margin: 0px;
-    /* background-color: pink; */
+    z-index: 2;
+    /* box-shadow: 3px 3px 0px var(--softBlack); */
+
 }
 
 #geotagIcon{
@@ -45,12 +66,11 @@ header{
     padding: 3px 6px;
     box-shadow: 3px 3px 0px var(--softBlack);
     height: 24px;
-    background-color: var(--rainy);
     color: var(--softBlack)
 }
 
 #locationInput::placeholder{
-    color: var(--softBlack);
+    color: rgb(124, 124, 124);
 }
 
 /* --------------------------- MAIN ---------------------------*/
@@ -72,7 +92,7 @@ section{
 /* ---------- Current Weather Box ----------*/
 
 #currWeatherSection{
-    background-color: var(--rainy);
+    /* background-color: var(--rainColor); */
     box-shadow: 10px 10px 0px var(--shadow);
     z-index: 2;
 }
@@ -103,8 +123,7 @@ h1{
     display: flex;
     flex-wrap: nowrap;
     justify-content: center;
-    background-image: url('Assets/raincloud.svg');
-    /* background-clip: border-box; */
+    /* background-image: url('Assets/raincloud.svg'); */
     background-origin: border-box;
     background-position: center;
     background-repeat: no-repeat;
@@ -118,6 +137,7 @@ h1{
     line-height: 100%;
     position: relative;
     left: 15px;
+    /* top: 100px; */
 }
 
 
@@ -226,8 +246,8 @@ h3{
     justify-content: center;
     align-items: center;
     font-size: 30pt;
-    background-color: var(--rainy);
-    background-image: url('Assets/raincloud.svg');
+    /* background-color: var(--rainColor);
+    background-image: url('Assets/raincloud.svg'); */
     background-position: center;
     background-repeat: no-repeat;
     background-size: 75%;
