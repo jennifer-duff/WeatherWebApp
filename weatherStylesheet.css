@@ -154,6 +154,39 @@ section{
     border-bottom-right-radius: 10px;
 }
 
+#apiCallTracker{
+    position: absolute;
+    top: 110px;
+    left: 20px;
+    display: none;
+}
+
+#backToTop{
+    box-sizing: border-box;
+    background-color: var(--lightBrandColor);
+    color: var(--softBlack);
+    width: 55px;
+    height: 55px;
+    position: fixed;
+    top: 90vh;
+    right: 50px;
+    border-radius: 50%;
+    z-index: 3;
+    box-shadow: 3px 3px 0 var(--softBlack);
+    border: none;
+    font-family: stratos, Inter, 'Helvetica Nue', sans-serif;
+    font-weight: 700;
+    font-size: 20pt;
+    line-height: 100%;
+    text-decoration: none;
+    text-align: center;
+    padding-top: 14px;
+    transition: background-color 0.2s ease-in-out;
+}
+
+#backToTop:hover{
+    background-color: var(--brandColor);
+}
 
 /* ---------- Current Weather Box ----------*/
 
@@ -216,9 +249,10 @@ h1{
     background-origin: border-box;
     background-position: center;
     background-repeat: no-repeat;
+    background-image: url('Assets/cloud.svg');
     height: 400px;
     width: 100%;
-    margin: 0;
+    margin: 75px 0 50px 0;
 }
 
 #currTempBox{

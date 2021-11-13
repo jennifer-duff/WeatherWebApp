@@ -440,6 +440,21 @@ function setWholeBackground(weather, isDaylight, element){
                 break;
     }
 }
+//------------------------ Update API Call Count --------------------
+let apiCallCountText = document.querySelector('#apiCallCountText');
+let UTCdate = new Date();
+let localDateTime = UTCdate.toLocaleString();
+let localDate = localDateTime.substr(0,localDateTime.indexOf(','));
+let localTime = localDateTime.substr(localDateTime.indexOf(',') + 1);
+
+
+
+let apiCallCount = undefined;
+
+function updateCallCount()
+{
+    console.log('The API Call Counting feature doesn\'t work yet!');
+}
 
 //------------------------- Get location + Current Conditions ------------------------------
 let locationInputElement = document.querySelector('#locationInput');
@@ -451,10 +466,18 @@ let highTemp = document.querySelector('#highTemp');
 let lowTemp = document.querySelector('#lowTemp');
 
 
+
+
 async function getLocationKey(location) {
     let response = await axios.get(`https://dataservice.accuweather.com/locations/v1/cities/search?apikey=mZDDGnloK5jU8t1fbOA952AYshZ4mJYN&q=${location}`)
     // console.log(`location key: ${response.data[0].Key}`);
-    return response.data[0].Key;
+        .then(function (response){
+            updateCallCount();
+            return response.data[0].Key;
+        })
+        .catch(function (error){
+            console.log(error);
+        })
 }
 
 async function getCurrTemp(key){
@@ -463,6 +486,7 @@ async function getCurrTemp(key){
         .then(function (response) {
             let temp = response.data[0].Temperature.Imperial.Value;
             currTemp.innerText = temp;
+            updateCallCount();
         })
         .catch(function (error) {
             console.log(error);
@@ -474,6 +498,8 @@ async function getCurrCondition(key){
     await axios.get(`https://dataservice.accuweather.com/currentconditions/v1/${key}?apikey=mZDDGnloK5jU8t1fbOA952AYshZ4mJYN`)
         .then(function (response) {
             // console.log(response);
+            updateCallCount();
+
             let currIsDaytime = response.data[0].IsDayTime;
             let condition = response.data[0].WeatherText;
             currWeather.innerText = condition;
@@ -511,6 +537,7 @@ async function getHighTemp(key){
     // let key = await getLocationKey(key);
     await axios.get(`https://dataservice.accuweather.com/forecasts/v1/daily/1day/${key}?apikey=mZDDGnloK5jU8t1fbOA952AYshZ4mJYN`)
     .then(function (response) {
+        updateCallCount();
         let htemp = response.data.DailyForecasts[0].Temperature.Maximum.Value;
         highTemp.innerText = htemp;
     })
@@ -523,6 +550,7 @@ async function getLowTemp(key){
     // let key = await getLocationKey(key);
     await axios.get(`https://dataservice.accuweather.com/forecasts/v1/daily/1day/${key}?apikey=mZDDGnloK5jU8t1fbOA952AYshZ4mJYN`)
     .then(function (response) {
+        updateCallCount();
         let ltemp = response.data.DailyForecasts[0].Temperature.Minimum.Value;
         lowTemp.innerText = ltemp;
     })
@@ -539,6 +567,8 @@ let timeLabels = document.querySelectorAll('.timeLabel');
 async function getHourlyTemps(key){
     await axios.get(`https://dataservice.accuweather.com/forecasts/v1/hourly/12hour/${key}?apikey=mZDDGnloK5jU8t1fbOA952AYshZ4mJYN`)
     .then(function (response) {
+        updateCallCount();
+
         let hourlyData = response.data
         // console.log(hourlyData);
         // console.log(hourlyData[0].DateTime);
@@ -593,6 +623,8 @@ locationInputElement.addEventListener('change', async function() {
 
 //------------------------- Handle Nav Clicks ------------------------------
 let navLinks = document.querySelectorAll('.navBox');
+let backToTop = document.querySelectorAll('#backToTop')[0];
+console.log(backToTop);
 // console.log(navLinks);
 
 for (let i = 0; i < navLinks.length; i++){
@@ -605,7 +637,7 @@ for (let i = 0; i < navLinks.length; i++){
             // console.log(navLinks[i].childNodes[3]);
             if (navLinks[i].childNodes[3] === event.target)
             {
-                console.log(event.target.parentElement.childNodes[1]);
+                // console.log(event.target.parentElement.childNodes[1]);
                 event.target.parentElement.childNodes[1].style.backgroundColor = 'rgb(97, 176, 182)'
             }
             else
@@ -615,3 +647,13 @@ for (let i = 0; i < navLinks.length; i++){
         }
     })
 }
+
+backToTop.addEventListener('click', function(event){
+
+    navLinks[0].childNodes[1].style.backgroundColor = 'rgb(97, 176, 182)'
+
+    for (let i = 1; i < navLinks.length; i++)
+    {
+        navLinks[i].childNodes[1].style.backgroundColor = 'rgb(255, 251, 246)'; 
+    }
+})

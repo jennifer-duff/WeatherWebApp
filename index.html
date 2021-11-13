@@ -25,14 +25,18 @@
                 <div class = 'navUnderline'></div>
                 <a href = #hourlyForecastSection>Hourly Forecast</a>
             </div>
-            <div id = '15DayForecastBox' class = 'navBox'>
+            <div id = '5DayForecastBox' class = 'navBox'>
                 <div class = 'navUnderline'></div>
-                <a href = #fifteenDayForecaseSsection>15-Day Forecast</a>
+                <a href = #5ForecastSection>5-Day Forecast</a>
             </div>
         </nav>
     </header>
 
     <main>
+
+        <a id = 'backToTop' href = '#currWeatherSection'>&uarr;</a>
+
+        <p id = 'apiCallTracker'>API Call Count: <span id = 'apiCallCountText'>0</span></p>
         <section id = 'currWeatherSection'>
             <h1 id = 'currCondition'>
                 It's&nbsp;
