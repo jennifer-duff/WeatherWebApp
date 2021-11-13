@@ -170,7 +170,7 @@ let header = document.querySelector('header');
 let inputBox = document.querySelector('#locationInput');
 let currWeatherSection = document.querySelector('#currWeatherSection');
 let weatherIconDiv = document.querySelector('#weatherIconDiv');
-let currTempBox = document.querySelector('#currTempBox');
+// let currTemp = document.querySelector('#currTemp');
 let weatherBoxes = document.querySelectorAll('.weatherBox');
 let hourlyTemp = document.querySelectorAll('.hourlyTemp')
 
@@ -305,45 +305,29 @@ function setWholeBackground(weather, isDaylight, element){
             }
 
             if(element === weatherIconDiv){
-                currTempBox.style.top = '9.5vh';
-                currTempBox.style.left = '1.7vw';
+                currTemp.style.top = '9.5vh';
+                currTemp.style.left = '1.7vw';
             }
             break;
 
         case 'Sunny':
             element.style.backgroundImage = sunImg;
-            if(element === weatherIconDiv){
-                currTempBox.style.top = '6.5%';
-                currTempBox.style.left = '1.25%';
-            }
             break;
 
         //night
         case 'Clear':
             element.style.backgroundImage = clearNightImg;
-            if(element === weatherIconDiv){
-                currTempBox.style.marginTop = '0%';
-                currTempBox.style.marginLeft = '250px';
-            }
             break;
         
         case 'Mostly Sunny':
         case 'Partly Sunny':
             element.style.backgroundImage = mostlySunnyImg;
-            if(element === weatherIconDiv){
-                currTempBox.style.top = '76px';
-                currTempBox.style.left = '-33px';
-            }
             break;
         
         //night
         case 'Mostly Clear':
         case 'Partly Cloudy':
             element.style.backgroundImage = mostlyClearNightImg;
-            if(element === weatherIconDiv){
-                currTempBox.style.top = '95px';
-                currTempBox.style.left = '55px';
-            }
             break;
         
         case 'Intermittent Clouds':
@@ -351,18 +335,10 @@ function setWholeBackground(weather, isDaylight, element){
             if (isDaylight === true)
             {
                 element.style.backgroundImage = mostlyCloudyImg;
-                if(element === weatherIconDiv){
-                    currTempBox.style.top = '140px';
-                    currTempBox.style.left = '85px';
-                }
             }
             else if (isDaylight === false)
             {
                 element.style.backgroundImage = mostlyCloudyNightImg;
-                if(element === weatherIconDiv){
-                    currTempBox.style.top = '95px';
-                    currTempBox.style.left = '55px';
-                }
             }
             break;
                 
@@ -378,16 +354,11 @@ function setWholeBackground(weather, isDaylight, element){
                 
             }
 
-            if(element === weatherIconDiv)
-            {
-                currTempBox.style.top = '75px';
-                currTempBox.style.left = '25px';
-            }
-            else if (element.parentElement.parentElement === carousel)
+            if (element.parentElement.parentElement === carousel)
             {
                 element.childNodes[1].style.top = '3px';
             }
-            break
+            break;
 
         case 'Flurries':
         case 'Partly Sunny w/ Flurries':
@@ -402,11 +373,6 @@ function setWholeBackground(weather, isDaylight, element){
             {
                 element.style.backgroundImage = nightSnowImg;
             }
-
-            if(element === weatherIconDiv){
-                currTempBox.style.marginTop = '-10.5%';
-                currTempBox.style.marginLeft = '40px';
-            }
             break;
         
         case 'Ice':
@@ -419,10 +385,6 @@ function setWholeBackground(weather, isDaylight, element){
             else if (isDaylight === false)
             {
                 element.style.backgroundImage = nightHailImg;
-            }
-            if(element === weatherIconDiv){
-                currTempBox.style.marginTop = '-10.5%';
-                currTempBox.style.marginLeft = '40px';
             }
             break;
 
@@ -437,10 +399,6 @@ function setWholeBackground(weather, isDaylight, element){
             {
                 element.style.backgroundImage = nightSleetImg;
             }
-            if(element === weatherIconDiv){
-                currTempBox.style.marginTop = '-10.5%';
-                currTempBox.style.marginLeft = '40px';
-            }
             break;
         
         case 'Windy':
@@ -452,10 +410,6 @@ function setWholeBackground(weather, isDaylight, element){
             else if (isDaylight === false)
             {
                 element.style.backgroundImage = nightWindImg;
-            }
-            if(element === weatherIconDiv){
-                currTempBox.style.top = '70px';
-                currTempBox.style.left = '20px';
             }
             break;
 
@@ -470,10 +424,6 @@ function setWholeBackground(weather, isDaylight, element){
             {
                 element.style.backgroundImage = nightHazeImg;
             }            
-            if(element === weatherIconDiv){
-                currTempBox.style.top = '55px';
-                currTempBox.style.left = '20px';
-            }
             break;
         
             case 'T-Storms':
@@ -487,10 +437,6 @@ function setWholeBackground(weather, isDaylight, element){
                 {
                     element.style.backgroundImage = nightStormImg;
                 }
-                if(element === weatherIconDiv){
-                    currTempBox.style.top = '-5px';
-                    currTempBox.style.left = '20px';
-                }
                 break;
     }
 }
@@ -499,7 +445,8 @@ function setWholeBackground(weather, isDaylight, element){
 let locationInputElement = document.querySelector('#locationInput');
 let strUserLocation = 'userLocation';
 let currTemp = document.querySelector('#currTemp');
-let currCondition = document.querySelector('#currCondition');
+let currWeather = document.querySelector('#currWeather');
+let linkingWord = document.querySelector('#linkingWord');
 let highTemp = document.querySelector('#highTemp');
 let lowTemp = document.querySelector('#lowTemp');
 
@@ -529,11 +476,31 @@ async function getCurrCondition(key){
             // console.log(response);
             let currIsDaytime = response.data[0].IsDayTime;
             let condition = response.data[0].WeatherText;
-            currCondition.innerText = condition;
+            currWeather.innerText = condition;
+            switch (condition)
+            {
+                case 'Intermittent Clouds':
+                case 'Hazy Sunshine':
+                case 'Fog':
+                case 'Showers':
+                case 'T-Storms':
+                case 'Rain':
+                case 'Flurries':
+                case 'Snow':
+                case 'Ice':
+                case 'Sleet':
+                case 'Freezing Rain':
+                case 'Rain and Snow':
+                case 'Intermittent Clouds':
+                case 'Hazy Moonlight':
+                    linkingWord.innerText = 'with';
+                    break;
+                default:
+                    linkingWord.innerText = 'and';
+            }
+
             setWholeBackground(condition, currIsDaytime, weatherIconDiv);
             setBackgroundColor(condition, currIsDaytime, currWeatherSection);
-            // setBackgroundColor(condition, currIsDaytime, header);
-            // setBackgroundColor(condition, currIsDaytime, inputBox);
         })
         .catch(function (error) {
             console.log(error);
@@ -614,6 +581,7 @@ locationInputElement.addEventListener('change', async function() {
         strUserLocation = locationInputElement.value;
         console.log(strUserLocation);
         let key = await getLocationKey(strUserLocation);
+        console.log(key);
         getCurrTemp(key);
         getCurrCondition(key);
         getHighTemp(key);
