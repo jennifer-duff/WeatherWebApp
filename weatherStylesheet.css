@@ -101,15 +101,10 @@ header{
 
 
 nav{
-    /* display: grid;
-    grid-template-columns: 185px 152px 156px;
-    grid-column-gap: 1fr; */
     display: flex;
     min-width: 200px;
-    width: 50%;
+    width: 56%;
     justify-content: space-between;
-    /* align-content: flex-start;
-    height: 15pt; */
 }
 
 nav a{
@@ -173,7 +168,7 @@ section{
     border-radius: 50%;
     z-index: 3;
     box-shadow: 3px 3px 0 var(--softBlack);
-    border: none;
+    border: 1px solid var(--softBlack);
     font-family: stratos, Inter, 'Helvetica Nue', sans-serif;
     font-weight: 700;
     font-size: 20pt;
