@@ -1,6 +1,6 @@
 'use strict'
 
-// --------------------------------- Carousel functionality ---------------------------------
+// ---------------------------- Carousel functionality ----------------------------
 let prevArrow = document.querySelector('#leftArrow');
 let nextArrow = document.querySelector('#rightArrow');
 let forecastBox = document.querySelector('#nowBox');
@@ -174,7 +174,7 @@ let currTempBox = document.querySelector('#currTempBox');
 let weatherBoxes = document.querySelectorAll('.weatherBox');
 let hourlyTemp = document.querySelectorAll('.hourlyTemp')
 
-//set weather colors + icons
+//get weather colors + icons
 let sunColor = '#FFE194';
 let sunImg = "url('Assets/sun.svg')";
 
@@ -182,7 +182,7 @@ let mostlySunnyColor = '#FFEFC9';
 let mostlySunnyImg = "url('Assets/mostlySunny.svg')";
 
 let mostlyCloudyColor = '#FCF3DE';
-let mostlyCloudyImg = "url('Assets/mostlyClearmoon.svg')";
+let mostlyCloudyImg = "url('Assets/mostlyCloudy.svg')";
 
 let nightColor = '#363F61';
 let clearNightImg = "url('Assets/moon.svg')";
@@ -302,12 +302,18 @@ function setWholeBackground(weather, isDaylight, element){
             {
                 element.style.backgroundImage = nightRainImg;
             }
+
+            if(element === weatherIconDiv){
+                currTempBox.style.marginTop = '-10.5%';
+                currTempBox.style.marginLeft = '40px';
+            }
             break;
 
         case 'Sunny':
             element.style.backgroundImage = sunImg;
             if(element === weatherIconDiv){
-                currTempBox.style.top = '72px';
+                currTempBox.style.top = '6.5%';
+                currTempBox.style.left = '1.25%';
             }
             break;
 
@@ -315,8 +321,8 @@ function setWholeBackground(weather, isDaylight, element){
         case 'Clear':
             element.style.backgroundImage = clearNightImg;
             if(element === weatherIconDiv){
-                currTempBox.style.top = '85px';
-                currTempBox.style.left = '150px';
+                currTempBox.style.marginTop = '0%';
+                currTempBox.style.marginLeft = '250px';
             }
             break;
         
@@ -357,7 +363,6 @@ function setWholeBackground(weather, isDaylight, element){
                     currTempBox.style.left = '55px';
                 }
             }
-            
             break;
                 
         case 'Cloudy':
@@ -369,11 +374,13 @@ function setWholeBackground(weather, isDaylight, element){
             else if (isDaylight === false)
             {
                 element.style.backgroundImage = cloudyNightImg;
+                
             }
 
             if(element === weatherIconDiv)
             {
-                currTempBox.style.top = '80px';
+                currTempBox.style.top = '75px';
+                currTempBox.style.left = '25px';
             }
             else if (element.parentElement.parentElement === carousel)
             {
@@ -388,8 +395,7 @@ function setWholeBackground(weather, isDaylight, element){
         case 'Snow':
             if (isDaylight === true)
             {
-                element.style.backgroundImage = snowImg;
-                
+                element.style.backgroundImage = snowImg;  
             }
             else if (isDaylight === false)
             {
@@ -397,7 +403,8 @@ function setWholeBackground(weather, isDaylight, element){
             }
 
             if(element === weatherIconDiv){
-                currTempBox.style.top = '10px';
+                currTempBox.style.marginTop = '-10.5%';
+                currTempBox.style.marginLeft = '40px';
             }
             break;
         
@@ -413,8 +420,8 @@ function setWholeBackground(weather, isDaylight, element){
                 element.style.backgroundImage = nightHailImg;
             }
             if(element === weatherIconDiv){
-                currTempBox.style.top = '20px';
-                currTempBox.style.left = '20px';
+                currTempBox.style.marginTop = '-10.5%';
+                currTempBox.style.marginLeft = '40px';
             }
             break;
 
@@ -430,7 +437,8 @@ function setWholeBackground(weather, isDaylight, element){
                 element.style.backgroundImage = nightSleetImg;
             }
             if(element === weatherIconDiv){
-                currTempBox.style.left = '20px';
+                currTempBox.style.marginTop = '-10.5%';
+                currTempBox.style.marginLeft = '40px';
             }
             break;
         
@@ -451,17 +459,19 @@ function setWholeBackground(weather, isDaylight, element){
             break;
 
         case 'Hazy Sunshine':
-        case 'Fog':
-            element.style.backgroundImage = hazeImg;
-            if(element === weatherIconDiv){
-                currTempBox.style.top = '55px';
-            }
-            break;
-        
         case 'Hazy Moonlight':
-            element.style.backgroundImage = nightHazeImg;
+        case 'Fog':
+            if (isDaylight === true)
+            {
+                element.style.backgroundImage = hazeImg;
+            }
+            else if (isDaylight === false)
+            {
+                element.style.backgroundImage = nightHazeImg;
+            }            
             if(element === weatherIconDiv){
                 currTempBox.style.top = '55px';
+                currTempBox.style.left = '20px';
             }
             break;
         
@@ -470,18 +480,19 @@ function setWholeBackground(weather, isDaylight, element){
             case 'Partly Sunny w/ T-Storms':
                 if (isDaylight === true)
                 {
-                    element.style.backgroundImage = stormImg;
-                    
+                    element.style.backgroundImage = stormImg;                    
                 }
                 else if (isDaylight === false)
                 {
                     element.style.backgroundImage = nightStormImg;
                 }
+                if(element === weatherIconDiv){
+                    currTempBox.style.top = '-5px';
+                    currTempBox.style.left = '20px';
+                }
                 break;
     }
 }
-
-
 
 //------------------------- Get location + Current Conditions ------------------------------
 let locationInputElement = document.querySelector('#locationInput');
@@ -520,8 +531,8 @@ async function getCurrCondition(key){
             currCondition.innerText = condition;
             setWholeBackground(condition, currIsDaytime, weatherIconDiv);
             setBackgroundColor(condition, currIsDaytime, currWeatherSection);
-            setBackgroundColor(condition, currIsDaytime, header);
-            setBackgroundColor(condition, currIsDaytime, inputBox);
+            // setBackgroundColor(condition, currIsDaytime, header);
+            // setBackgroundColor(condition, currIsDaytime, inputBox);
         })
         .catch(function (error) {
             console.log(error);
@@ -561,7 +572,7 @@ async function getHourlyTemps(key){
     await axios.get(`https://dataservice.accuweather.com/forecasts/v1/hourly/12hour/${key}?apikey=mZDDGnloK5jU8t1fbOA952AYshZ4mJYN`)
     .then(function (response) {
         let hourlyData = response.data
-        console.log(hourlyData);
+        // console.log(hourlyData);
         // console.log(hourlyData[0].DateTime);
         
         for(let i = 0; i < forecastTemps.length; i++)
@@ -609,3 +620,29 @@ locationInputElement.addEventListener('change', async function() {
         getHourlyTemps(key);
     }
 })
+
+
+//------------------------- Handle Nav Clicks ------------------------------
+let navLinks = document.querySelectorAll('.navBox');
+// console.log(navLinks);
+
+for (let i = 0; i < navLinks.length; i++){
+    navLinks[i].addEventListener('click', function(event){
+        // console.log(`target: ${event.target}`);
+        // console.log(event.target);
+       
+        for (let i = 0; i < navLinks.length; i++)
+        {
+            // console.log(navLinks[i].childNodes[3]);
+            if (navLinks[i].childNodes[3] === event.target)
+            {
+                console.log(event.target.parentElement.childNodes[1]);
+                event.target.parentElement.childNodes[1].style.backgroundColor = 'rgb(97, 176, 182)'
+            }
+            else
+            {
+                navLinks[i].childNodes[1].style.backgroundColor = 'rgb(255, 251, 246)'; 
+            }
+        }
+    })
+}

@@ -1,76 +1,143 @@
 /* --------------------------- GENERAL ---------------------------*/
 :root{
-    --brandColor: rgb(95, 167, 172);
+    --darkBrandColor: rgb(68, 124, 128);
+    --brandColor: rgb(80, 145, 150);
+    --lightBrandColor: rgb(97, 176, 182);
     --softBlack: rgb(44, 44, 44);
     --softWhite: rgb(255, 251, 246);
-    --shadow: rgb(65, 65, 65);
+    --shadow: rgb(49, 49, 49);
     --rainColor: rgb(174, 207, 230);
     --sun: #FFE194;
+}
+
+html{
+    scroll-behavior: smooth;
 }
 
 body{
     box-sizing: border-box;
     margin: 0;
     font-family: stratos, stratos-lights, Inter, 'Helvetica Nue', sans-serif;
-    scroll-behavior: smooth;
 }
 
-
-/* ---------------------- WEATHER CLASSES -----------------------*/
-
-/* .rain {
-    background-color: var(--rainColor);
-    background-image: url('Assets/raincloud.svg');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-origin: border-box;
-
+a{
+    color: var(--darkBrandColor);
+    cursor: pointer;
 }
 
-.sun{
-    background-color: var(--sun);
-    background-image: url('Assets/sun.svg');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-origin: border-box;
-} */
+button{
+    cursor: pointer;
+}
 
 /* --------------------------- HEADER ---------------------------*/
 header{
+    background-color: var(--softWhite);
     box-sizing: border-box;
-    padding: 20px 25%;
-    height: 155px;
+    padding: 15px 10% 20px 10%;
+    height: 100px;
+    width: 100%;
     display: flex;
     flex-wrap: nowrap;
+    justify-content: space-between;
     align-items: center;
     margin: 0px;
     z-index: 2;
-    /* box-shadow: 3px 3px 0px var(--softBlack); */
-
+    box-shadow: 5px 5px 0px var(--softBlack);
+    position: fixed;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
+
 
 #geotagIcon{
     width: 18px;
-    /* position: relative;
-    top: 8.5px; */
+    position: relative;
+    top: 8px;
     margin-right: 7px;
 }
 
 #locationInput{
+    box-sizing: border-box;
     font-family: stratos-lights, stratos, Inter, 'Helvetica Nue', sans-serif;
     font-weight: 300;
-    font-size: 12pt;
+    font-size: 14pt;
     width: 250px;
     border-radius: 5px;
     border: 1px solid var(--softBlack);
-    padding: 3px 6px;
+    padding: 0px 9px;
     box-shadow: 3px 3px 0px var(--softBlack);
-    height: 24px;
-    color: var(--softBlack)
+    height: 35px;
+    color: black;
+    line-height: 100%;;
+    background-color: var(--softWhite);
 }
 
 #locationInput::placeholder{
     color: rgb(124, 124, 124);
+    
+}
+
+#goButton{
+    box-sizing: border-box;
+    margin-left: 10px;
+    font-family: stratos, stratos-lights, Inter, 'Helvetica Nue', sans-serif;
+    font-weight: 300;
+    font-size: 14pt;
+    border-radius: 5px;
+    border: 1px solid var(--softBlack);
+    padding: 0px 9px;
+    box-shadow: 3px 3px 0px var(--softBlack);
+    height: 35px;
+    color: black;
+    background-color: var(--lightBrandColor);
+    line-height: 100%;
+    transition: background-color 0.2s ease-in-out;
+}
+
+#goButton:hover{
+    background-color: var(--brandColor);
+}
+
+
+
+nav{
+    /* display: grid;
+    grid-template-columns: 185px 152px 156px;
+    grid-column-gap: 1fr; */
+    display: flex;
+    min-width: 200px;
+    width: 50%;
+    justify-content: space-between;
+    /* align-content: flex-start;
+    height: 15pt; */
+}
+
+nav a{
+    color: var(--softBlack);
+    text-decoration: none;
+    font-size: 18pt;
+    font-weight: 500;
+    line-height: 100%;
+    width: 100%;
+    position: relative;
+    transition: font-weight 0.18s ease-in-out;   
+}
+
+nav a:hover{
+    font-weight: 700;
+}
+
+.navUnderline{
+    height: 6px;
+    width: 100%;
+    background-color: var(--lightBrandColor);
+    position: relative;
+    top: 23px;
+    transition: background-color 0.2s ease-in-out;
+}
+
+nav div:nth-of-type(2) div, nav div:nth-of-type(3) div{
+    background-color: var(--softWhite);
 }
 
 /* --------------------------- MAIN ---------------------------*/
@@ -81,9 +148,8 @@ main{
 
 section{
     box-sizing: border-box;
-    padding: 0 25%;
+    padding: 0 20%;
     margin: 0;
-    height: calc(100vh - 155px);
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
 }
@@ -92,14 +158,18 @@ section{
 /* ---------- Current Weather Box ----------*/
 
 #currWeatherSection{
-    /* background-color: var(--rainColor); */
+    box-sizing: border-box;
+    height: calc(100vh - 10px);
+    width: 100%;
+    background-color: var(--softWhite);
     box-shadow: 10px 10px 0px var(--shadow);
     z-index: 2;
+    padding: 200px 0;
 }
 
 h1{
     font-weight: 500;
-    font-size: 60pt;
+    font-size: 70pt;
     margin: 0 0 3vh 0;
     line-height: 100%;
     text-align: center;
@@ -123,28 +193,40 @@ h1{
     display: flex;
     flex-wrap: nowrap;
     justify-content: center;
-    /* background-image: url('Assets/raincloud.svg'); */
     background-origin: border-box;
     background-position: center;
     background-repeat: no-repeat;
-    height: 55vh;
+    min-height: 80%;
+    max-height: 45vh;
+    width: 100%;
     margin: 0;
     padding: 0;
 }
 
 #currTempBox{
+    box-sizing: border-box;
     font-size: 90pt;
     line-height: 100%;
-    position: relative;
-    left: 15px;
-    /* top: 100px; */
+    align-self: center;
+    margin: 0;
+    /* position: relative; */
+    height: 100%;
+}
+
+#currTemp{
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    line-height: 100%;
+    height: 100%;
 }
 
 
 /* ---------- Hourly Forecast Box ----------*/
 #hourlyForecastSection{
     margin-top: 10px;
-    background-color: var(--softWhite);   
+    background-color: var(--softWhite);  
+    height: 90vh; 
 }
 
 h2{
@@ -190,7 +272,7 @@ h3{
 #carousel{
     display: flex;
     align-content: flex-start;
-    width: calc(9.5vw * 4.75);
+    /* width: 100%; formula is weatherBox width * sum of all margins w/in box */
     flex-wrap: nowrap;
     position: relative;
     left: -30px;
@@ -229,25 +311,15 @@ h3{
     scroll-snap-align: start;
 }
 
-.forecastBox:first-of-type{
-    margin-left: 0;
-}
-
-.forecastBox:last-of-type{
-    margin-right: 8px;
-}
-
 .weatherBox{
     box-sizing: border-box;
-    width: 9.5vw;
-    height: 9.5vw;
+    width: 12vw;
+    height: 12vw;
     padding: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 30pt;
-    /* background-color: var(--rainColor);
-    background-image: url('Assets/raincloud.svg'); */
+    font-size: 2.5vw;
     background-position: center;
     background-repeat: no-repeat;
     background-size: 75%;
@@ -266,7 +338,7 @@ h3{
     display: flex;
     justify-content: center;
     height: 20px;
-    width: calc(9.5vw * 4.75);
+    width: calc((12vw * 4) + (6 * 1vw) + 8px); /*formula = (weatherBox width * 4) + (numWeatherBoxMargins * marginWidth*) + boxShadow of last box*/
     margin-top: 20px;
 }
 

@@ -11,31 +11,45 @@
 
 <body>
     <header>
-        <img src = 'Assets/geotag_icon.svg' id = 'geotagIcon'>
-        <input id = 'locationInput' type = text placeholder = 'Enter a city to get started!'>
-        <!-- <button>go!</button> -->
+        <div id = 'inputContainer'>
+            <img src = 'Assets/geotag_icon.svg' id = 'geotagIcon'>
+            <input id = 'locationInput' type = text placeholder = 'Enter a city to get started!'>
+            <button id ='goButton'>Go!</button>
+        </div>
+        <nav>
+            <div id = 'currConditionBox' class = 'navBox'>
+                <div class = 'navUnderline'></div>
+                <a href = #currWeatherSection>Current Conditions</a> 
+            </div>
+            <div id = 'hourlyForecastBox' class = 'navBox'>
+                <div class = 'navUnderline'></div>
+                <a href = #hourlyForecastSection>Hourly Forecast</a>
+            </div>
+            <div id = '15DayForecastBox' class = 'navBox'>
+                <div class = 'navUnderline'></div>
+                <a href = #fifteenDayForecaseSsection>15-Day Forecast</a>
+            </div>
+        </nav>
     </header>
 
     <main>
         <section id = 'currWeatherSection'>
-            <h1 id = 'currCondition'>Looks Like Rain</h1>
+            <h1 id = 'currCondition'>XXXXX</h1>
             <p id = 'highLow'>
-                high: <span id = 'highTemp'>65</span>&deg;
+                high: <span id = 'highTemp'>XX</span>&deg;
                  /&nbsp;	
-                low: <span id = 'lowTemp'>45</span>&deg;
+                low: <span id = 'lowTemp'>XX</span>&deg;
             </p>
             <div id = 'weatherIconDiv'>
                 <p id = 'currTempBox'>
-                    <span id = 'currTemp'>52</span>&deg;
+                    <span id = 'currTemp'>XX</span>&deg;
                 </p>
-                <!-- <img id = 'currWeatherIcon' src = 'Assets/raincloud.svg'> -->
             </div>
         </section>
+
         <section id = 'hourlyForecastSection'>
             <div class = 'underline'></div>
             <h2>hourly forecast</h2>
-            
-
 
             <div id = 'carouselContainer'>
                 <img src = 'Assets/leftArrow.svg' class = 'arrow' id = 'leftArrow'>
