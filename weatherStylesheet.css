@@ -60,7 +60,7 @@ header{
     box-sizing: border-box;
     font-family: stratos-lights, stratos, Inter, 'Helvetica Nue', sans-serif;
     font-weight: 300;
-    font-size: 14pt;
+    font-size: 12pt;
     width: 250px;
     border-radius: 5px;
     border: 1px solid var(--softBlack);
@@ -120,7 +120,7 @@ nav a{
     line-height: 100%;
     width: 100%;
     position: relative;
-    transition: font-weight 0.18s ease-in-out;   
+    transition: font-weight 0.15s ease-in-out;   
 }
 
 nav a:hover{
@@ -164,7 +164,7 @@ section{
     background-color: var(--softWhite);
     box-shadow: 10px 10px 0px var(--shadow);
     z-index: 2;
-    padding: 200px 0;
+    padding: 200px 0 100px 0;
 }
 
 h1{
@@ -193,14 +193,13 @@ h1{
     display: flex;
     flex-wrap: nowrap;
     justify-content: center;
+    align-self: center;
     background-origin: border-box;
     background-position: center;
     background-repeat: no-repeat;
-    min-height: 80%;
-    max-height: 45vh;
+    height: 400px;
     width: 100%;
     margin: 0;
-    padding: 0;
 }
 
 #currTempBox{
@@ -209,7 +208,7 @@ h1{
     line-height: 100%;
     align-self: center;
     margin: 0;
-    /* position: relative; */
+    position: relative;
     height: 100%;
 }
 
@@ -272,7 +271,7 @@ h3{
 #carousel{
     display: flex;
     align-content: flex-start;
-    /* width: 100%; formula is weatherBox width * sum of all margins w/in box */
+    width: calc((12vw * 4) + (6 * 1vw) + 8px);
     flex-wrap: nowrap;
     position: relative;
     left: -30px;

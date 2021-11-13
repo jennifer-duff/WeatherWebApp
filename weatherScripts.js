@@ -185,11 +185,12 @@ let mostlyCloudyColor = '#FCF3DE';
 let mostlyCloudyImg = "url('Assets/mostlyCloudy.svg')";
 
 let nightColor = '#363F61';
+let nightLineColor = '#DBD9D5'
+
 let clearNightImg = "url('Assets/moon.svg')";
 let mostlyClearNightImg = "url('Assets/mostlyClearmoon.svg')";
 let mostlyCloudyNightImg = "url('Assets/cloudyMoon.svg')";
 let cloudyNightImg = "url('Assets/nightCloud.svg')";
-    let nightLineColor = '#DBD9D5'
 
 let cloudColor = '#E6EEF2';
 let cloudImg = "url('Assets/cloud.svg')";
@@ -304,8 +305,8 @@ function setWholeBackground(weather, isDaylight, element){
             }
 
             if(element === weatherIconDiv){
-                currTempBox.style.marginTop = '-10.5%';
-                currTempBox.style.marginLeft = '40px';
+                currTempBox.style.top = '9.5vh';
+                currTempBox.style.left = '1.7vw';
             }
             break;
 
@@ -346,7 +347,7 @@ function setWholeBackground(weather, isDaylight, element){
             break;
         
         case 'Intermittent Clouds':
-        case 'Mostly Cloudy':
+        case 'Mostly cloudy':
             if (isDaylight === true)
             {
                 element.style.backgroundImage = mostlyCloudyImg;
