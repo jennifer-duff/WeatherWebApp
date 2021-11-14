@@ -39,7 +39,7 @@ button{
 header{
     background-color: var(--softWhite);
     box-sizing: border-box;
-    padding: 15px 10% 20px 10%;
+    padding: 25px 10% 20px 10%;
     height: 100px;
     width: 100%;
     display: flex;
@@ -50,6 +50,7 @@ header{
     z-index: 4;
     box-shadow: 5px 5px 0px var(--softBlack);
     position: fixed;
+    top: -10px;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     border: 3px solid var(--softBlack);
@@ -136,7 +137,7 @@ nav a:hover{
     width: 100%;
     background-color: var(--lightBrandColor);
     position: relative;
-    top: 23px;
+    top: 25px;
     transition: background-color 0.2s ease-in-out;
 }
 
@@ -152,8 +153,8 @@ main{
 
 section{
     box-sizing: border-box;
-    padding: 10px 20% 0 20%;
-    margin: 0;
+    padding: 100px 20% 0 20%;
+    margin-top: -75px;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     border: 3px solid var(--softBlack);
@@ -165,15 +166,24 @@ section{
 }
 
 section:first-of-type{
-    top: 0;
+    margin-top: 0;
 }
 
-#apiCallTracker{
-    position: absolute;
-    top: 110px;
-    left: 20px;
-    display: none;
+h1{
+    box-sizing: border-box;
+    font-family: stratos-lights, stratos, Inter, 'Helvetica Nue', sans-serif;
+    font-weight: 200;
+    font-size: 40pt;
+    margin-top: 0px;
+    margin-bottom: 0;
+    line-height: 150%;
+    text-align: center;
 }
+
+h1:first-of-type{
+    margin-top: 0;
+}
+
 
 #backToTop{
     box-sizing: border-box;
@@ -210,20 +220,9 @@ section:first-of-type{
     width: 100%;
     background-color: var(--softWhite);
     z-index: 2;
-    padding-top: 175px;
+    padding-top: 135px;
     padding-bottom: 100px;
     z-index: 3;
-}
-
-h1{
-    box-sizing: border-box;
-    font-family: stratos-lights, stratos, Inter, 'Helvetica Nue', sans-serif;
-    font-weight: 200;
-    font-size: 40pt;
-    margin-top: 0;
-    margin-bottom: 0;
-    line-height: 150%;
-    text-align: center;
 }
 
 #currTemp, #degreeSign, #currWeather{
@@ -431,9 +430,10 @@ h3{
 
 /* -------------------- 5-Day Forecast Section -------------------*/
 #fiveDayForecastSection{
+    padding: 100px 20% 0 20%;
+    margin-top: -75px;
     background-color: var(--softWhite);
     z-index: 1;
-    margin-top: -10px;
     margin-bottom: 0px;
 }
 
@@ -443,8 +443,8 @@ h3{
 
 .date{
     font-weight:600;
-    font-size: 25pt;
-    margin: 0;
+    font-size: 32pt;
+    margin: 0 0 5px 0;
     padding: 0;
 }
 
@@ -454,15 +454,15 @@ h3{
     border: 2px solid var(--softBlack);
     border-radius: 10px;
     box-shadow: 8px 8px 0 var(--shadow);
-    padding: 40px;
-    height: 353px;
+    padding: 40px 40px 45px 40px;
+    /* height: 353px; */
 }
 
 .conditionLabel{
     font-family: stratos-lights, stratos, Inter, 'Helvetica Nue', sans-serif;
     font-weight: 200;
     font-size: 30pt;
-    margin: -7px 0 25px 0;
+    margin: -7px 0 40px 0;
     padding: 0;
     width: 100%;
     line-height: 125%;
@@ -481,37 +481,80 @@ h3{
     margin-left: -5px;
 }
 
+.lowerTile{
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: 175px 1.25fr 1fr;
+    /* justify-content: flex-start;*/
+    width: 100%;
+    margin: 0;
+}
 .conditionBox{
     background-image: url('Assets/raincloud.svg');
     background-position: center;
     background-repeat: no-repeat;
     height: 200px;
-    width: 200px;
-    display: inline-block;
+    /* width: 200px; */
 }
 
-.highLowBox{
-    display: inline-flex;
-    align-items: center;
-    margin: 0;
+/* .infoBox{
+    font-family: stratos-lights, stratos, Inter, 'Helvetica Nue', sans-serif;
+    font-weight: 300;
+    line-height: 100%;
+    margin: 0 0 0 75px;
+    padding-left: 75px;
+    width: 1fr;
+    font-size: 18pt;
+    border-left: 1px solid black;
+    height: 200px;
+} */
+
+.highLowLabels, .rainChanceLabel{
+    font-family: stratos-lights, stratos, Inter, 'Helvetica Nue', sans-serif;
+    font-weight: 200;
+    line-height: 110%;
+    width: 1fr;
+    /* margin: 0 0px 0 60px; */
 }
 
 .highLowLabels{
-    margin: 0;
-    padding: 0;
-    line-height: 100%;;
+    margin: 0 0px 0 60px;
+    padding: 50px 60px 0 60px; 
+    border-left: 1px solid var(--softBlack);  
+    font-size: 25pt;
 }
-/* -------------------- gapFill -------------------*/
-/* #gapFill{
-    background-color: var(--softWhite);
-    border-left: 3px solid var(--softBlack);
-    height: 18px;
-    width: 100%;
-    position: absolute;
-    z-index: 0;
-    bottom: 160px;
-    left: 0px;
-} */
+
+.highLowLabels p:first-of-type{
+    margin-top: 0;
+}
+
+.highTempLabel, .fiveDayDegree, .lowTempLabel, .chanceRain{
+    font-family: stratos, Inter, 'Helvetica Nue', sans-serif;
+    font-weight: 500;
+}
+
+.rainChanceBox{
+    padding: 60px 0px 0 60px;    
+    border-left: 1px solid var(--softBlack);
+    height: 150px;
+}
+
+.umbrella{
+    width: 70px;
+    display: inline-block;
+    margin-right: 15px;
+    margin-bottom: -15px;
+}
+
+.rainChanceLabel{
+    margin: 0 0 0 0;
+    display: inline-block;
+    font-size: 30pt;
+}
+
+.chanceRain{
+    margin-right: 2px;
+}
 
 
 /* -------------------- Footer -------------------*/
@@ -552,5 +595,5 @@ footer img{
     display: inline;
     width: 150px;
     margin-left: 5px;
-    margin-bottom: -2px;
+    margin-bottom: -3px;
 }
