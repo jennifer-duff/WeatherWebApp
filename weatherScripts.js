@@ -184,6 +184,9 @@ let mostlySunnyImg = "url('Assets/mostlySunny.svg')";
 let mostlyCloudyColor = '#FCF3DE';
 let mostlyCloudyImg = "url('Assets/mostlyCloudy.svg')";
 
+let partSunWithRainColor = '#F9F3E8';
+let partSunWithRainImg = "url('Assets/partlySunnyWithRain.svg')";
+
 let nightColor = '#363F61';
 let nightLineColor = '#DBD9D5'
 
@@ -232,57 +235,61 @@ function setBackgroundColor(weather, isDaylight, element){
     else if (isDaylight === true)
     {
         element.style.color = 'black';
-        switch(weather){
-            case 'Sunny':
+        switch(weather.toLowerCase()){
+            case 'sunny':
                 element.style.backgroundColor = sunColor;
                 break;
-
-            case 'Showers':
-            case 'Mostly Cloudy w/ Showers':
-            case 'Rain':
+            
+            case 'showers':
+            case 'mostly cloudy w/ showers':
+            case 'rain':
                 element.style.backgroundColor = rainColor;
                 break;
 
-            case 'Cloudy':
-            case 'Dreary (Overcast)':
+            case 'cloudy':
+            case 'dreary (overcast)':
                     element.style.backgroundColor = cloudColor;                
                 break;
             
-            case 'Mostly Sunny':
-            case 'Partly Sunny':
+            case 'mostly sunny':
+            case 'partly sunny':
                 element.style.backgroundColor = mostlySunnyColor;
                 break;
 
-            case 'Intermittent Clouds':
-            case 'Mostly Cloudy':
+            case 'intermittent clouds':
+            case 'mostly cloudy':
                 element.style.backgroundColor = mostlyCloudyColor;
                 break;
             
-            case 'Flurries':
-            case 'Partly Sunny w/ Flurries':
-            case 'Mostly Cloudy w/ Flurries':
-            case 'Mostly Cloudy w/ Snow':
-            case 'Snow':
-            case 'Ice':
-            case 'Freezing Rain':
-            case 'Sleet':
-            case 'Rain and Snow':
+            case 'flurries':
+            case 'partly sunny w/ flurries':
+            case 'mostly cloudy w/ clurries':
+            case 'mostly cloudy w/ snow':
+            case 'snow':
+            case 'ice':
+            case 'freezing rain':
+            case 'sleet':
+            case 'rain and snow':
                 element.style.backgroundColor = snowColor;
                 break;
 
-            case 'Windy':
+            case 'windy':
                 element.style.backgroundColor = windColor;
                 break;
             
-            case 'Hazy Sunshine':
-            case 'Fog':
+            case 'hazy sunshine':
+            case 'fog':
                 element.style.backgroundColor = hazeColor;
                 break;
             
-            case 'T-Storms':
-            case 'Mostly Cloudy w/ T-Storms':
-            case 'Partly Sunny w/ T-Storms':
+            case 't-storms':
+            case 'mostly cloudy w/ t-storms':
+            case 'partly sunny w/ t-storms':
                 element.style.backgroundColor = stormColor;
+                break;
+
+            case 'partly sunny w/ showers':
+                element.style.backgroundColor = partSunWithRainColor;
                 break;
         }
     }
@@ -290,11 +297,11 @@ function setBackgroundColor(weather, isDaylight, element){
 
 function setWholeBackground(weather, isDaylight, element){
     setBackgroundColor(weather, isDaylight, element);
-    switch(weather){
-        case 'Showers':
-        case 'Mostly Cloudy w/ Showers':
-        case 'Partly Cloudy w/ Showers':
-        case 'Rain':
+    switch(weather.toLowerCase()){
+        case 'showers':
+        case 'mostly cloudy w/ showers':
+        case 'partly cloudy w/ showers':
+        case 'rain':
             if (isDaylight === true)
             {
                 element.style.backgroundImage = rainImg;
@@ -309,29 +316,29 @@ function setWholeBackground(weather, isDaylight, element){
                 currTemp.style.left = '1.7vw';
             }
             break;
-
-        case 'Sunny':
+    
+        case 'sunny':
             element.style.backgroundImage = sunImg;
             break;
 
         //night
-        case 'Clear':
+        case 'clear':
             element.style.backgroundImage = clearNightImg;
             break;
         
-        case 'Mostly Sunny':
-        case 'Partly Sunny':
+        case 'mostly sunny':
+        case 'partly sunny':
             element.style.backgroundImage = mostlySunnyImg;
             break;
         
         //night
-        case 'Mostly Clear':
-        case 'Partly Cloudy':
+        case 'mostly clear':
+        case 'partly cloudy':
             element.style.backgroundImage = mostlyClearNightImg;
             break;
         
-        case 'Intermittent Clouds':
-        case 'Mostly cloudy':
+        case 'intermittent clouds':
+        case 'mostly cloudy':
             if (isDaylight === true)
             {
                 element.style.backgroundImage = mostlyCloudyImg;
@@ -342,8 +349,8 @@ function setWholeBackground(weather, isDaylight, element){
             }
             break;
                 
-        case 'Cloudy':
-        case 'Dreary (Overcast)':
+        case 'cloudy':
+        case 'dreary (overcast)':
             if (isDaylight === true)
             {
                 element.style.backgroundImage = cloudImg;
@@ -360,11 +367,13 @@ function setWholeBackground(weather, isDaylight, element){
             }
             break;
 
-        case 'Flurries':
-        case 'Partly Sunny w/ Flurries':
-        case 'Mostly Cloudy w/ Flurries':
-        case 'Mostly Cloudy w/ Snow':
-        case 'Snow':
+        
+
+        case 'flurries':
+        case 'partly sunny w/ flurries':
+        case 'mostly cloudy w/ flurries':
+        case 'mostly cloudy w/ snow':
+        case 'snow':
             if (isDaylight === true)
             {
                 element.style.backgroundImage = snowImg;  
@@ -375,8 +384,8 @@ function setWholeBackground(weather, isDaylight, element){
             }
             break;
         
-        case 'Ice':
-        case 'Freezing Rain':
+        case 'ice':
+        case 'freezing rain':
             if (isDaylight === true)
             {
                 element.style.backgroundImage = hailImg;
@@ -388,8 +397,8 @@ function setWholeBackground(weather, isDaylight, element){
             }
             break;
 
-        case 'Sleet':
-        case 'Rain and Snow':
+        case 'sleet':
+        case 'rain and snow':
             if (isDaylight === true)
             {
                 element.style.backgroundImage = sleetImg;
@@ -401,7 +410,7 @@ function setWholeBackground(weather, isDaylight, element){
             }
             break;
         
-        case 'Windy':
+        case 'windy':
             if (isDaylight === true)
             {
                 element.style.backgroundImage = windImg;
@@ -413,9 +422,9 @@ function setWholeBackground(weather, isDaylight, element){
             }
             break;
 
-        case 'Hazy Sunshine':
-        case 'Hazy Moonlight':
-        case 'Fog':
+        case 'hazy sunshine':
+        case 'hazy moonlight':
+        case 'fog':
             if (isDaylight === true)
             {
                 element.style.backgroundImage = hazeImg;
@@ -426,9 +435,9 @@ function setWholeBackground(weather, isDaylight, element){
             }            
             break;
         
-            case 'T-Storms':
-            case 'Mostly Cloudy w/ T-Storms':
-            case 'Partly Sunny w/ T-Storms':
+            case 't-Storms':
+            case 'mostly cloudy w/ t-storms':
+            case 'partly sunny w/ t-storms':
                 if (isDaylight === true)
                 {
                     element.style.backgroundImage = stormImg;                    
@@ -438,30 +447,47 @@ function setWholeBackground(weather, isDaylight, element){
                     element.style.backgroundImage = nightStormImg;
                 }
                 break;
+
+            case 'partly sunny w/ showers':
+                element.style.backgroundImage = partSunWithRainImg;
+                break;
     }
 }
-//------------------------ Update API Call Count --------------------
-// let apiCallCountText = document.querySelector('#apiCallCountText');
-// let UTCdate = new Date();
-// let localDateTime = UTCdate.toLocaleString();
-// let localDate = localDateTime.substr(0,localDateTime.indexOf(','));
-// let localTime = localDateTime.substr(localDateTime.indexOf(',') + 1);
 
-
-
-// let apiCallCount = undefined;
-
-// function updateCallCount()
-// {
-//     console.log('The API Call Counting feature doesn\'t work yet!');
-// }
+function setConditionLabel(condition, linkingWord, element){
+    // let currIsDaytime = response.data[0].IsDayTime;
+    // let condition = response.data[0].WeatherText;
+    // console.log(condition);
+    element.innerText = condition.toLowerCase();
+    switch (condition)
+    {
+        case 'Intermittent Clouds':
+        case 'Hazy Sunshine':
+        case 'Fog':
+        case 'Showers':
+        case 'T-Storms':
+        case 'Rain':
+        case 'Flurries':
+        case 'Snow':
+        case 'Ice':
+        case 'Sleet':
+        case 'Freezing Rain':
+        case 'Rain and Snow':
+        case 'Intermittent Clouds':
+        case 'Hazy Moonlight':
+            linkingWord.innerText = 'with';
+            break;
+        default:
+            linkingWord.innerText = 'and';
+    }
+}
 
 //------------------------- Get location + Current Conditions ------------------------------
 let locationInputElement = document.querySelector('#locationInput');
 let strUserLocation = 'userLocation';
 let currTemp = document.querySelector('#currTemp');
 let currWeather = document.querySelector('#currWeather');
-let linkingWord = document.querySelector('#linkingWord');
+let currLinkingWord = document.querySelector('#linkingWord');
 let highTemp = document.querySelector('#highTemp');
 let lowTemp = document.querySelector('#lowTemp');
 let key = ''
@@ -502,30 +528,9 @@ async function getCurrCondition(key){
 
             let currIsDaytime = response.data[0].IsDayTime;
             let condition = response.data[0].WeatherText;
-            console.log(condition);
-            currWeather.innerText = condition.toLowerCase();
-            switch (condition)
-            {
-                case 'Intermittent Clouds':
-                case 'Hazy Sunshine':
-                case 'Fog':
-                case 'Showers':
-                case 'T-Storms':
-                case 'Rain':
-                case 'Flurries':
-                case 'Snow':
-                case 'Ice':
-                case 'Sleet':
-                case 'Freezing Rain':
-                case 'Rain and Snow':
-                case 'Intermittent Clouds':
-                case 'Hazy Moonlight':
-                    linkingWord.innerText = 'with';
-                    break;
-                default:
-                    linkingWord.innerText = 'and';
-            }
-
+            let element = currWeather;
+            let linkingWord = currLinkingWord;
+            setConditionLabel(condition, linkingWord, element);
             setWholeBackground(condition, currIsDaytime, weatherIconDiv);
             setBackgroundColor(condition, currIsDaytime, currWeatherSection);
         })
@@ -597,6 +602,71 @@ async function getHourlyTemps(key){
     
 }
 
+//------------------------- Get 5-Day Forecast ------------------------------
+let dayTiles = document.querySelectorAll('.dayTile');
+let dates = document.querySelectorAll('.date')
+let dailyAvgTemps = document.querySelectorAll('.fiveDayTemp');
+let dailyHeaderConditions = document.querySelectorAll('.fiveDayWeather');
+let dailyLinkingWord = document.querySelectorAll('.fiveDayLinkingWord');
+let dailyConditionBoxes = document.querySelectorAll('.conditionBox');
+let dailyHighTemps = document.querySelectorAll('.highTempLabel');
+let dailyLowTemps = document.querySelectorAll('.lowTempLabel')
+let dailyChanceRain = document.querySelectorAll('.chanceRain');
+
+function getDate(){
+    let datesArray = [];
+    let currDateTime = new Date();
+    let localDateTime = currDateTime.toLocaleString();
+    datesArray.push(localDateTime);
+    // console.log(datesArray[0]);
+
+
+    for (let i = 0 ; i < 5; i++)
+    {
+        let tomorrow = new Date(datesArray[i]);
+        tomorrow.setDate(tomorrow.getDate() + 1);
+        let localTomorrow = tomorrow.toLocaleString();
+        // console.log(localTomorrow);
+        datesArray.push(localTomorrow);
+    }
+    
+    for (let i = 0 ; i <= 5; i++)
+    {
+        datesArray[i] = datesArray[i].toString();
+        datesArray[i] = datesArray[i].substring(0, 5);
+    }
+
+    // console.log(datesArray);
+    return datesArray;
+}
+
+async function getDailyForecasts(key){
+    await axios.get(`http://dataservice.accuweather.com/forecasts/v1/daily/5day/${key}?apikey=mZDDGnloK5jU8t1fbOA952AYshZ4mJYN&details=true`)
+    .then(function(response){
+        // console.log(response);
+        for (let i = 0; i < dailyHighTemps.length; i++)
+        {   
+            let forecastDates = getDate();
+            dates[i].innerText = forecastDates[i];
+
+            let maxTemp = response.data.DailyForecasts[i].Temperature.Maximum.Value;
+            let minTemp = response.data.DailyForecasts[i].Temperature.Minimum.Value;
+            dailyHighTemps[i].innerText = maxTemp;
+            dailyLowTemps[i].innerText = minTemp;
+
+            let avgTemp = Math.floor((maxTemp + minTemp) / 2);
+            dailyAvgTemps[i].innerText = avgTemp;
+
+            dailyChanceRain[i].innerText =response.data.DailyForecasts[i].Day.RainProbability;
+            
+            let condition = response.data.DailyForecasts[i].Day.IconPhrase;
+            setConditionLabel(condition, dailyLinkingWord[i], dailyHeaderConditions[i]);
+            setWholeBackground(condition, true, dailyConditionBoxes[i]);
+            setBackgroundColor(condition, true, dayTiles[i]);
+        }
+
+    })
+}
 
 //------------------------- Handle Nav Clicks ------------------------------
 let navLinks = document.querySelectorAll('.navBox');
@@ -628,8 +698,11 @@ let sections = document.querySelectorAll('section');
 //scrolling to new section
 let firstSectionHeight = sections[0].offsetHeight;
 let secondSectionHeight = sections[1].offsetHeight;
+let thirdSectionHeight = sections[2].offsetHeight;
 // console.log(`firstSectionHeight: ${firstSectionHeight}`);
 // console.log(`secondSectionHeight: ${secondSectionHeight}`);
+// console.log(`thirdSectionHeight: ${thirdSectionHeight}`);
+// console.log(secondSectionHeight + firstSectionHeight - 200);
 
 window.addEventListener('scroll', function(){
     let scrollDistance = window.scrollY;
@@ -640,11 +713,17 @@ window.addEventListener('scroll', function(){
         navLinks[1].childNodes[1].style.backgroundColor = 'rgb(255, 251, 246)';
         navLinks[2].childNodes[1].style.backgroundColor = 'rgb(255, 251, 246)'; 
     }
-    else if(scrollDistance >= (secondSectionHeight - 100) )
+    else if(scrollDistance >= (secondSectionHeight - 100) && scrollDistance < (secondSectionHeight + firstSectionHeight - 300) )
     {
         navLinks[0].childNodes[1].style.backgroundColor = 'rgb(255, 251, 246)'; 
         navLinks[1].childNodes[1].style.backgroundColor = 'rgb(97, 176, 182)';
         navLinks[2].childNodes[1].style.backgroundColor = 'rgb(255, 251, 246)';
+    }
+    else
+    {
+        navLinks[0].childNodes[1].style.backgroundColor = 'rgb(255, 251, 246)'; 
+        navLinks[1].childNodes[1].style.backgroundColor = 'rgb(255, 251, 246)';
+        navLinks[2].childNodes[1].style.backgroundColor = 'rgb(97, 176, 182)';
     }
 })
 
@@ -677,6 +756,7 @@ locationInputElement.addEventListener('change', async function() {
         getHighTemp(key);
         getLowTemp(key);
         getHourlyTemps(key);
+        getDailyForecasts(key);
     }
 })
 
