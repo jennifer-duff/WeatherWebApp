@@ -11,13 +11,19 @@
 }
 
 html{
+    box-sizing: border-box;
     scroll-behavior: smooth;
+    position: relative;
+    right: 3px;
+    background-color: var(--white);
+    /* border-left: 3px solid var(--softBlack); */
 }
 
 body{
     box-sizing: border-box;
     margin: 0;
     font-family: stratos, stratos-lights, Inter, 'Helvetica Nue', sans-serif;
+    background-color: var(--white);
 }
 
 a{
@@ -41,11 +47,14 @@ header{
     justify-content: space-between;
     align-items: center;
     margin: 0px;
-    z-index: 2;
+    z-index: 4;
     box-shadow: 5px 5px 0px var(--softBlack);
     position: fixed;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
+    border: 3px solid var(--softBlack);
+    border-top: none;
+    border-left: 6px solid var(--softBlack);
 }
 
 
@@ -143,10 +152,20 @@ main{
 
 section{
     box-sizing: border-box;
-    padding: 0 20%;
+    padding: 10px 20% 0 20%;
     margin: 0;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
+    border: 3px solid var(--softBlack);
+    border-left: 6px solid var(--softBlack);
+    border-top: none;
+    position: relative;
+    top: -10px;
+    box-shadow: 10px 10px 0px var(--shadow);
+}
+
+section:first-of-type{
+    top: 0;
 }
 
 #apiCallTracker{
@@ -183,34 +202,34 @@ section{
     background-color: var(--brandColor);
 }
 
-/* ---------- Current Weather Box ----------*/
+/* -------------------- Current Weather Section -------------------*/
 
 #currWeatherSection{
     box-sizing: border-box;
     height: calc(100vh - 10px);
     width: 100%;
     background-color: var(--softWhite);
-    box-shadow: 10px 10px 0px var(--shadow);
     z-index: 2;
-    padding-top: 200px;
+    padding-top: 175px;
     padding-bottom: 100px;
+    z-index: 3;
 }
 
 h1{
     box-sizing: border-box;
     font-family: stratos-lights, stratos, Inter, 'Helvetica Nue', sans-serif;
     font-weight: 200;
-    font-size: 50pt;
+    font-size: 40pt;
     margin-top: 0;
-    margin-bottom: 3vh;
-    line-height: 110%;
+    margin-bottom: 0;
+    line-height: 150%;
     text-align: center;
 }
 
 #currTemp, #degreeSign, #currWeather{
     font-family: stratos, Inter, 'Helvetica Nue', sans-serif;
     font-weight: 500;
-    font-size: 70pt;
+    font-size: 60pt;
 }
 
 #degreeSign{
@@ -245,9 +264,9 @@ h1{
     background-position: center;
     background-repeat: no-repeat;
     background-image: url('Assets/cloud.svg');
-    height: 400px;
+    height: 375px;
     width: 100%;
-    margin: 75px 0 50px 0;
+    margin: 50px 0 50px 0;
 }
 
 #currTempBox{
@@ -269,11 +288,12 @@ h1{
 }
 
 
-/* ---------- Hourly Forecast Box ----------*/
+/* ---------------------- Hourly Forecast Box -----------------------*/
 #hourlyForecastSection{
-    margin-top: 10px;
+    /* margin-top: 10px; */
     background-color: var(--softWhite);  
-    height: 90vh; 
+    height: 850px; 
+    z-index: 2;
 }
 
 h2{
@@ -370,8 +390,10 @@ h3{
     background-position: center;
     background-repeat: no-repeat;
     background-size: 75%;
-    border-radius: 10px;
+    border: 2px solid var(--softBlack);
     box-shadow: 8px 8px 0 var(--shadow);
+    border-radius: 10px;
+
 }
 
 .hourlyTemp{
@@ -405,4 +427,130 @@ h3{
 .dotNav:hover{
     cursor: pointer;
     background-color: rgb(138, 135, 135);
+}
+
+/* -------------------- 5-Day Forecast Section -------------------*/
+#fiveDayForecastSection{
+    background-color: var(--softWhite);
+    z-index: 1;
+    margin-top: -10px;
+    margin-bottom: 0px;
+}
+
+.dayBox{
+    margin: 0 0 100px 0;
+}
+
+.date{
+    font-weight:600;
+    font-size: 25pt;
+    margin: 0;
+    padding: 0;
+}
+
+
+.dayTile{
+    box-sizing: border-box;
+    border: 2px solid var(--softBlack);
+    border-radius: 10px;
+    box-shadow: 8px 8px 0 var(--shadow);
+    padding: 40px;
+    height: 353px;
+}
+
+.conditionLabel{
+    font-family: stratos-lights, stratos, Inter, 'Helvetica Nue', sans-serif;
+    font-weight: 200;
+    font-size: 30pt;
+    margin: -7px 0 25px 0;
+    padding: 0;
+    width: 100%;
+    line-height: 125%;
+}
+
+.fiveDayTemp, .fiveDayDegreeSign, .fiveDayWeather{
+    font-family: stratos, Inter, 'Helvetica Nue', sans-serif;
+    font-weight: 500;
+}
+
+.fiveDayDegreeSign{
+    margin-left: -10px;
+}
+
+.fiveDayLinkingWord{
+    margin-left: -5px;
+}
+
+.conditionBox{
+    background-image: url('Assets/raincloud.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 200px;
+    width: 200px;
+    display: inline-block;
+}
+
+.highLowBox{
+    display: inline-flex;
+    align-items: center;
+    margin: 0;
+}
+
+.highLowLabels{
+    margin: 0;
+    padding: 0;
+    line-height: 100%;;
+}
+/* -------------------- gapFill -------------------*/
+/* #gapFill{
+    background-color: var(--softWhite);
+    border-left: 3px solid var(--softBlack);
+    height: 18px;
+    width: 100%;
+    position: absolute;
+    z-index: 0;
+    bottom: 160px;
+    left: 0px;
+} */
+
+
+/* -------------------- Footer -------------------*/
+footer{
+    background-color: var(--softWhite);
+    height: 200px;
+    width: 100%;
+    z-index: 0;
+    position: relative;
+    margin-top: -20;
+    box-sizing: border-box;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border: 3px solid var(--softBlack);
+    border-left: 6px solid var(--softBlack);
+    border-top: none;
+    box-shadow: 10px 13px 0 var(--shadow);
+    top: -13px;
+    background-color: var(--lightBrandColor);
+    text-align: center;
+}
+
+#apiCredit{
+    font-family: stratos-lights, stratos, Inter, 'Helvetica Nue', sans-serif;
+    margin: 0;
+    padding-top: 95px;
+    font-weight: 300;
+    display: inline-block;
+    font-size: 14pt;
+}
+
+.bold{
+    font-family: stratos, Inter, 'Helvetica Nue', sans-serif;
+    font-weight: 600;
+}
+
+footer img{
+    display: inline;
+    width: 150px;
+    margin-left: 5px;
+    margin-bottom: -2px;
 }

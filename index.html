@@ -14,20 +14,20 @@
         <div id = 'inputContainer'>
             <img src = 'Assets/geotag_icon.svg' id = 'geotagIcon'>
             <input id = 'locationInput' type = text placeholder = 'Enter a city to get started!'>
-            <button id ='goButton'>Go!</button>
+            <button id ='goButton'>go!</button>
         </div>
         <nav>
             <div id = 'currConditionBox' class = 'navBox'>
                 <div class = 'navUnderline'></div>
-                <a href = #currWeatherSection>Current Conditions</a> 
+                <a href = #currWeatherSection>current conditions</a> 
             </div>
             <div id = 'hourlyForecastBox' class = 'navBox'>
                 <div class = 'navUnderline'></div>
-                <a href = #hourlyForecastSection>Hourly Forecast</a>
+                <a href = #hourlyForecastSection>hourly forecast</a>
             </div>
             <div id = '5DayForecastBox' class = 'navBox'>
                 <div class = 'navUnderline'></div>
-                <a href = #5ForecastSection>5-Day Forecast</a>
+                <a href = #fiveDayForecastSection>5-day forecast</a>
             </div>
         </nav>
     </header>
@@ -37,19 +37,20 @@
         <a id = 'backToTop' href = '#currWeatherSection'>&uarr;</a>
 
         <p id = 'apiCallTracker'>API Call Count: <span id = 'apiCallCountText'>0</span></p>
+
         <section id = 'currWeatherSection'>
             <h1 id = 'currCondition'>
                 It's&nbsp;
-                <span id = 'currTemp'>32</span>
+                <span id = 'currTemp'>42</span>
                 <span id = 'degreeSign'>&deg;</span>&nbsp;
-                <span id = 'linkingWord'>with</span>&nbsp;
-                <span id = 'currWeather'>Rain</span>
+                <span id = 'linkingWord'>and</span>&nbsp;
+                <span id = 'currWeather'>partly cloudy w/ t-storms</span>
             </h1>
             
             <div id = 'weatherIconDiv'></div>
             <p id = 'highLow'>
                 high: <span id = 'highTemp'>XX</span><span>&deg;</span>
-                 /&nbsp;	
+                &nbsp;/&nbsp;&nbsp;	
                 low: <span id = 'lowTemp'>XX</span><span>&deg;</span>
             </p>
         </section>
@@ -182,10 +183,44 @@
             </div>
 
         </section>
+
+        <section id = 'fiveDayForecastSection'>
+            <div class = 'underline'></div>
+            <h2>5-day forecast</h2>
+
+            <div id = 'fiveDayForecastContainer'>
+                <div id = 'day1' class = 'dayBox'>
+                    <p class = 'date'>11/14</p>
+                    <div class = 'dayTile'> 
+                        <p class = 'conditionLabel'>
+                            It'll be&nbsp;
+                            <span class = 'fiveDayTemp'>42</span>
+                            <span class = 'fiveDayDegreeSign'>&deg;</span>&nbsp;
+                            <span class = 'fiveDayLinkingWord'>and</span>&nbsp;
+                            <span class = 'fiveDayWeather'>partly cloudy w/ t-storms</span>
+                        </p>
+                        <div class = 'conditionBox'></div>
+                        <div class = 'highLowBox'>
+                            <p class = 'highLowLabels'>
+                                high: <span class = 'highTempLabel'>XX</span><span>&deg;</span>
+                                /&nbsp;	
+                                low: <span class = 'lowTempLabel'>XX</span><span>&deg;</span>
+                            </p>
+                        </div>
+                        <div class = 'rainChanceBox'>
+                            <p class = 'rainChance Label'></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
-
+    <div id = 'gapFill'></div>
     <footer>
-
+        <p id = 'apiCredit'>created by <span class = 'bold'>jennifer duff</span> with data from </p>
+        <a href = 'http://www.accuweather.com'>
+            <img src = 'Assets/accuWeather_Horiz_Transparent_Logo.png'>
+        </a>
     </footer>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src = 'weatherScripts.js'></script>

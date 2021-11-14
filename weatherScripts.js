@@ -441,20 +441,20 @@ function setWholeBackground(weather, isDaylight, element){
     }
 }
 //------------------------ Update API Call Count --------------------
-let apiCallCountText = document.querySelector('#apiCallCountText');
-let UTCdate = new Date();
-let localDateTime = UTCdate.toLocaleString();
-let localDate = localDateTime.substr(0,localDateTime.indexOf(','));
-let localTime = localDateTime.substr(localDateTime.indexOf(',') + 1);
+// let apiCallCountText = document.querySelector('#apiCallCountText');
+// let UTCdate = new Date();
+// let localDateTime = UTCdate.toLocaleString();
+// let localDate = localDateTime.substr(0,localDateTime.indexOf(','));
+// let localTime = localDateTime.substr(localDateTime.indexOf(',') + 1);
 
 
 
-let apiCallCount = undefined;
+// let apiCallCount = undefined;
 
-function updateCallCount()
-{
-    console.log('The API Call Counting feature doesn\'t work yet!');
-}
+// function updateCallCount()
+// {
+//     console.log('The API Call Counting feature doesn\'t work yet!');
+// }
 
 //------------------------- Get location + Current Conditions ------------------------------
 let locationInputElement = document.querySelector('#locationInput');
@@ -464,15 +464,15 @@ let currWeather = document.querySelector('#currWeather');
 let linkingWord = document.querySelector('#linkingWord');
 let highTemp = document.querySelector('#highTemp');
 let lowTemp = document.querySelector('#lowTemp');
-
+let key = ''
 
 
 
 async function getLocationKey(location) {
     let response = await axios.get(`https://dataservice.accuweather.com/locations/v1/cities/search?apikey=mZDDGnloK5jU8t1fbOA952AYshZ4mJYN&q=${location}`)
-    // console.log(`location key: ${response.data[0].Key}`);
         .then(function (response){
-            updateCallCount();
+            // console.log(`location key: ${response.data[0].Key}`);
+            key = response.data[0].Key;
             return response.data[0].Key;
         })
         .catch(function (error){
@@ -480,13 +480,14 @@ async function getLocationKey(location) {
         })
 }
 
+
+//TODO: Combine getCurrTemp() and getCurrCondition() to reduce num API calls
 async function getCurrTemp(key){
     // let key = await getLocationKey(key);
     await axios.get(`https://dataservice.accuweather.com/currentconditions/v1/${key}?apikey=mZDDGnloK5jU8t1fbOA952AYshZ4mJYN`)
         .then(function (response) {
             let temp = response.data[0].Temperature.Imperial.Value;
             currTemp.innerText = temp;
-            updateCallCount();
         })
         .catch(function (error) {
             console.log(error);
@@ -498,11 +499,11 @@ async function getCurrCondition(key){
     await axios.get(`https://dataservice.accuweather.com/currentconditions/v1/${key}?apikey=mZDDGnloK5jU8t1fbOA952AYshZ4mJYN`)
         .then(function (response) {
             // console.log(response);
-            updateCallCount();
 
             let currIsDaytime = response.data[0].IsDayTime;
             let condition = response.data[0].WeatherText;
-            currWeather.innerText = condition;
+            console.log(condition);
+            currWeather.innerText = condition.toLowerCase();
             switch (condition)
             {
                 case 'Intermittent Clouds':
@@ -533,11 +534,11 @@ async function getCurrCondition(key){
         })
 }
 
+//TODO: Combine getHighTemp and getLowTemp to reduce num API calls
 async function getHighTemp(key){
     // let key = await getLocationKey(key);
     await axios.get(`https://dataservice.accuweather.com/forecasts/v1/daily/1day/${key}?apikey=mZDDGnloK5jU8t1fbOA952AYshZ4mJYN`)
     .then(function (response) {
-        updateCallCount();
         let htemp = response.data.DailyForecasts[0].Temperature.Maximum.Value;
         highTemp.innerText = htemp;
     })
@@ -550,7 +551,6 @@ async function getLowTemp(key){
     // let key = await getLocationKey(key);
     await axios.get(`https://dataservice.accuweather.com/forecasts/v1/daily/1day/${key}?apikey=mZDDGnloK5jU8t1fbOA952AYshZ4mJYN`)
     .then(function (response) {
-        updateCallCount();
         let ltemp = response.data.DailyForecasts[0].Temperature.Minimum.Value;
         lowTemp.innerText = ltemp;
     })
@@ -567,7 +567,6 @@ let timeLabels = document.querySelectorAll('.timeLabel');
 async function getHourlyTemps(key){
     await axios.get(`https://dataservice.accuweather.com/forecasts/v1/hourly/12hour/${key}?apikey=mZDDGnloK5jU8t1fbOA952AYshZ4mJYN`)
     .then(function (response) {
-        updateCallCount();
 
         let hourlyData = response.data
         // console.log(hourlyData);
@@ -599,6 +598,67 @@ async function getHourlyTemps(key){
 }
 
 
+//------------------------- Handle Nav Clicks ------------------------------
+let navLinks = document.querySelectorAll('.navBox');
+let backToTop = document.querySelectorAll('#backToTop')[0];
+let sections = document.querySelectorAll('section');
+
+//click on navbar links
+// for (let i = 0; i < navLinks.length; i++){
+//     navLinks[i].addEventListener('click', function(event){
+//         // console.log(`target: ${event.target}`);
+//         // console.log(event.target);
+       
+//         for (let i = 0; i < navLinks.length; i++)
+//         {
+//             // console.log(navLinks[i].childNodes[3]);
+//             if (navLinks[i].childNodes[3] === event.target)
+//             {
+//                 // console.log(event.target.parentElement.childNodes[1]);
+//                 event.target.parentElement.childNodes[1].style.backgroundColor = 'rgb(97, 176, 182)';
+//             }
+//             else
+//             {
+//                 navLinks[i].childNodes[1].style.backgroundColor = 'rgb(255, 251, 246)'; 
+//             }
+//         }
+//     })
+// }
+
+//scrolling to new section
+let firstSectionHeight = sections[0].offsetHeight;
+let secondSectionHeight = sections[1].offsetHeight;
+// console.log(`firstSectionHeight: ${firstSectionHeight}`);
+// console.log(`secondSectionHeight: ${secondSectionHeight}`);
+
+window.addEventListener('scroll', function(){
+    let scrollDistance = window.scrollY;
+    // console.log(`scrollDistance: ${scrollDistance}`);
+    if (scrollDistance < (secondSectionHeight - 100))
+    {
+        navLinks[0].childNodes[1].style.backgroundColor = 'rgb(97, 176, 182)'; 
+        navLinks[1].childNodes[1].style.backgroundColor = 'rgb(255, 251, 246)';
+        navLinks[2].childNodes[1].style.backgroundColor = 'rgb(255, 251, 246)'; 
+    }
+    else if(scrollDistance >= (secondSectionHeight - 100) )
+    {
+        navLinks[0].childNodes[1].style.backgroundColor = 'rgb(255, 251, 246)'; 
+        navLinks[1].childNodes[1].style.backgroundColor = 'rgb(97, 176, 182)';
+        navLinks[2].childNodes[1].style.backgroundColor = 'rgb(255, 251, 246)';
+    }
+})
+
+
+//clicks on BackToTop button
+backToTop.addEventListener('click', function(event){
+
+    navLinks[0].childNodes[1].style.backgroundColor = 'rgb(97, 176, 182)'
+
+    for (let i = 1; i < navLinks.length; i++)
+    {
+        navLinks[i].childNodes[1].style.backgroundColor = 'rgb(255, 251, 246)'; 
+    }
+})
 
 //------------------------- Set All Conditions ------------------------------
 locationInputElement.addEventListener('change', async function() {
@@ -610,8 +670,8 @@ locationInputElement.addEventListener('change', async function() {
     {
         strUserLocation = locationInputElement.value;
         console.log(strUserLocation);
-        let key = await getLocationKey(strUserLocation);
-        console.log(key);
+        await getLocationKey(strUserLocation);
+        // console.log(`Outside the function: key = ${key}`);
         getCurrTemp(key);
         getCurrCondition(key);
         getHighTemp(key);
@@ -620,40 +680,3 @@ locationInputElement.addEventListener('change', async function() {
     }
 })
 
-
-//------------------------- Handle Nav Clicks ------------------------------
-let navLinks = document.querySelectorAll('.navBox');
-let backToTop = document.querySelectorAll('#backToTop')[0];
-console.log(backToTop);
-// console.log(navLinks);
-
-for (let i = 0; i < navLinks.length; i++){
-    navLinks[i].addEventListener('click', function(event){
-        // console.log(`target: ${event.target}`);
-        // console.log(event.target);
-       
-        for (let i = 0; i < navLinks.length; i++)
-        {
-            // console.log(navLinks[i].childNodes[3]);
-            if (navLinks[i].childNodes[3] === event.target)
-            {
-                // console.log(event.target.parentElement.childNodes[1]);
-                event.target.parentElement.childNodes[1].style.backgroundColor = 'rgb(97, 176, 182)'
-            }
-            else
-            {
-                navLinks[i].childNodes[1].style.backgroundColor = 'rgb(255, 251, 246)'; 
-            }
-        }
-    })
-}
-
-backToTop.addEventListener('click', function(event){
-
-    navLinks[0].childNodes[1].style.backgroundColor = 'rgb(97, 176, 182)'
-
-    for (let i = 1; i < navLinks.length; i++)
-    {
-        navLinks[i].childNodes[1].style.backgroundColor = 'rgb(255, 251, 246)'; 
-    }
-})
