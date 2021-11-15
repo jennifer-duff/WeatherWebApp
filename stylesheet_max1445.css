@@ -1,0 +1,99 @@
+@media (max-width: 1445px){
+   section{
+    padding: 100px 10% 0 10%;
+   } 
+
+   section:last-of-type{
+       padding-bottom: 100px;
+   }
+}
+
+@media (max-width: 1275px){
+    header{
+        padding: 25px 5% 20px 5%;
+    }
+
+    #locationInput{
+        width: 200px;
+    }
+    nav a{
+        font-size: 16pt;
+    }
+
+    .conditionLabel{
+        font-size: 28pt;
+    }
+
+    .highLowLabels{
+        font-size: 22pt;
+    }
+
+    .umbrella{
+        width: 65px;
+    }
+
+    .rainChanceLabel{
+        font-size: 28pt;
+    }
+}
+
+@media (max-width: 1024px){
+
+    #locationInput{
+        width: 175px;
+    }
+
+    #goButton{
+        font-size: 12pt;
+    }
+
+    nav{
+        max-width: 65%;
+        min-width: 400px;
+    }
+
+    nav a{
+        font-size: 14pt;
+    }
+
+    h2{
+        font-size: 35pt;
+        margin: -20px 0 50px 0;
+    }
+
+    
+    .dayTile{
+        width: 100%;
+    }
+
+    .underline{
+        top: 120px;
+        width: 335px;
+    }
+
+    .date{
+        font-size: 24pt;
+    }
+
+    .dayTile{
+        padding: 35px;
+    }
+    
+    .conditionLabel{
+        margin: -7px 0 25px 0;
+        font-size: 26pt;
+
+    }
+
+    .highLowBox{
+        margin-left: 70px;
+    }
+
+    .highLowLabels{
+        font-size: 22pt;
+    }
+
+    .rainChanceLabel{
+        font-size: 24pt;
+    }
+}
