@@ -508,17 +508,17 @@ async function getLocationKey(location) {
 
 
 //TODO: Combine getCurrTemp() and getCurrCondition() to reduce num API calls
-async function getCurrTemp(key){
-    // let key = await getLocationKey(key);
-    await axios.get(`https://dataservice.accuweather.com/currentconditions/v1/${key}?apikey=mZDDGnloK5jU8t1fbOA952AYshZ4mJYN`)
-        .then(function (response) {
-            let temp = response.data[0].Temperature.Imperial.Value;
-            currTemp.innerText = temp;
-        })
-        .catch(function (error) {
-            console.log(error);
-        })
-}
+// async function getCurrTemp(key){
+//     // let key = await getLocationKey(key);
+//     await axios.get(`https://dataservice.accuweather.com/currentconditions/v1/${key}?apikey=mZDDGnloK5jU8t1fbOA952AYshZ4mJYN`)
+//         .then(function (response) {
+//             let temp = response.data[0].Temperature.Imperial.Value;
+//             currTemp.innerText = temp;
+//         })
+//         .catch(function (error) {
+//             console.log(error);
+//         })
+// }
 
 async function getCurrCondition(key){
     // let key = await getLocationKey(key);
@@ -526,6 +526,11 @@ async function getCurrCondition(key){
         .then(function (response) {
             // console.log(response);
 
+            //set current temp label
+            let temp = response.data[0].Temperature.Imperial.Value;
+            currTemp.innerText = temp;
+
+            //set current condition label
             let currIsDaytime = response.data[0].IsDayTime;
             let condition = response.data[0].WeatherText;
             let element = currWeather;
@@ -540,22 +545,13 @@ async function getCurrCondition(key){
 }
 
 //TODO: Combine getHighTemp and getLowTemp to reduce num API calls
-async function getHighTemp(key){
+async function getHighLowTemps(key){
     // let key = await getLocationKey(key);
     await axios.get(`https://dataservice.accuweather.com/forecasts/v1/daily/1day/${key}?apikey=mZDDGnloK5jU8t1fbOA952AYshZ4mJYN`)
     .then(function (response) {
         let htemp = response.data.DailyForecasts[0].Temperature.Maximum.Value;
         highTemp.innerText = htemp;
-    })
-    .catch(function (error) {
-        console.log(error);
-    })
-}
 
-async function getLowTemp(key){
-    // let key = await getLocationKey(key);
-    await axios.get(`https://dataservice.accuweather.com/forecasts/v1/daily/1day/${key}?apikey=mZDDGnloK5jU8t1fbOA952AYshZ4mJYN`)
-    .then(function (response) {
         let ltemp = response.data.DailyForecasts[0].Temperature.Minimum.Value;
         lowTemp.innerText = ltemp;
     })
@@ -563,6 +559,18 @@ async function getLowTemp(key){
         console.log(error);
     })
 }
+
+// async function getLowTemp(key){
+//     // let key = await getLocationKey(key);
+//     await axios.get(`https://dataservice.accuweather.com/forecasts/v1/daily/1day/${key}?apikey=mZDDGnloK5jU8t1fbOA952AYshZ4mJYN`)
+//     .then(function (response) {
+//         let ltemp = response.data.DailyForecasts[0].Temperature.Minimum.Value;
+//         lowTemp.innerText = ltemp;
+//     })
+//     .catch(function (error) {
+//         console.log(error);
+//     })
+// }
 
 
 //------------------------- Get Hourly Forecast Conditions ------------------------------
@@ -750,11 +758,10 @@ locationInputElement.addEventListener('change', async function() {
         strUserLocation = locationInputElement.value;
         console.log(strUserLocation);
         await getLocationKey(strUserLocation);
-        // console.log(`Outside the function: key = ${key}`);
-        getCurrTemp(key);
+        // getCurrTemp(key);
         getCurrCondition(key);
-        getHighTemp(key);
-        getLowTemp(key);
+        getHighLowTemps(key);
+        // getLowTemp(key);
         getHourlyTemps(key);
         getDailyForecasts(key);
     }
