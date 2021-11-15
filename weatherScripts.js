@@ -676,7 +676,7 @@ async function getDailyForecasts(key){
     })
 }
 
-//------------------------- Handle Nav Clicks ------------------------------
+//------------------------- Handle Navigation ------------------------------
 let navLinks = document.querySelectorAll('.navBox');
 let backToTop = document.querySelectorAll('#backToTop')[0];
 let sections = document.querySelectorAll('section');
@@ -719,19 +719,31 @@ window.addEventListener('scroll', function(){
     {
         navLinks[0].childNodes[1].style.backgroundColor = 'rgb(97, 176, 182)'; 
         navLinks[1].childNodes[1].style.backgroundColor = 'rgb(255, 251, 246)';
-        navLinks[2].childNodes[1].style.backgroundColor = 'rgb(255, 251, 246)'; 
+        navLinks[2].childNodes[1].style.backgroundColor = 'rgb(255, 251, 246)';
+        
+        navLinks[3].childNodes[1].style.backgroundColor = 'rgb(97, 176, 182)'; 
+        navLinks[4].childNodes[1].style.backgroundColor = 'rgb(255, 251, 246)';
+        navLinks[5].childNodes[1].style.backgroundColor = 'rgb(255, 251, 246)';
     }
     else if(scrollDistance >= (secondSectionHeight - 100) && scrollDistance < (secondSectionHeight + firstSectionHeight - 300) )
     {
         navLinks[0].childNodes[1].style.backgroundColor = 'rgb(255, 251, 246)'; 
         navLinks[1].childNodes[1].style.backgroundColor = 'rgb(97, 176, 182)';
         navLinks[2].childNodes[1].style.backgroundColor = 'rgb(255, 251, 246)';
+
+        navLinks[3].childNodes[1].style.backgroundColor = 'rgb(255, 251, 246)'; 
+        navLinks[4].childNodes[1].style.backgroundColor = 'rgb(97, 176, 182)';
+        navLinks[5].childNodes[1].style.backgroundColor = 'rgb(255, 251, 246)';
     }
     else
     {
         navLinks[0].childNodes[1].style.backgroundColor = 'rgb(255, 251, 246)'; 
         navLinks[1].childNodes[1].style.backgroundColor = 'rgb(255, 251, 246)';
         navLinks[2].childNodes[1].style.backgroundColor = 'rgb(97, 176, 182)';
+
+        navLinks[3].childNodes[1].style.backgroundColor = 'rgb(255, 251, 246)'; 
+        navLinks[4].childNodes[1].style.backgroundColor = 'rgb(255, 251, 246)';
+        navLinks[5].childNodes[1].style.backgroundColor = 'rgb(97, 176, 182)';
     }
 })
 
@@ -746,6 +758,36 @@ backToTop.addEventListener('click', function(event){
         navLinks[i].childNodes[1].style.backgroundColor = 'rgb(255, 251, 246)'; 
     }
 })
+
+
+//hamburger menu
+let menuIcon = document.querySelector('#menuIcon');
+let hamburgerNav = document.querySelector('#hamburgerNav');
+let hamburgerNavLinks = hamburgerNav.childNodes;
+// console.log(hamburgerNavLinks);
+
+function showHamburgerMenu(){
+    hamburgerNav.style.display = 'inline-block';
+}
+
+function hideHamburgerMenu(){
+    hamburgerNav.style.display = 'none';
+}
+
+menuIcon.addEventListener('click', function(){
+    showHamburgerMenu();
+})
+
+
+hamburgerNav.addEventListener('mouseleave', function(){
+    hideHamburgerMenu();
+})
+
+for (let i = 0; i < hamburgerNavLinks.length; i++){
+    hamburgerNavLinks[i].addEventListener('click', function(){
+        hideHamburgerMenu();
+    })
+}
 
 //------------------------- Set All Conditions ------------------------------
 locationInputElement.addEventListener('change', async function() {

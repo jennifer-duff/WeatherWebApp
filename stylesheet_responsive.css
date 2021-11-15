@@ -6,6 +6,15 @@
    section:last-of-type{
        padding-bottom: 100px;
    }
+
+   #carousel, #dotNavContainer{
+       width: calc((16vw * 4) + (6 * 1vw) + 8px);
+   }
+
+   .weatherBox{
+       width: 16vw;
+       height: 16vw;
+   }
 }
 
 @media (max-width: 1275px){
@@ -18,6 +27,10 @@
     }
     nav a{
         font-size: 16pt;
+    }
+
+    .dayTile{
+        width: 100%;
     }
 
     .conditionLabel{
@@ -39,6 +52,14 @@
 
 @media (max-width: 1024px){
 
+    h1{
+        font-size: 30pt;
+    }
+
+    #currTemp, #degreeSign, #currWeather{
+        font-size: 40pt;
+    }
+
     #locationInput{
         width: 175px;
     }
@@ -57,19 +78,25 @@
     }
 
     h2{
-        font-size: 35pt;
+        font-size: 30pt;
         margin: -20px 0 50px 0;
     }
 
-    
-    .dayTile{
-        width: 100%;
+    .underline{
+        top: 112px;
+        width: 285px;
     }
 
-    .underline{
-        top: 120px;
-        width: 335px;
+
+    #carousel, #dotNavContainer{
+        width: calc((15vw * 4) + (6 * 1vw) + 8px);
     }
+ 
+    .weatherBox{
+        width: 15vw;
+        height: 15vw;
+    }
+ 
 
     .date{
         font-size: 24pt;
@@ -95,5 +122,77 @@
 
     .rainChanceLabel{
         font-size: 24pt;
+    }
+}
+
+@media (max-width: 860px){
+    nav{
+        display: none;
+    }
+
+    #locationInput{
+        font-size: 11pt;
+    }
+
+    #menuIcon{
+        display: inline-block;
+        cursor: pointer;
+    }
+
+    #hamburgerNav{
+        position: absolute;
+        top: 10px;
+        right: 0px;
+        font-size: 16pt;
+        background-color: var(--softWhite);
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 5px 5px 0 var(--softBlack);
+        border: 2px solid var(--softBlack);
+    }
+
+    #hamburgerNav a{
+        text-decoration: none;
+        color: var(--softBlack);
+        position: relative;
+    }
+
+    #hamburgerNav a:hover{
+        font-weight: 600;
+    }
+
+    #hamburgerNav div{
+        margin-top: 25px;
+    }
+
+    #hamburgerNav div:first-of-type{
+        margin-top: -12px;
+    }
+
+    #hamburgerNav .navUnderline{
+        top: 29px;
+    }
+
+    #hamburgerNav #currConditionBox .navUnderline{
+        width: 185px;
+    }
+
+    #hamburgerNav #hourlyForecastBox .navUnderline{
+        width: 152px;
+    }
+    #hamburgerNav #fiveDayForecastBox .navUnderline{
+        width: 145px;
+    }
+
+    .arrow{
+        width: 20px;
+    }
+
+    .arrow:first-of-type{
+        left: 10px;
+    }
+    
+    .arrow:last-of-type{
+        left: 50px;
     }
 }

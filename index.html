@@ -14,7 +14,7 @@
     <header>
         <div id = 'inputContainer'>
             <img src = 'Assets/geotag_icon.svg' id = 'geotagIcon'>
-            <input id = 'locationInput' type = text placeholder = 'Enter a city to get started!'>
+            <input id = 'locationInput' type = text placeholder = 'Enter a city!'>
             <button id ='goButton'>go!</button>
         </div>
         <nav>
@@ -31,13 +31,27 @@
                 <a href = #fiveDayForecastSection>5-day forecast</a>
             </div>
         </nav>
+
+        <img src = 'Assets/menuIcon.svg' id = 'menuIcon'>
+        <div id = 'hamburgerNav'>
+            <div id = 'currConditionBox' class = 'navBox' class = 'hamburgerNavBox'>
+                <div class = 'navUnderline'></div>
+                <a href = #currWeatherSection>current conditions</a> 
+            </div>
+            <div id = 'hourlyForecastBox' class = 'navBox' class = 'hamburgerNavBox'>
+                <div class = 'navUnderline'></div>
+                <a href = #hourlyForecastSection>hourly forecast</a>
+            </div>
+            <div id = 'fiveDayForecastBox' class = 'navBox' class = 'hamburgerNavBox'>
+                <div class = 'navUnderline'></div>
+                <a href = #fiveDayForecastSection>5-day forecast</a>
+            </div>
+        </div>
     </header>
 
     <main>
 
         <a id = 'backToTop' href = '#currWeatherSection'>&uarr;</a>
-
-        <p id = 'apiCallTracker'>API Call Count: <span id = 'apiCallCountText'>0</span></p>
 
         <section id = 'currWeatherSection'>
             <h1 id = 'currCondition'>
