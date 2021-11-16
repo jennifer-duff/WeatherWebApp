@@ -146,14 +146,18 @@ nav div:nth-of-type(2){
 .navUnderline{
     height: 6px;
     width: 100%;
-    background-color: var(--lightBrandColor);
     position: relative;
     top: 25px;
-    transition: background-color 0.2s ease-in-out;
+    transition: opacity 0.2s ease-in-out;
+    background-color: var(--lightBrandColor);
 }
 
-nav div:nth-of-type(2) div, nav div:nth-of-type(3) div{
-    background-color: var(--softWhite);
+#hamburgerNav div:nth-of-type(2) div{
+    width: 83%;
+}
+
+#hamburgerNav div:nth-of-type(3) div{
+    width: 80%;
 }
 
 /* --------------------------- MAIN ---------------------------*/
@@ -497,9 +501,10 @@ h3{
     height: 200px;
 }
 
-.conditionBoxWrapper{
+/* .conditionBoxWrapper{
     padding-right: 20px;
-}
+    opacity: 0;
+} */
 
 .conditionBox{
     background-image: url('Assets/raincloud.svg');
