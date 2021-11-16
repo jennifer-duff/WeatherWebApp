@@ -458,23 +458,23 @@ function setConditionLabel(condition, linkingWord, element){
     // let currIsDaytime = response.data[0].IsDayTime;
     // let condition = response.data[0].WeatherText;
     // console.log(condition);
-    element.innerText = condition.toLowerCase();
+    condition = condition.toLowerCase()
+    element.innerText = condition;
     switch (condition)
     {
-        case 'Intermittent Clouds':
-        case 'Hazy Sunshine':
-        case 'Fog':
-        case 'Showers':
-        case 'T-Storms':
-        case 'Rain':
-        case 'Flurries':
-        case 'Snow':
-        case 'Ice':
-        case 'Sleet':
-        case 'Freezing Rain':
-        case 'Rain and Snow':
-        case 'Intermittent Clouds':
-        case 'Hazy Moonlight':
+        case 'intermittent clouds':
+        case 'hazy sunshine':
+        case 'fog':
+        case 'showers':
+        case 't-storms':
+        case 'rain':
+        case 'flurries':
+        case 'snow':
+        case 'ice':
+        case 'sleet':
+        case 'freezing rain':
+        case 'rain and snow':
+        case 'hazy moonlight':
             linkingWord.innerText = 'with';
             break;
         default:
