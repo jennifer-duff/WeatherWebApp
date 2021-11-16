@@ -29,10 +29,6 @@
         font-size: 16pt;
     }
 
-    .dayTile{
-        width: 100%;
-    }
-
     .conditionLabel{
         font-size: 28pt;
     }
@@ -87,7 +83,6 @@
         width: 285px;
     }
 
-
     #carousel, #dotNavContainer{
         width: calc((15vw * 4) + (6 * 1vw) + 8px);
     }
@@ -110,10 +105,6 @@
         margin: -7px 0 25px 0;
         font-size: 26pt;
 
-    }
-
-    .highLowBox{
-        margin-left: 70px;
     }
 
     .highLowLabels{
@@ -194,5 +185,132 @@
     
     .arrow:last-of-type{
         left: 50px;
+    }
+
+    .highLowLabels{
+        font-size: 20pt;
+    }
+
+    .umbrella{
+        width: 50px;
+        margin-right: 8px;
+    }
+
+    .rainChanceLabel{
+        font-size: 22pt;
+    }
+
+    footer{
+        height: 150px;
+    }
+}
+
+@media (max-width: 650px){
+
+    .lowerTile{
+        height: 150px;
+    }
+
+    .condtionBoxWrapper{
+        max-width: 95%;
+    }
+
+    .highLowLabels{
+        font-size: 16pt;
+    }
+    
+    .umbrella{
+        width: 45px;
+        margin-right: 6px;
+    }
+    .rainChanceLabel{
+        font-size: 18pt;
+    }
+
+}
+
+@media (max-width: 510px){
+    
+    .conditionLabel{
+        font-size: 20pt;
+    }
+
+    .fiveDayDegreeSign{
+        margin-left: -5px;
+    }
+
+    .lowerTile{
+        height: 125px;
+    }
+
+    .highLowBox{
+        row-gap: 5px;
+    }
+
+    .highLowLabels{
+        margin-top: -13px;
+        font-size: 14pt
+    }
+    
+    .rainChanceBox{
+        flex-wrap: wrap;
+        align-content: center;
+    }
+
+    .rainChanceLabel{
+        font-size: 16pt;
+    }
+
+    .umbrella{
+        margin-bottom: 15px;
+    }
+}
+
+@media (max-width: 375px){
+    #geotagIcon{
+        margin-right: 5px;
+    }
+
+    #locationInput{
+        width: 150px;
+        padding: 0 8px;
+    }
+
+    #goButton{
+        font-size: 11pt;
+        padding: 7px;
+    }
+    
+    #menuIcon{
+        width: 30px;
+    }
+    
+    .date{
+        font-size: 20pt;
+    }
+    
+    .dayTile{
+        padding: 25px;
+    }
+
+    .conditionLabel{
+        font-size: 20pt;
+    }
+    
+    .lowerTile{
+        height: 100px;
+    }
+
+    .highLowLabels{
+        font-size: 12pt;
+        row-gap: 5px;
+    }
+
+    .umbrella{
+        width: 35px;margin-bottom: 10px;
+    }
+
+    .rainChanceLabel{
+        font-size: 14pt;
     }
 }

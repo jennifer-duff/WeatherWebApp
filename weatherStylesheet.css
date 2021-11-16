@@ -110,7 +110,7 @@ header{
 
 #menuIcon{
     display: none;
-    width: 50px;
+    width: 45px;
 }
 
 #hamburgerNav{
@@ -182,8 +182,9 @@ h1{
     font-family: stratos-lights, stratos, Inter, 'Helvetica Nue', sans-serif;
     font-weight: 200;
     font-size: 40pt;
-    margin-top: 25px;
+    /* margin-top: 50px; */
     margin-bottom: 0;
+    padding-top: 25px;
     line-height: 150%;
     text-align: center;
 }
@@ -219,7 +220,7 @@ h1{
 
 #currWeatherSection{
     box-sizing: border-box;
-    height: calc(103.5vh);
+    height: calc(100vh + 100px);
     width: 100%;
     background-color: var(--softWhite);
     z-index: 2;
@@ -295,7 +296,8 @@ h1{
 #hourlyForecastSection{
     /* margin-top: 10px; */
     background-color: var(--softWhite);  
-    height: 850px; 
+    /* height: 850px;  */
+    padding-bottom: 150px; 
     z-index: 2;
 }
 
@@ -330,7 +332,7 @@ h3{
 }
 
 #carouselContainer{
-    margin-top: 70px;
+    margin: 70px 0 40px 0;
     box-sizing: border-box;
     display: flex;
     flex-wrap: nowrap;
@@ -371,7 +373,7 @@ h3{
 }
 
 .arrow:last-of-type{
-    left: 30px;
+    left: 60px;
 }
 
 .forecastBox{
@@ -455,7 +457,7 @@ h3{
     box-shadow: 8px 8px 0 var(--shadow);
     padding: 50px;
     margin: 0 0 125px 0;
-    width: 80%;
+    width: 100%;
     /* height: 353px; */
 }
 
@@ -489,15 +491,21 @@ h3{
 .lowerTile{
     box-sizing: border-box;
     display: grid;
-    grid-template-columns: 0.8fr 1.25fr 1fr;
+    grid-template-columns: 1fr 1.15fr 1fr;
     width: 100%;
     margin: 0;
+    height: 200px;
 }
+
+.conditionBoxWrapper{
+    padding-right: 20px;
+}
+
 .conditionBox{
     background-image: url('Assets/raincloud.svg');
     background-position: center;
     background-repeat: no-repeat;
-    height: 200px;
+    width: 85%;
 }
 
 .highLowBox{
@@ -505,14 +513,14 @@ h3{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-left: 60px;
+    /* margin-left: 60px; */
+    padding: 0 20px;
 }
 
 .highLowBox, .rainChanceBox{
     font-family: stratos-lights, stratos, Inter, 'Helvetica Nue', sans-serif;
     font-weight: 200;
-    line-height: 110%;
-    padding: 0 20px;
+    /* padding: 0 20px; */
     /* margin: 0 0px 0 60px; */
 }
 
@@ -522,11 +530,14 @@ h3{
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 50% 50%;
-    row-gap: 0px;
+    row-gap: 15px;
     align-items: center;
     text-align: center;
     font-size: 25pt;
-    height: 100px;
+    /* height: 80%; */
+    line-height: 125%;
+    margin: -20px 0 0 0;
+    padding: 0;
 }
 
 .highLowLabels p{
@@ -536,7 +547,6 @@ h3{
 .highTempLabel, .lowTempLabel{
     width: 100%;
 }
-
 
 .highTempLabel, .fiveDayDegree, .lowTempLabel, .chanceRain{
     font-family: stratos, Inter, 'Helvetica Nue', sans-serif;
@@ -549,6 +559,8 @@ h3{
     display: flex;
     align-items: center;
     justify-content: center;
+    padding-left: 20px;
+    line-height: 100%;
     /* height: 150px; */
 }
 
@@ -588,12 +600,15 @@ footer{
     top: -13px;
     background-color: var(--lightBrandColor);
     text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #apiCredit{
     font-family: stratos-lights, stratos, Inter, 'Helvetica Nue', sans-serif;
     margin: 0;
-    padding-top: 95px;
+    padding-top: 20px;
     font-weight: 300;
     display: inline-block;
     font-size: 14pt;

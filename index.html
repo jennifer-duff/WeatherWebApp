@@ -213,7 +213,9 @@
                     <span class = 'fiveDayWeather'>partly cloudy w/ t-storms</span>
                 </p>
                 <div class = lowerTile>
-                    <div class = 'conditionBox'></div>
+                    <div class = conditionBoxWrapper>
+                        <div class = 'conditionBox'></div>
+                    </div>
                     <div class = 'highLowBox'>
                         <div class = 'highLowLabels'>
                             <p>
@@ -348,10 +350,12 @@
 
 
     <footer>
-        <p id = 'apiCredit'>created by <span class = 'bold'>jennifer duff</span> with data from </p>
-        <a href = 'http://www.accuweather.com'>
-            <img src = 'Assets/accuWeather_Horiz_Transparent_Logo.png'>
-        </a>
+        <div id = 'credits'> 
+            <p id = 'apiCredit'>created by <span class = 'bold'>jennifer duff</span> with data from </p>
+            <a href = 'http://www.accuweather.com'>
+                <img src = 'Assets/accuWeather_Horiz_Transparent_Logo.png'>
+            </a>
+        </div>
     </footer>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src = 'weatherScripts.js'></script>
