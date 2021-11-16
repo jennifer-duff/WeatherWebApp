@@ -774,20 +774,42 @@ function hideHamburgerMenu(){
     hamburgerNav.style.display = 'none';
 }
 
-menuIcon.addEventListener('click', function(){
-    showHamburgerMenu();
-})
+// menuIcon.addEventListener('click', function(){
+//     showHamburgerMenu();
+// })
 
 
 hamburgerNav.addEventListener('mouseleave', function(){
     hideHamburgerMenu();
 })
 
-for (let i = 0; i < hamburgerNavLinks.length; i++){
-    hamburgerNavLinks[i].addEventListener('click', function(){
+document.body.addEventListener('click', function(event){
+    if (event.target === menuIcon)
+    {
+        console.log('Menu Icon clicked');
+        showHamburgerMenu();
+    }
+    else if(event.target === hamburgerNav || event.target === hamburgerNav.childNodes)
+    {
+        showHamburgerMenu();
+        console.log('hamburgerNav clicked');
+    }
+    else if(event.target === hamburgerNavLinks[0] || event.target === hamburgerNavLinks[1] || event.target === hamburgerNavLinks[2])
+    {
+        console.log('nav link clicked');
         hideHamburgerMenu();
-    })
-}
+    }
+    else{
+        hideHamburgerMenu();
+        console.log('body clicked');
+    }
+})
+
+// for (let i = 0; i < hamburgerNavLinks.length; i++){
+//     hamburgerNavLinks[i].addEventListener('click', function(){
+//         hideHamburgerMenu();
+//     })
+// }
 
 //------------------------- Set All Conditions ------------------------------
 locationInputElement.addEventListener('change', async function() {
