@@ -649,7 +649,7 @@ function getDate(){
 }
 
 async function getDailyForecasts(key){
-    await axios.get(`http://dataservice.accuweather.com/forecasts/v1/daily/5day/${key}?apikey=mZDDGnloK5jU8t1fbOA952AYshZ4mJYN&details=true`)
+    await axios.get(`https://dataservice.accuweather.com/forecasts/v1/daily/5day/${key}?apikey=mZDDGnloK5jU8t1fbOA952AYshZ4mJYN&details=true`)
     .then(function(response){
         // console.log(response);
         for (let i = 0; i < dailyHighTemps.length; i++)
@@ -793,11 +793,6 @@ document.body.addEventListener('click', function(event){
     {
         showHamburgerMenu();
         console.log('hamburgerNav clicked');
-    }
-    else if(event.target === hamburgerNavLinks[0] || event.target === hamburgerNavLinks[1] || event.target === hamburgerNavLinks[2])
-    {
-        console.log('nav link clicked');
-        hideHamburgerMenu();
     }
     else{
         hideHamburgerMenu();
