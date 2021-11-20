@@ -328,6 +328,7 @@
     /*---------- 5-Day Forecast ----------*/
     .dayTile{
         padding: 25px;
+        margin-bottom: 75px;
     }
     
     .lowerTile{
@@ -432,6 +433,7 @@
     .underline{
         top: 105px;
         width: 240px; 
+        background-color: red;
     }
 
     .forecastBox{
