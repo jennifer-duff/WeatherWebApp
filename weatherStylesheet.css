@@ -8,7 +8,10 @@
     --shadow: rgb(49, 49, 49);
     --rainColor: rgb(174, 207, 230);
     --sun: #FFE194;
+    /* --mostlyCloudy: #fff9eb; */
 }
+
+
 
 html{
     box-sizing: border-box;
@@ -392,12 +395,12 @@ h3{
     height: 12vw;
     padding: 20px;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: space-between;
+    align-items: flex-start;
     font-size: 2.5vw;
-    background-position: center;
+    background-position: top 80% left 50%;
     background-repeat: no-repeat;
-    background-size: 75%;
+    background-size: 60%;
     border: 2px solid var(--softBlack);
     box-shadow: 8px 8px 0 var(--shadow);
     border-radius: 10px;
@@ -406,9 +409,33 @@ h3{
 
 .hourlyTemp{
     position: relative;
-    top: -19px;
+    /* top: 0px; */
     left: 5px;
     line-height: 100%;
+    margin: 0;
+    display: inline-block;
+}
+
+.hourlyRainChanceDiv{
+    position: relative;
+    display: inline-block;
+    top: -10px;
+}
+
+.hourlyRainChance{
+    margin: 0;
+    line-height: 100%;
+    display: inline-block;
+}
+
+/* .hourlyRainChanceLabel{
+    line-height: 80%;
+    margin: 0;
+} */
+
+.hourlyUmbrella{
+    width: 32px;
+    margin: 0px -5px 0 -15px;
 }
 
 #dotNavContainer{

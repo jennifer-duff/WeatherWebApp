@@ -32,7 +32,7 @@ prevArrow.addEventListener('click', scrollToPrev);
 carousel.style.width = forecastBoxWidth * 4 + 100;
 carousel.style.height = forecastBoxHeight + 50;
 
-// -------------------------------- Carousel circle buttons -------------------------------
+// ------------------------------ Carousel circle buttons -----------------------------
 let dotNavs = document.querySelectorAll('.dotNav');
 let firstDot = document.querySelector('#firstDot');
 let secondDot = document.querySelector('#secondDot');
@@ -181,7 +181,7 @@ let sunImg = "url('Assets/sun.svg')";
 let mostlySunnyColor = '#FFEFC9';
 let mostlySunnyImg = "url('Assets/mostlySunny.svg')";
 
-let mostlyCloudyColor = '#FCF3DE';
+let mostlyCloudyColor = '#fff9eb';
 let mostlyCloudyImg = "url('Assets/mostlyCloudy.svg')";
 
 let partSunWithRainColor = '#F9F3E8';
@@ -577,11 +577,11 @@ let forecastTemps = document.querySelectorAll('.forecastTemp');
 let timeLabels = document.querySelectorAll('.timeLabel');
 
 async function getHourlyTemps(key){
-    await axios.get(`https://dataservice.accuweather.com/forecasts/v1/hourly/12hour/${key}?apikey=mZDDGnloK5jU8t1fbOA952AYshZ4mJYN`)
+    await axios.get(`https://dataservice.accuweather.com/forecasts/v1/hourly/12hour/${key}?apikey=mZDDGnloK5jU8t1fbOA952AYshZ4mJYN&details=true`)
     .then(function (response) {
-
+        // console.log(response)
         let hourlyData = response.data
-        // console.log(hourlyData);
+        console.log(hourlyData);
         // console.log(hourlyData[0].DateTime);
         
         for(let i = 0; i < forecastTemps.length; i++)
@@ -816,7 +816,7 @@ let dailyOffset= sections[2].offsetTop - 100;
 //console.log(`hourlyOffset ${hourlyOffset}`);
 //console.log(`dailyOffset: ${dailyOffset}`);
 
-let navLinks = []
+let navLinks = [];
 let desktopNav = document.querySelector('nav').childNodes;
 let hamburgerNavBox = document.querySelector('#hamburgerNav').childNodes;
 // console.log(hamburgerNavBox);
@@ -841,7 +841,7 @@ window.addEventListener('scroll', function(){
 
     if (currScrollPos < hourlyOffset)
     {
-        console.log('firstSection');
+        //console.log('firstSection');
         navLinks[0].childNodes[1].style.opacity = 1;
         navLinks[1].childNodes[1].style.opacity = 0;
         navLinks[2].childNodes[1].style.opacity = 0;
@@ -851,7 +851,7 @@ window.addEventListener('scroll', function(){
     }
     else if ((currScrollPos >= hourlyOffset) && (currScrollPos < dailyOffset))
     {
-        console.log('secondSection');
+        //console.log('secondSection');
         navLinks[0].childNodes[1].style.opacity = 0;
         navLinks[1].childNodes[1].style.opacity = 1;
         navLinks[2].childNodes[1].style.opacity = 0;
@@ -861,7 +861,7 @@ window.addEventListener('scroll', function(){
     }
     else if (currScrollPos >= dailyOffset)
     {
-        console.log('thirdSection');
+        // console.log('thirdSection');
         navLinks[0].childNodes[1].style.opacity = 0;
         navLinks[1].childNodes[1].style.opacity = 0;
         navLinks[2].childNodes[1].style.opacity = 1;
@@ -944,17 +944,17 @@ hamburgerNav.addEventListener('mouseleave', function(){
 document.body.addEventListener('click', function(event){
     if (event.target === menuIcon)
     {
-        console.log('Menu Icon clicked');
+        //console.log('Menu Icon clicked');
         showHamburgerMenu();
     }
     else if(event.target === hamburgerNav || event.target === hamburgerNav.childNodes)
     {
         showHamburgerMenu();
-        console.log('hamburgerNav clicked');
+        //console.log('hamburgerNav clicked');
     }
     else{
         hideHamburgerMenu();
-        console.log('body clicked');
+        //console.log('body clicked');
     }
 })
 
