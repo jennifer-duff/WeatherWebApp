@@ -205,7 +205,6 @@
 
 @media (max-width: 650px){
     
-
     h1{
         font-size: 30pt;
         padding-top: 30px;
@@ -269,6 +268,19 @@
         width: 10pt;
     }
 
+
+    .highLowLabels{
+        font-size: 20pt;
+    }
+
+    .rainChanceLabel{
+        font-size: 24pt;
+    }
+
+    .umbrella{
+        width: 40px;
+        margin-right: 10px;
+    }
 }
 
 @media (max-width: 510px){
@@ -313,6 +325,16 @@
     }
 
 
+    /*---------- 5-Day Forecast ----------*/
+    .dayTile{
+        padding: 25px;
+    }
+    
+    .lowerTile{
+        height: 100px;
+        grid-template-columns: 1.25fr 1.15fr 0.8fr;
+    }
+
     .conditionLabel{
         font-size: 20pt;
     }
@@ -322,7 +344,33 @@
     }
 
     .lowerTile{
-        height: 125px;
+        height: 100px;
+    }
+
+    .highLowBox{
+        padding: 0 10px;
+    }
+
+    .highLowLabels{
+        row-gap: 7px;
+        font-size: 16pt;
+    }
+
+    .rainChanceBox{
+        padding-left: 10px;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .rainChanceLabel{
+        font-size: 16pt;
+        margin-top: -10px;
+        margin-bottom: 0;
+    }
+
+    .umbrella{
+        width: 35px;
+        margin: 0 5px -10px 0;
     }
 
     
@@ -408,7 +456,7 @@
     }
 
     #carousel, #dotnavContainer{
-        width: calc((21vw * 3) + (4 * 1.25vw) + 4px);
+        width: calc((21vw * 3) + (4 * 1.25vw) + 3px);
     }
 
     #carousel{
@@ -428,24 +476,14 @@
     }
 
 
+
+    /* --------- 5-Day Forecast ------------*/
     .date{
         font-size: 20pt;
-    }
-    
-    .dayTile{
-        padding: 25px;
     }
 
     .conditionLabel{
         font-size: 18pt;
-    }
-    
-    .lowerTile{
-        height: 100px;
-        grid-template-columns: 1.25fr 1.15fr 0.8fr;
-    }
-    .highLowBox{
-        padding: 0 10px;
     }
 
     .highLowLabels{
@@ -455,17 +493,14 @@
         margin-top: -7px;
     }
 
-    .rainChanceBox{
-        padding-left: 10px;
-    }
-
     .rainChanceLabel{
         font-size: 14pt;
+        margin-top: -20px;
+        margin-bottom: 0;
     }
-
     .umbrella{
         width: 23px;
-        margin-right: 5px;
+        margin: 0 5px -20px 0;
     }
 
 }
