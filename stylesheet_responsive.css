@@ -349,6 +349,7 @@
     
     #menuIcon{
         width: 30px;
+        margin-bottom: -10px;
     }
 
 
@@ -375,27 +376,39 @@
         font-size: 18pt;
     }
 
+    h2{
+        font-size: 25pt;
+    }
+
+    .underline{
+        top: 105px;
+        width: 240px; 
+    }
 
     .forecastBox{
-        margin: 0 1.25vw 5px 1.25vw;
+        margin: 0 1.25vw 3px 1.25vw;
+    }
+    .forecastBox:last-of-type{
+        margin-right: 3px;
     }
     
     .forecastBox:last-of-type{
-        margin-right: 5px;
+        margin-right: 3px;
     }
+
     .timeLabel{
-        font-size: 16pt;
+        font-size: 14pt;
     }
 
     .weatherBox{
         width: 21vw;
         height: 21vw;
         font-size: 10pt;
-        box-shadow: 5px 5px 0 var(--shadow);
+        box-shadow: 3px 3px 0 var(--shadow);
     }
 
     #carousel, #dotnavContainer{
-        width: calc((21vw * 3) + (4 * 1vw) + 10px);
+        width: calc((21vw * 3) + (4 * 1.25vw) + 4px);
     }
 
     #carousel{
@@ -424,11 +437,35 @@
     }
 
     .conditionLabel{
-        font-size: 20pt;
+        font-size: 18pt;
     }
     
     .lowerTile{
         height: 100px;
+        grid-template-columns: 1.25fr 1.15fr 0.8fr;
+    }
+    .highLowBox{
+        padding: 0 10px;
+    }
+
+    .highLowLabels{
+        font-size: 13pt;
+        height: 100px;
+        row-gap: 7px;
+        margin-top: -7px;
+    }
+
+    .rainChanceBox{
+        padding-left: 10px;
+    }
+
+    .rainChanceLabel{
+        font-size: 14pt;
+    }
+
+    .umbrella{
+        width: 23px;
+        margin-right: 5px;
     }
 
 }
