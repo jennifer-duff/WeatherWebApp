@@ -348,12 +348,13 @@
     }
 
     .highLowBox{
-        padding: 0 10px;
+        padding: 0 14px;
     }
 
     .highLowLabels{
         row-gap: 7px;
-        font-size: 13.5pt;
+        font-size: 14pt;
+        row-gap: 10px;
     }
 
     .rainChanceBox{
