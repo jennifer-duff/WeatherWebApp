@@ -7,15 +7,16 @@
        padding-bottom: 100px;
    }
 
-   #carousel, #dotNavContainer{
-       width: calc((16vw * 4) + (6 * 1vw) + 8px);
+   .weatherBox{
+       width: 21vw;
+       height: 21vw;
    }
 
-   .weatherBox{
-       width: 16vw;
-       height: 16vw;
+   #carousel, #dotNavContainer{
+       width: calc((21vw * 3) + (4 * 1vw) + 8px);
    }
-}
+
+}   
 
 @media (max-width: 1275px){
     header{
@@ -33,16 +34,12 @@
         font-size: 28pt;
     }
 
-    .highLowLabels{
+    .weatherBox{
         font-size: 22pt;
     }
 
-    .umbrella{
-        width: 65px;
-    }
-
-    .rainChanceLabel{
-        font-size: 28pt;
+    .hourlyUmbrella{
+        width: 18pt;
     }
 }
 
@@ -83,15 +80,13 @@
         width: 285px;
     }
 
-    #carousel, #dotNavContainer{
-        width: calc((15vw * 4) + (6 * 1vw) + 8px);
-    }
- 
     .weatherBox{
-        width: 15vw;
-        height: 15vw;
+        font-size: 20pt;
     }
- 
+
+    .hourlyUmbrella{
+        width: 16pt;
+    }
 
     .date{
         font-size: 24pt;
@@ -105,14 +100,6 @@
         margin: -7px 0 25px 0;
         font-size: 26pt;
 
-    }
-
-    .highLowLabels{
-        font-size: 22pt;
-    }
-
-    .rainChanceLabel{
-        font-size: 24pt;
     }
 }
 
@@ -196,17 +183,19 @@
         left: 50px;
     }
 
-    .highLowLabels{
-        font-size: 20pt;
+    #dotNavContainer{
+        left: 53px;
     }
 
-    .umbrella{
-        width: 50px;
-        margin-right: 8px;
+    .weatherBox{
+        font-size: 14pt;
+        padding: 10px;
+
     }
 
-    .rainChanceLabel{
-        font-size: 22pt;
+    .hourlyUmbrella{
+        width: 11pt;
+        margin-right: 1px;
     }
 
     footer{
@@ -248,16 +237,36 @@
         max-width: 95%;
     }
 
-    .highLowLabels{
-        font-size: 16pt;
+    #carousel{
+        left: -5px;
+    }
+
+    #dotNavContainer{
+        left: 18px;
+    }
+
+    .arrow{
+        margin-top: 6.5vw;
+    }
+
+    .arrow:first-of-type{
+        left: -15px;
     }
     
-    .umbrella{
-        width: 45px;
-        margin-right: 6px;
+    .arrow:last-of-type{
+        left: 5px;
     }
-    .rainChanceLabel{
-        font-size: 18pt;
+
+    .timeLabel{
+        font-size: 20pt;
+    }
+
+    .weatherBox{
+        font-size: 12pt;
+    }
+
+    .hourlyUmbrella{
+        width: 10pt;
     }
 
 }
@@ -288,6 +297,22 @@
         font-size: 20pt;
     }
 
+    
+    .weatherBox{
+        width: 20vw;
+        height: 20vw;
+        font-size: 10pt;
+    }
+
+    #carousel, #dotnavContainer{
+        width: calc((20vw * 3) + (4 * 1vw) + 8px);
+    }
+
+    .hourlyUmbrella{
+        width: 8pt;
+    }
+
+
     .conditionLabel{
         font-size: 20pt;
     }
@@ -300,30 +325,10 @@
         height: 125px;
     }
 
-    .highLowBox{
-        row-gap: 5px;
-    }
-
-    .highLowLabels{
-        margin-top: -13px;
-        font-size: 14pt
-    }
     
-    .rainChanceBox{
-        flex-wrap: wrap;
-        align-content: center;
-    }
-
-    .rainChanceLabel{
-        font-size: 16pt;
-    }
-
-    .umbrella{
-        margin-bottom: 15px;
-    }
 }
 
-@media (max-width: 350px){
+@media (max-width: 375px){
     section{
         padding: 100px 7% 0 5%;
     }
@@ -370,6 +375,46 @@
         font-size: 18pt;
     }
 
+
+    .forecastBox{
+        margin: 0 1.25vw 5px 1.25vw;
+    }
+    
+    .forecastBox:last-of-type{
+        margin-right: 5px;
+    }
+    .timeLabel{
+        font-size: 16pt;
+    }
+
+    .weatherBox{
+        width: 21vw;
+        height: 21vw;
+        font-size: 10pt;
+        box-shadow: 5px 5px 0 var(--shadow);
+    }
+
+    #carousel, #dotnavContainer{
+        width: calc((21vw * 3) + (4 * 1vw) + 10px);
+    }
+
+    #carousel{
+        left: 10px;
+    }
+
+    .arrow:first-of-type{
+        left: -5px;
+    }
+    
+    .arrow:last-of-type{
+        left: 20px;
+    }
+
+    .hourlyUmbrella{
+        width: 8pt;
+    }
+
+
     .date{
         font-size: 20pt;
     }
@@ -386,16 +431,4 @@
         height: 100px;
     }
 
-    .highLowLabels{
-        font-size: 12pt;
-        row-gap: 5px;
-    }
-
-    .umbrella{
-        width: 35px;margin-bottom: 10px;
-    }
-
-    .rainChanceLabel{
-        font-size: 14pt;
-    }
 }

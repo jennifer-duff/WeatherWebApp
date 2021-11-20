@@ -37,6 +37,7 @@ let dotNavs = document.querySelectorAll('.dotNav');
 let firstDot = document.querySelector('#firstDot');
 let secondDot = document.querySelector('#secondDot');
 let thirdDot = document.querySelector('#thirdDot');
+let fourthDot = document.querySelector('#fourthDot');
 
 firstDot.classList.add('dotNavActive');
 
@@ -47,18 +48,28 @@ function setActiveDot(){
         firstDot.classList.add('dotNavActive');
         secondDot.classList.remove('dotNavActive');
         thirdDot.classList.remove('dotNavActive');
+        fourthDot.classList.remove('dotNavActive');
     }
     else if (clickCounter >= 4 && clickCounter < 8)
     {
         firstDot.classList.remove('dotNavActive');
         secondDot.classList.add('dotNavActive');
         thirdDot.classList.remove('dotNavActive');
+        fourthDot.classList.remove('dotNavActive');
     }
-    else if (clickCounter >= 8)
+    else if (clickCounter >= 8 && clickCounter < 12)
     {
         firstDot.classList.remove('dotNavActive');
         secondDot.classList.remove('dotNavActive');
         thirdDot.classList.add('dotNavActive');
+        fourthDot.classList.remove('dotNavActive');
+    }
+    else if (clickCounter <= 12)
+    {
+        firstDot.classList.remove('dotNavActive');
+        secondDot.classList.remove('dotNavActive');
+        thirdDot.classList.remove('dotNavActive');
+        fourthDot.classList.add('dotNavActive');
     }
 }
 
@@ -77,37 +88,51 @@ function findActiveDot(){
     }
 }
 
-function scrollForwardByFour(){
+function scrollForwardByThree(){
     carousel.scrollBy({
-        left: (4 * forecastBoxWidth), top: 0, behavior: 'smooth'
+        left: (3 * forecastBoxWidth), top: 0, behavior: 'smooth'
     });
-    clickCounter = clickCounter + 4;
+    clickCounter = clickCounter + 3;
 }
 
-function scrollForwardByEight(){
+function scrollForwardBySix(){
     carousel.scrollBy({
-        left: (8 * forecastBoxWidth), top: 0, behavior: 'smooth'
+        left: (6* forecastBoxWidth), top: 0, behavior: 'smooth'
     });
-    clickCounter = clickCounter + 8;
+    clickCounter = clickCounter + 6;
 }
 
-function scrollBackByFour(){
+function scrollForwardByNine(){
     carousel.scrollBy({
-        left: -(4 * forecastBoxWidth), top: 0, behavior: 'smooth'
+        left: (9* forecastBoxWidth), top: 0, behavior: 'smooth'
     });
-    clickCounter = clickCounter - 4;
+    clickCounter = clickCounter + 9;
 }
 
-function scrollBackByEight(){
+function scrollBackByThree(){
     carousel.scrollBy({
-        left: -(8 * forecastBoxWidth), top: 0, behavior: 'smooth'
+        left: -(3 * forecastBoxWidth), top: 0, behavior: 'smooth'
     });
-    clickCounter = clickCounter - 8;
+    clickCounter = clickCounter - 3;
+}
+
+function scrollBackBySix(){
+    carousel.scrollBy({
+        left: -(6 * forecastBoxWidth), top: 0, behavior: 'smooth'
+    });
+    clickCounter = clickCounter - 6;
+}
+
+function scrollBackByNine(){
+    carousel.scrollBy({
+        left: -(9 * forecastBoxWidth), top: 0, behavior: 'smooth'
+    });
+    clickCounter = clickCounter - 9;
 }
 
 function scroll(){
     let activeDotNum = findActiveDot();
-    // console.log(`activeDotNum: ${activeDotNum}`);
+    console.log(`activeDotNum: ${activeDotNum}`);
     let activeDotElement = dotNavs[activeDotNum - 1];
     let nextDotID = this.id;
     let nextDotElement = document.querySelector(`#${nextDotID}`);
@@ -126,19 +151,31 @@ function scroll(){
     {
         nextDotNum = 3;
     }
-    // console.log(`nextDot: ${nextDotNum}`);
+    else if (nextDotID === 'fourthDot')
+    {
+        nextDotNum = 4;
+    }
+    console.log(`nextDot: ${nextDotNum}`);
 
     if ((nextDotNum - activeDotNum) === 1 )
     {
-        // console.log('scrolling forward')
-        scrollForwardByFour();
+        console.log('scrolling forward by 3')
+        scrollForwardByThree();
         activeDotElement.classList.toggle('dotNavActive');
         nextDotElement.classList.add('dotNavActive');
     }
     else if ((nextDotNum - activeDotNum) === 2 )
     {
-        // console.log('scrolling forward twice!')
-        scrollForwardByEight();
+        console.log('scrolling forward by 6')
+        scrollForwardBySix();
+        activeDotElement.classList.toggle('dotNavActive');
+        nextDotElement.classList.add('dotNavActive');
+    
+    }
+    else if ((nextDotNum - activeDotNum) === 3 )
+    {
+        console.log('scrolling forward by 9')
+        scrollForwardByNine();
         activeDotElement.classList.toggle('dotNavActive');
         nextDotElement.classList.add('dotNavActive');
     
@@ -146,14 +183,21 @@ function scroll(){
     else if ((nextDotNum - activeDotNum) === -1)
     {
         // console.log('scrolling backwards')
-        scrollBackByFour();
+        scrollBackByThree();
         activeDotElement.classList.toggle('dotNavActive');
         nextDotElement.classList.add('dotNavActive');
     }
     else if ((nextDotNum - activeDotNum) === -2 )
     {
         // console.log('scrolling backs twice!')
-        scrollBackByEight();
+        scrollBackBySix();
+        activeDotElement.classList.toggle('dotNavActive');
+        nextDotElement.classList.add('dotNavActive');
+    }
+    else if ((nextDotNum - activeDotNum) === -3 )
+    {
+        // console.log('scrolling backs twice!')
+        scrollBackByNine();
         activeDotElement.classList.toggle('dotNavActive');
         nextDotElement.classList.add('dotNavActive');
     }

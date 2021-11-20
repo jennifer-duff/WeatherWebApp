@@ -344,14 +344,14 @@ h3{
 #carousel{
     display: flex;
     align-content: flex-start;
-    width: calc((12vw * 4) + (6 * 1vw) + 8px);
+    width: calc((16vw * 3) + (4 * 1vw) + 8px);
     flex-wrap: nowrap;
-    position: relative;
-    left: 30px;
     overflow-x: scroll;
     scroll-snap-type: x mandatory;
     margin: 0;
     direction: ltr;
+    position: relative;
+    left: 30px;
 }
 
 #carousel::-webkit-scrollbar{
@@ -382,23 +382,27 @@ h3{
     scroll-snap-align: start;
 }
 
+.forecastBox:last-of-type{
+    margin-right: 8px;
+}
+
 .weatherBox{
     box-sizing: border-box;
-    width: 12vw;
-    height: 12vw;
+    width: 16vw;
+    height: 16vw;
     padding: 20px;
     display: grid;
     grid-template-areas: 
         "a b"
         "c c";
     grid-template-rows: 1.25fr 3fr;
-    grid-template-columns: 0.65fr 1fr;
+    grid-template-columns: 0.60fr 1fr;
     gap: 0px;
     justify-content: center;
     align-items: center;
     text-align: center;
     font-family: stratos-lights, stratos, Inter, 'Helvetica Nue', sans-serif;
-    font-size: 22pt;
+    font-size: 26pt;
     font-weight: 300;
     /* background-position: top 80% left 50%;
     background-repeat: no-repeat;
@@ -462,17 +466,19 @@ h3{
 }
 
 .hourlyUmbrella{
-    width: 24px;
-    margin: 0px 2px 0 0px;
+    width: 20pt;
+    margin: 0px 4px 0 0px;
 }
 
 #dotNavContainer{
     display: flex;
     justify-content: center;
     height: 20px;
-    width: calc((12vw * 4) + (6 * 1vw) + 8px); /*formula = (weatherBox width * 4) + (numWeatherBoxMargins * marginWidth*) + boxShadow of last box*/
+    width: calc((16vw * 3) + (4 * 1vw) + 8px);
+    /*formula = (weatherBox width * 4) + (numWeatherBoxMargins * marginWidth*) + boxShadow of last box*/
     margin-top: 20px;
-    margin-left: 60px;
+    position: relative;
+    left: 62px;
 }
 
 .dotNav{
