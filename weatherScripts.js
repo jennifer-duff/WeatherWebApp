@@ -172,6 +172,7 @@ let currWeatherSection = document.querySelector('#currWeatherSection');
 let weatherIconDiv = document.querySelector('#weatherIconDiv');
 // let currTemp = document.querySelector('#currTemp');
 let weatherBoxes = document.querySelectorAll('.weatherBox');
+let iconBoxes = document.querySelectorAll('.iconBox');
 let hourlyTemp = document.querySelectorAll('.hourlyTemp')
 
 //get weather colors + icons
@@ -575,13 +576,16 @@ async function getHighLowTemps(key){
 //------------------------- Get Hourly Forecast Conditions ------------------------------
 let forecastTemps = document.querySelectorAll('.forecastTemp');
 let timeLabels = document.querySelectorAll('.timeLabel');
+let hourlyTempDiv = document.querySelectorAll('.hourlyTemp');
+let hourlyRainChanceDiv = document.querySelectorAll('.hourlyRainChanceDiv');
+let hourlyUmbrella = document.querySelectorAll('.hourlyUmbrella');
 
 async function getHourlyTemps(key){
     await axios.get(`https://dataservice.accuweather.com/forecasts/v1/hourly/12hour/${key}?apikey=mZDDGnloK5jU8t1fbOA952AYshZ4mJYN&details=true`)
     .then(function (response) {
         // console.log(response)
         let hourlyData = response.data
-        console.log(hourlyData);
+        //console.log(hourlyData);
         // console.log(hourlyData[0].DateTime);
         
         for(let i = 0; i < forecastTemps.length; i++)
@@ -596,11 +600,19 @@ async function getHourlyTemps(key){
 
             //check if it's day vs night
             let isDaylight = hourlyData[i].IsDaylight;
-            // console.log(isDaylight);
 
             //set background image + color
             let condition = hourlyData[i].IconPhrase;
-            setWholeBackground(condition, isDaylight, weatherBoxes[i]);
+            setBackgroundColor(condition, isDaylight, weatherBoxes[i]);
+            setWholeBackground(condition, isDaylight, iconBoxes[i]);
+
+            iconBoxes[i].style.borderTop = `1px solid ${nightLineColor}`;
+            hourlyTempDiv[i].style.borderRight = `1px solid ${nightLineColor}`;
+            hourlyRainChanceDiv[i].style.borderLeft = `1px solid ${nightLineColor}`;
+            if (isDaylight === false)
+            {
+                hourlyUmbrella[i].src = 'Assets/umbrellaHourlyNight.svg';
+            }
         }
     })
     .catch(function (error) {

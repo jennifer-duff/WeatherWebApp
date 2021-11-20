@@ -331,13 +331,6 @@ h3{
     line-height: 100%;
 }
 
-#nowLabel{
-    font-weight: 600;
-    /* font-size: 30pt;
-    margin-top: -5px;
-    margin-bottom: 8px; */
-}
-
 #carouselContainer{
     margin: 70px 0 40px 0;
     box-sizing: border-box;
@@ -394,48 +387,83 @@ h3{
     width: 12vw;
     height: 12vw;
     padding: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    font-size: 2.5vw;
-    background-position: top 80% left 50%;
+    display: grid;
+    grid-template-areas: 
+        "a b"
+        "c c";
+    grid-template-rows: 1.25fr 3fr;
+    grid-template-columns: 0.65fr 1fr;
+    gap: 0px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: stratos-lights, stratos, Inter, 'Helvetica Nue', sans-serif;
+    font-size: 22pt;
+    font-weight: 300;
+    /* background-position: top 80% left 50%;
     background-repeat: no-repeat;
-    background-size: 60%;
+    background-size: 55%; */
     border: 2px solid var(--softBlack);
     box-shadow: 8px 8px 0 var(--shadow);
     border-radius: 10px;
-    background-image: url('Assets/sun.svg');
+    /* background-image: url('Assets/sun.svg'); */
+}
+
+.iconBox{
+    background-image: url('Assets/partlySunnyWithRain.svg');
+    background-repeat: no-repeat;
+    background-size: 57%;
+    width: 100%;
+    height: 100%;
+    background-position: top 63% left 50%;
+    /* top 100% left 50%; */
+    grid-area: c;
+    border-top: 1px solid var(--softBlack);
 }
 
 .hourlyTemp{
-    position: relative;
+    /* position: relative; */
     /* top: 0px; */
-    left: 5px;
+    /* left: 5px; */
     line-height: 100%;
     margin: 0;
-    display: inline-block;
+    grid-area: a;
+    border-right: 1px solid var(--softBlack);
+    /* height: 100%; */
+    width: 100%;
+    margin: 0;
+    /* display: inline-block; */
 }
 
 .hourlyRainChanceDiv{
-    position: relative;
-    display: inline-block;
-    top: -10px;
+    text-align: center;
+    grid-area: b;
+    border-left: 1px solid var(--softBlack);
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .hourlyRainChance{
     margin: 0;
     line-height: 100%;
     display: inline-block;
+    vertical-align: center;
 }
 
-/* .hourlyRainChanceLabel{
+.hourlyRainChanceLabel{
     line-height: 80%;
     margin: 0;
-} */
+    /* display: inline-block; */
+}
 
 .hourlyUmbrella{
-    width: 32px;
-    margin: 0px -5px 0 -15px;
+    width: 24px;
+    margin: 0px 2px 0 0px;
 }
 
 #dotNavContainer{
