@@ -735,6 +735,13 @@ window.addEventListener('resize', function() {
     dailyOffset= sections[2].offsetTop - 100;
 })
 
+//starting position
+navLinks[0].childNodes[1].style.opacity = 1;
+navLinks[1].childNodes[1].style.opacity = 0;
+navLinks[2].childNodes[1].style.opacity = 0;
+navLinks[3].childNodes[1].style.opacity = 1;
+navLinks[4].childNodes[1].style.opacity = 0;
+navLinks[5].childNodes[1].style.opacity = 0;
 
 window.addEventListener('scroll', function(){
     let currScrollPos = window.scrollY;
