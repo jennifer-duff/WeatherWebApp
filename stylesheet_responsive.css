@@ -444,8 +444,12 @@
 
     .rainChanceBox{
         padding-left: 10px;
-        flex-wrap: wrap;
+        display: grid;
+        grid-template-rows: 1fr 1fr;
+        grid-template-columns: 1fr;
+        justify-content: center;
         align-items: center;
+        text-align: center;
     }
 
     .rainChanceLabel{
@@ -456,7 +460,7 @@
 
     .umbrella{
         width: 35px;
-        margin: 0 5px -10px 0;
+        margin: 0 30% -10px 30%;
     }
 
     
@@ -557,7 +561,26 @@
     .hourlyUmbrella{
         width: 7pt;
     }
+    rainChanceBox{
+        padding-left: 10px;
+        display: grid;
+        grid-template-rows: 1fr 1fr;
+        grid-template-columns: 1fr;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
 
+    .rainChanceLabel{
+        font-size: 16pt;
+        margin-top: -10px;
+        margin-bottom: 0;
+    }
+
+    .umbrella{
+        width: 35px;
+        margin: 0 30% -10px 30%;
+    }
 
 
     /* --------- 5-Day Forecast ------------*/
@@ -583,7 +606,7 @@
     }
     .umbrella{
         width: 23px;
-        margin: 0 5px -20px 0;
+        margin: 0 30% -10px 20%;
     }
 
 }
