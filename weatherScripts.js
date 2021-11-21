@@ -552,19 +552,6 @@ async function getLocationKey(location) {
 }
 
 
-//TODO: Combine getCurrTemp() and getCurrCondition() to reduce num API calls
-// async function getCurrTemp(key){
-//     // let key = await getLocationKey(key);
-//     await axios.get(`https://dataservice.accuweather.com/currentconditions/v1/${key}?apikey=mZDDGnloK5jU8t1fbOA952AYshZ4mJYN`)
-//         .then(function (response) {
-//             let temp = response.data[0].Temperature.Imperial.Value;
-//             currTemp.innerText = temp;
-//         })
-//         .catch(function (error) {
-//             console.log(error);
-//         })
-// }
-
 async function getCurrCondition(key){
     // let key = await getLocationKey(key);
     await axios.get(`https://dataservice.accuweather.com/currentconditions/v1/${key}?apikey=mZDDGnloK5jU8t1fbOA952AYshZ4mJYN`)
@@ -604,19 +591,6 @@ async function getHighLowTemps(key){
     })
 }
 
-// async function getLowTemp(key){
-//     // let key = await getLocationKey(key);
-//     await axios.get(`https://dataservice.accuweather.com/forecasts/v1/daily/1day/${key}?apikey=mZDDGnloK5jU8t1fbOA952AYshZ4mJYN`)
-//     .then(function (response) {
-//         let ltemp = response.data.DailyForecasts[0].Temperature.Minimum.Value;
-//         lowTemp.innerText = ltemp;
-//     })
-//     .catch(function (error) {
-//         console.log(error);
-//     })
-// }
-
-
 //------------------------- Get Hourly Forecast Conditions ------------------------------
 let forecastTemps = document.querySelectorAll('.forecastTemp');
 let timeLabels = document.querySelectorAll('.timeLabel');
@@ -650,12 +624,14 @@ async function getHourlyTemps(key){
             setBackgroundColor(condition, isDaylight, weatherBoxes[i]);
             setWholeBackground(condition, isDaylight, iconBoxes[i]);
 
-            iconBoxes[i].style.borderTop = `1px solid ${nightLineColor}`;
-            hourlyTempDiv[i].style.borderRight = `1px solid ${nightLineColor}`;
-            hourlyRainChanceDiv[i].style.borderLeft = `1px solid ${nightLineColor}`;
             if (isDaylight === false)
             {
                 hourlyUmbrella[i].src = 'Assets/umbrellaHourlyNight.svg';
+                hourlyTempDiv[i].style.borderRight = `1px solid ${nightLineColor}`;
+                hourlyTempDiv[i].style.borderTop = `1px solid ${nightLineColor}`;
+
+                hourlyRainChanceDiv[i].style.borderLeft = `1px solid ${nightLineColor}`;
+                hourlyRainChanceDiv[i].style.borderTop = `1px solid ${nightLineColor}`;
             }
         }
     })
@@ -732,140 +708,9 @@ async function getDailyForecasts(key){
 }
 
 //------------------------- Handle Navigation ------------------------------
-//let navLinks = document.querySelectorAll('.navBox');
-// console.log(navLinks);
+
 let backToTop = document.querySelectorAll('#backToTop')[0];
 let sections = document.querySelectorAll('section');
-//click on navbar links
-// for (let i = 0; i < navLinks.length; i++){
-//     navLinks[i].addEventListener('click', function(event){
-//         // console.log(`target: ${event.target}`);
-//         // console.log(event.target);
-       
-//         for (let i = 0; i < navLinks.length; i++)
-//         {
-//             // console.log(navLinks[i].childNodes[3]);
-//             if (navLinks[i].childNodes[3] === event.target)
-//             {
-//                 // console.log(event.target.parentElement.childNodes[1]);
-//                 event.target.parentElement.childNodes[1].style.backgroundColor = 'rgb(97, 176, 182)';
-//             }
-//             else
-//             {
-//                 navLinks[i].childNodes[1].style.backgroundColor = 'rgb(255, 251, 246)'; 
-//             }
-//         }
-//     })
-// }
-
-//scrolling to new section
-// let firstSectionHeight = sections[0].offsetHeight;
-// let secondSectionHeight = sections[1].offsetHeight;
-// let thirdSectionHeight = sections[2].offsetHeight;
-// console.log(`firstSectionHeight: ${firstSectionHeight}`);
-// console.log(`secondSectionHeight: ${secondSectionHeight}`);
-// console.log(`thirdSectionHeight: ${thirdSectionHeight}`);
-// console.log(secondSectionHeight + firstSectionHeight - 200);
-
-// window.addEventListener('scroll', function(){
-//     let scrollDistance = window.scrollY;
-//     // console.log(`scrollDistance: ${scrollDistance}`);
-//     if (scrollDistance < (secondSectionHeight - 100))
-//     {
-//         navLinks[0].childNodes[1].style.backgroundColor = 'rgb(97, 176, 182)'; 
-//         navLinks[1].childNodes[1].style.backgroundColor = 'rgb(255, 251, 246)';
-//         navLinks[2].childNodes[1].style.backgroundColor = 'rgb(255, 251, 246)';
-        
-//         navLinks[3].childNodes[1].style.backgroundColor = 'rgb(97, 176, 182)'; 
-//         navLinks[4].childNodes[1].style.backgroundColor = 'rgb(255, 251, 246)';
-//         navLinks[5].childNodes[1].style.backgroundColor = 'rgb(255, 251, 246)';
-//     }
-//     else if(scrollDistance >= (secondSectionHeight - 100) && scrollDistance < (secondSectionHeight + firstSectionHeight - 300) )
-//     {
-//         navLinks[0].childNodes[1].style.backgroundColor = 'rgb(255, 251, 246)'; 
-//         navLinks[1].childNodes[1].style.backgroundColor = 'rgb(97, 176, 182)';
-//         navLinks[2].childNodes[1].style.backgroundColor = 'rgb(255, 251, 246)';
-
-//         navLinks[3].childNodes[1].style.backgroundColor = 'rgb(255, 251, 246)'; 
-//         navLinks[4].childNodes[1].style.backgroundColor = 'rgb(97, 176, 182)';
-//         navLinks[5].childNodes[1].style.backgroundColor = 'rgb(255, 251, 246)';
-//     }
-//     else
-//     {
-//         navLinks[0].childNodes[1].style.backgroundColor = 'rgb(255, 251, 246)'; 
-//         navLinks[1].childNodes[1].style.backgroundColor = 'rgb(255, 251, 246)';
-//         navLinks[2].childNodes[1].style.backgroundColor = 'rgb(97, 176, 182)';
-
-//         navLinks[3].childNodes[1].style.backgroundColor = 'rgb(255, 251, 246)'; 
-//         navLinks[4].childNodes[1].style.backgroundColor = 'rgb(255, 251, 246)';
-//         navLinks[5].childNodes[1].style.backgroundColor = 'rgb(97, 176, 182)';
-//     }
-// })
-
-// function changeNavUnderline(sections){
-//     for (let section of sections) {
-//         if (section.isIntersecting)
-//         {            
-//             console.log(section);
-//             let index = sections.indexOf(section);
-//             console.log(index);
-//             section.target.classList.add('.visibleNavUnderline');
-//         }
-//         else
-//         {
-//             section.target.classList.remove('.visibleNavUnderline');
-//         }
-//     };
-// };
-
-// console.log(navLinks);
-
-// let currBox = undefined;
-// function navScrollHandler(currSection)
-// {
-//     if (currSection === 1)
-//     {
-//         currBox = document.querySelectorAll('.currConditionBox')
-//     }
-//     else if (currSection === 2)
-//     {
-//         currBox = document.querySelectorAll('.hourlyForecastBox')
-//     }
-//     else if (currSection === 3)
-//     {
-//         currBox = document.querySelectorAll('.fiveDayForecastBox')
-//     }
-
-//     for (let i = 0; i < navLinks.length; i++)
-//     {
-//         console.log(currBox.includes(navLinks[i]));
-
-//         if (currBox.includes(navLinks[i]))
-//         {   
-//             for (let box of currBox)
-//             {
-//                 navLinks[i].childNodes[1].style.opacity = 1;
-//             }
-//         }
-//         else
-//         {
-//             navLinks[i].childNodes[1].style.opacity = 0;
-//         }
-//     }
-// }
-
-// let firstSectionTop = 0;
-// let secondSectionTop = parseInt(getComputedStyle(sections[0]).height) - 150;
-// let thirdSectionTop = secondSectionTop + parseInt(getComputedStyle(sections[1]).height) - 150;
-// //let thirdSectionHeight = sections[2].scrollHeight;
-// console.log(`secondSectionTop: ${secondSectionTop}`);
-// console.log(`thirdSectionTop: ${thirdSectionTop}`);
-// navLinks[0].childNodes[1].style.opacity = '1';
-// navLinks[1].childNodes[1].style.opacity = '0';
-// navLinks[2].childNodes[1].style.opacity = '0';
-// navLinks[3].childNodes[1].style.opacity = '1';
-// navLinks[4].childNodes[1].style.opacity = '0';
-// navLinks[0].childNodes[1].style.opacity = '0';
 
 let hourlyOffset = sections[1].offsetTop - 100;
 let dailyOffset= sections[2].offsetTop - 100;
@@ -926,41 +771,6 @@ window.addEventListener('scroll', function(){
         navLinks[5].childNodes[1].style.opacity = 1;
     }
 })
-
-// function changeNavUnderline(entries){
-//     entries.map((entry) => {
-//         console.log(entry.target.id);
-//         let currSection = document.querySelector(`#${entry.target.id}`);
-//         //let nextSection = currSection.nextElementSibling;
-
-//         if (entry.isIntersecting)
-//         {
-//             entry.target.style.backgroundColor = 'purple';
-//         }
-//         else
-//         {
-//             entry.target.style.backgroundColor = 'red';
-//         }
-//     })
-// }
-
-// const optionsA = {
-//     threshold: 0.5,
-// }
-
-// let fiveDayheader = document.querySelector('#fiveDayHeader');
-// let targets = [];
-// targets.push(sections[0]);
-// targets.push(sections[1]);
-// targets.push(fiveDayheader);
-
-// let body = document.querySelector('body');
-
-// let observer = new IntersectionObserver(changeNavUnderline, optionsA);
-// for (let target of targets){
-//     observer.observe(target);
-// }
-
 
 //clicks on BackToTop button
 backToTop.addEventListener('click', function(event){
