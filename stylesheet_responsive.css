@@ -35,7 +35,7 @@
     }
 
     .weatherBox{
-        font-size: 22pt;
+        font-size: 20pt;
     }
 
     .hourlyUmbrella{
@@ -80,14 +80,19 @@
         width: 285px;
     }
 
+    /* ------ Hourly Forecasts ------*/
+
     .weatherBox{
-        font-size: 20pt;
+        width: 22.5vw;
+        height: 22.5vw;
     }
 
-    .hourlyUmbrella{
-        width: 16pt;
+    #carousel, #dotNavContainer{
+        width: calc((22.5vw * 3) + (4 * 1vw) + 8px);
     }
 
+
+     /* ------ 5-Day Forecasts ------*/
     .date{
         font-size: 24pt;
     }
@@ -171,31 +176,55 @@
         width: 145px;
     }
 
+    
+    /* ------ Hourly Forecasts ------*/
+    #hourlyForecastSection{
+        padding-right: 5%;
+    }
+
+    #carousel, #dotNavContainer{
+        width: calc((24vw * 3) + (4 * 1vw) + 8px);
+    }
+
+    #carousel{
+        left: -20px;
+    }
+
     .arrow{
         width: 20px;
     }
 
     .arrow:first-of-type{
-        left: 10px;
+        left: -50px;
     }
-    
+
     .arrow:last-of-type{
-        left: 50px;
+        left: 10px;
     }
 
     #dotNavContainer{
-        left: 53px;
+        margin-top: 15px;
+    }
+
+    .dotNav{
+        width: 13px;
+        height: 13px;
     }
 
     .weatherBox{
-        font-size: 14pt;
+        font-size: 18pt;
         padding: 10px;
+        width: 24vw;
+        height: 24vw;
+    }
 
+    .iconBox{
+        margin-bottom: 10px;
     }
 
     .hourlyUmbrella{
-        width: 11pt;
-        margin-right: 1px;
+        width: 16pt;
+        margin-right: 3px;
     }
 
     footer{
@@ -204,7 +233,10 @@
 }
 
 @media (max-width: 650px){
-    
+    section{
+        padding-top: 60px;
+    }
+
     h1{
         font-size: 30pt;
         padding-top: 30px;
@@ -236,20 +268,12 @@
         max-width: 95%;
     }
 
-    #carousel{
-        left: -5px;
-    }
+    
+    /* ------ Hourly Forecasts ------*/
 
-    #dotNavContainer{
-        left: 18px;
-    }
-
-    .arrow{
-        margin-top: 6.5vw;
-    }
 
     .arrow:first-of-type{
-        left: -15px;
+        left: -40px;
     }
     
     .arrow:last-of-type{
@@ -260,12 +284,31 @@
         font-size: 20pt;
     }
 
+    .forecastBox:last-of-type{
+        margin-right: 4px;
+    }
+
     .weatherBox{
-        font-size: 12pt;
+        font-size: 14pt;
+        width: 23.25vw;
+        height: 23.25vw;
+        box-shadow: 4px 4px 0px var(--softBlack);
+    }
+
+    #carousel, #dotNavContainer{
+        width: calc((23.25vw * 3) + (4 * 1vw) + 4px); 
+    }
+
+    #carouselContainer{
+        margin-bottom: 25px;
+    }
+
+    #dotNavContainer{
+        margin-top: 0px;
     }
 
     .hourlyUmbrella{
-        width: 10pt;
+        width: 12pt;
     }
 
 
@@ -285,11 +328,18 @@
 
 @media (max-width: 510px){
     
+    section{
+        padding: 50px 25px 0 25px;
+    }
+
     h1{
         font-size: 25pt;
         padding-top: 20px;
     }
 
+    h2{
+        margin: -20px 0 40px 0;    
+    }
 
     #currTemp, #degreeSign, #currWeather{
         font-size: 35pt;
@@ -309,21 +359,55 @@
         font-size: 20pt;
     }
 
-    
-    .weatherBox{
-        width: 20vw;
-        height: 20vw;
-        font-size: 10pt;
+    #backToTop{
+        top: 85vh;
     }
 
+    /* /*---------- hourly forecast /*---------- */
+    .forecastBox{
+        margin: 0 1.25vw 5px 1.25vw;
+    }
+
+    .forecastBox:last-of-type{
+        margin-right: 5px;
+    }
+    
+    .weatherBox{
+        width: 22vw;
+        height: 22vw;
+        font-size: 11pt;
+        box-shadow: 5px 5px 0px var(--softBlack);
+    }
+    
+
     #carousel, #dotnavContainer{
-        width: calc((20vw * 3) + (4 * 1vw) + 8px);
+        width: calc((22vw * 3) + (4 * 1.25vw) + 5px);
+    }
+
+    #carousel{
+        left: 3px;
+    }
+
+    #dotNavContainer{
+        left: 20px;
+    }
+
+    .arrow:first-of-type{
+        left: -10px;
+    }
+    
+    .arrow:last-of-type{
+        left: 15px;
     }
 
     .hourlyUmbrella{
-        width: 8pt;
+        width: 10pt;
+        margin-right: 1px;
     }
 
+    /* .arrow:last-of-type{
+        margin: 0;
+    } */
 
     /*---------- 5-Day Forecast ----------*/
     .dayTile{
@@ -378,10 +462,10 @@
     
 }
 
-@media (max-width: 375px){
-    section{
+@media (max-width: 400px){
+    /* section{
         padding: 100px 7% 0 5%;
-    }
+    } */
 
     #geotagIcon{
         margin-right: 5px;
@@ -438,10 +522,7 @@
     .forecastBox{
         margin: 0 1.25vw 3px 1.25vw;
     }
-    .forecastBox:last-of-type{
-        margin-right: 3px;
-    }
-    
+
     .forecastBox:last-of-type{
         margin-right: 3px;
     }
@@ -453,7 +534,7 @@
     .weatherBox{
         width: 21vw;
         height: 21vw;
-        font-size: 10pt;
+        font-size: 9pt;
         box-shadow: 3px 3px 0 var(--shadow);
     }
 
@@ -474,7 +555,7 @@
     }
 
     .hourlyUmbrella{
-        width: 8pt;
+        width: 7pt;
     }
 
 
