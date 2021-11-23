@@ -184,17 +184,7 @@ section{
 }
 
 
-h1{
-    box-sizing: border-box;
-    font-family: stratos-lights, stratos, Inter, 'Helvetica Nue', sans-serif;
-    font-weight: 200;
-    font-size: 40pt;
-    /* margin-top: 50px; */
-    margin-bottom: 0;
-    padding-top: 25px;
-    line-height: 150%;
-    text-align: center;
-}
+
 
 #backToTop{
     box-sizing: border-box;
@@ -235,6 +225,22 @@ h1{
     padding-bottom: 100px;
     margin-top: -90px;
     z-index: 3;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+
+}
+
+h1{
+    box-sizing: border-box;
+    font-family: stratos-lights, stratos, Inter, 'Helvetica Nue', sans-serif;
+    font-weight: 200;
+    font-size: 40pt;
+    margin-bottom: 0;
+    /* padding-top: 25px; */
+    line-height: 150%;
+    text-align: center;
 }
 
 #currTemp, #degreeSign, #currWeather{
@@ -257,7 +263,7 @@ h1{
     text-align: center;
     font-size: 25pt;
     font-weight: 200;
-    margin-bottom: 5vh;
+    /* margin-bottom: 5vh; */
 }
 
 #highLow span{
