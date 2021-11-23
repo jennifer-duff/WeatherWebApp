@@ -579,15 +579,19 @@
     }
 
     #carousel{
-        left: 10px;
+        left: 0px;
+    }
+
+    #dotNavContainer{
+        left: 13px;
     }
 
     .arrow:first-of-type{
-        left: -5px;
+        left: -10px;
     }
     
     .arrow:last-of-type{
-        left: 20px;
+        left: 10px;
     }
 
     .hourlyUmbrella{
@@ -631,20 +635,24 @@
     }
 
     .highLowLabels{
-        font-size: 13pt;
+        font-size: 14pt;
         height: 100px;
-        row-gap: 7px;
+        row-gap: 5px;
         margin-top: -7px;
     }
 
+    .rainChanceBox{
+        padding-left: 20px;
+    }
+
     .rainChanceLabel{
-        font-size: 14pt;
+        font-size: 16pt;
         margin-top: -20px;
         margin-bottom: 0;
     }
     .umbrella{
-        width: 23px;
-        margin: 0 30% -10px 20%;
+        width: 27px;
+        margin: 0 30% -10px 0;
     }
 
 }
