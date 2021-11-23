@@ -568,6 +568,7 @@ async function getCurrCondition(key){
             //set current condition label
             let currIsDaytime = response.data[0].IsDayTime;
             let condition = response.data[0].WeatherText;
+            console.log(condition);
             let element = currWeather;
             let linkingWord = currLinkingWord;
             setConditionLabel(condition, linkingWord, element);
@@ -627,14 +628,41 @@ async function getHourlyTemps(key){
             setBackgroundColor(condition, isDaylight, weatherBoxes[i]);
             setWholeBackground(condition, isDaylight, iconBoxes[i]);
 
-            if (isDaylight === false)
-            {
-                hourlyUmbrella[i].src = 'Assets/umbrellaHourlyNight.svg';
-                hourlyTempDiv[i].style.borderRight = `1px solid ${nightLineColor}`;
-                hourlyTempDiv[i].style.borderTop = `1px solid ${nightLineColor}`;
 
-                hourlyRainChanceDiv[i].style.borderLeft = `1px solid ${nightLineColor}`;
-                hourlyRainChanceDiv[i].style.borderTop = `1px solid ${nightLineColor}`;
+            
+
+            if (isDaylight === false)
+            {                   
+                hourlyUmbrella[i].src = 'Assets/umbrellaHourlyNight.svg';
+                hourlyTempDiv[i].style.borderColor = nightLineColor;
+                hourlyRainChanceDiv[i].style.borderColor = nightLineColor;
+
+                // let window510 = window.matchMedia('(max-width: 510px)');
+                // let window400 = window.matchMedia('(max-width: 400px)');
+
+                // function changeBorders(){
+                //     let window650 = window.matchMedia('(max-width: 650px)');
+
+                //     if (window650.matches)
+                //     {
+                //         console.log('it matches!')
+                //         hourlyTempDiv[i].style.borderColor = nightLineColor;
+                //         // hourlyTempDiv[i].style.borderTop = `1px solid ${nightLineColor}`;
+                //     }
+    
+                //     else
+                //     {
+                //         console.log('it does NOT match');
+                //         hourlyTempDiv[i].style.borderRight = `1px solid ${nightLineColor}`;
+                //         hourlyTempDiv[i].style.borderTop = `1px solid ${nightLineColor}`;
+    
+                //         hourlyRainChanceDiv[i].style.borderLeft = `1px solid ${nightLineColor}`;
+                //         hourlyRainChanceDiv[i].style.borderTop = `1px solid ${nightLineColor}`;
+                //     }
+                // }
+
+                // window.addEventListener('resize', changeBorders());
+
             }
         }
     })
@@ -851,10 +879,8 @@ locationInputElement.addEventListener('change', async function() {
         strUserLocation = locationInputElement.value;
         console.log(strUserLocation);
         await getLocationKey(strUserLocation);
-        // getCurrTemp(key);
         getCurrCondition(key);
         getHighLowTemps(key);
-        // getLowTemp(key);
         getHourlyTemps(key);
         getDailyForecasts(key);
     }

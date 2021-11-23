@@ -270,8 +270,6 @@
 
     
     /* ------ Hourly Forecasts ------*/
-
-
     .arrow:first-of-type{
         left: -40px;
     }
@@ -289,10 +287,16 @@
     }
 
     .weatherBox{
-        font-size: 14pt;
+        font-size: 16pt;
         width: 23.25vw;
-        height: 23.25vw;
+        height: 32vw;
         box-shadow: 4px 4px 0px var(--softBlack);
+        grid-template-areas: 
+        "c"
+        "a"
+        "b";
+        grid-template-rows: 2fr 1fr 1fr;
+        grid-template-columns: 1fr;
     }
 
     #carousel, #dotNavContainer{
@@ -307,11 +311,31 @@
         margin-top: 0px;
     }
 
-    .hourlyUmbrella{
-        width: 12pt;
+    .iconBox{
+        /* margin-bottom: 8px; */
+        background-position: center;
+        padding: 0;
     }
 
+    .hourlyTemp{
+        border-right-style: none;
+        border-top: 1px solid var(--softBlack);
+        border-bottom: 1px solid var(--softBlack);
+        padding: 0px 0;
+        margin-top: 10px;
+    }
 
+    .hourlyRainChanceDiv{
+        border-style: none;
+        padding-top: 7px;
+    }
+
+    .hourlyUmbrella{
+        width: 14pt;
+    }
+
+    
+/* -------- 5-Day Forecast -------- */
     .highLowLabels{
         font-size: 20pt;
     }
@@ -374,8 +398,8 @@
     
     .weatherBox{
         width: 22vw;
-        height: 22vw;
-        font-size: 11pt;
+        height: 37vw;
+        font-size: 14pt;
         box-shadow: 5px 5px 0px var(--softBlack);
     }
     
@@ -400,9 +424,17 @@
         left: 15px;
     }
 
+    .hourlyTemp{
+        padding: 2.5px 0;
+    }
+
     .hourlyUmbrella{
-        width: 10pt;
+        width: 12pt;
         margin-right: 1px;
+    }
+
+    .hourlyRainChanceDiv{
+        margin-top: 5px;
     }
 
     /* .arrow:last-of-type{
@@ -537,8 +569,8 @@
 
     .weatherBox{
         width: 21vw;
-        height: 21vw;
-        font-size: 9pt;
+        height: 37vw;
+        font-size: 12pt;
         box-shadow: 3px 3px 0 var(--shadow);
     }
 
@@ -559,9 +591,15 @@
     }
 
     .hourlyUmbrella{
-        width: 7pt;
+        width: 10pt;
     }
-    rainChanceBox{
+
+    .hourlyTemp{
+        padding: 1.5px 0;
+        margin-top: 2px;
+    }
+    
+    .rainChanceBox{
         padding-left: 10px;
         display: grid;
         grid-template-rows: 1fr 1fr;
