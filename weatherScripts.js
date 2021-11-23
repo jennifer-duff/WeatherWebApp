@@ -287,6 +287,7 @@ function setBackgroundColor(weather, isDaylight, element){
             
             case 'showers':
             case 'mostly cloudy w/ showers':
+            case 'light rain':
             case 'rain':
                 element.style.backgroundColor = rainColor;
                 break;
@@ -346,6 +347,7 @@ function setWholeBackground(weather, isDaylight, element){
         case 'showers':
         case 'mostly cloudy w/ showers':
         case 'partly cloudy w/ showers':
+        case 'light rain':
         case 'rain':
             if (isDaylight === true)
             {
@@ -513,6 +515,7 @@ function setConditionLabel(condition, linkingWord, element){
         case 'showers':
         case 't-storms':
         case 'rain':
+        case 'light rain':
         case 'flurries':
         case 'snow':
         case 'ice':
