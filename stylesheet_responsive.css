@@ -568,14 +568,15 @@
     }
 
     .weatherBox{
-        width: 21vw;
-        height: 37vw;
-        font-size: 12pt;
+        width: 22vw;
+        height: 40vw;
+        font-size: 15pt;
+        padding: 5px;
         box-shadow: 3px 3px 0 var(--shadow);
     }
 
     #carousel, #dotnavContainer{
-        width: calc((21vw * 3) + (4 * 1.25vw) + 3px);
+        width: calc((22vw * 3) + (4 * 1.25vw) + 3px);
     }
 
     #carousel{
@@ -594,15 +595,24 @@
         left: 10px;
     }
 
+
+    .iconBox{
+        margin-bottom: 5px;
+    }
+    
     .hourlyUmbrella{
-        width: 10pt;
+        width: 12pt;
     }
 
     .hourlyTemp{
-        padding: 1.5px 0;
+        padding: 0;
         margin-top: 2px;
     }
     
+    .hourlyRainChanceDiv{
+        margin: 0;
+    }
+
     .rainChanceBox{
         padding-left: 10px;
         display: grid;
@@ -611,6 +621,7 @@
         justify-content: center;
         align-items: center;
         text-align: center;
+        margin: 0px;
     }
 
     .rainChanceLabel{
