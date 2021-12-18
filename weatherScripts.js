@@ -690,7 +690,7 @@ function getDate(){
     datesArray.push(localDateTime);
     // console.log(datesArray[0]);
 
-
+    // pushes full dateTime of next 5 days into datesArray[]
     for (let i = 0 ; i < 5; i++)
     {
         let tomorrow = new Date(datesArray[i]);
@@ -700,13 +700,15 @@ function getDate(){
         datesArray.push(localTomorrow);
     }
     
+    // shortens dateTimes into simple dates, in the format XX/X
     for (let i = 0 ; i <= 5; i++)
     {
         datesArray[i] = datesArray[i].toString();
-        datesArray[i] = datesArray[i].substring(0, 5);
-    }
+        datesArray[i] = datesArray[i].substring(0, (datesArray[i].indexOf('/', 3)));
+        console.log(datesArray[i]);
+        }
 
-    // console.log(datesArray);
+    //console.log(datesArray);
     return datesArray;
 }
 

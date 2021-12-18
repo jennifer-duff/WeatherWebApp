@@ -193,14 +193,14 @@ section{
     width: 55px;
     height: 55px;
     position: fixed;
-    top: 90vh;
+    bottom: 10vh;
     right: 50px;
     border-radius: 50%;
     z-index: 3;
     box-shadow: 3px 3px 0 var(--softBlack);
     border: 1px solid var(--softBlack);
     font-family: stratos, Inter, 'Helvetica Nue', sans-serif;
-    font-weight: 700;
+    font-weight: 500;
     font-size: 20pt;
     line-height: 100%;
     text-decoration: none;
