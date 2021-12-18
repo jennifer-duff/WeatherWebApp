@@ -207,6 +207,49 @@ for (let i = 0; i < dotNavs.length; i++){
     dotNavs[i].addEventListener('click', scroll);
 }
 
+// ----------------------------------------------------------------------
+console.log(`forecastBoxWidth: ${forecastBoxWidth}`);
+console.log(`forecastBoxWidth * 3 =  ${forecastBoxWidth * 3}`);
+
+carousel.addEventListener('scroll', function(){
+    let carouselScrollPos = carousel.scrollLeft;
+    //console.log(carouselScrollPos);
+
+    let carouselViewPane = (forecastBoxWidth * 3 - 10);
+    
+    if (carouselScrollPos < carouselViewPane)
+    {
+        firstDot.classList.add('dotNavActive');
+        secondDot.classList.remove('dotNavActive');
+        thirdDot.classList.remove('dotNavActive');
+        fourthDot.classList.remove('dotNavActive');
+        console.log('first viewPane');
+    }
+    else if ((carouselScrollPos >= carouselViewPane) && (carouselScrollPos < (carouselViewPane * 2)))
+    {
+        firstDot.classList.remove('dotNavActive');
+        secondDot.classList.add('dotNavActive');
+        thirdDot.classList.remove('dotNavActive');
+        fourthDot.classList.remove('dotNavActive');
+        console.log('second viewPane');
+    }
+    else if ((carouselScrollPos >= (carouselViewPane * 2)) && (carouselScrollPos < (carouselViewPane * 3)))
+    {
+        firstDot.classList.remove('dotNavActive');
+        secondDot.classList.remove('dotNavActive');
+        thirdDot.classList.add('dotNavActive');
+        fourthDot.classList.remove('dotNavActive');
+        console.log('third viewPane');
+    }
+    else if ((carouselScrollPos >= (carouselViewPane * 3)) && (carouselScrollPos < (carouselViewPane * 4)))
+    {
+        firstDot.classList.remove('dotNavActive');
+        secondDot.classList.remove('dotNavActive');
+        thirdDot.classList.remove('dotNavActive');
+        fourthDot.classList.add('dotNavActive');
+        console.log('fourth viewPane');
+    }
+})
 
 //----------------------- Set background image + color based on weather----------------------------
 //Get objects
@@ -414,8 +457,6 @@ function setWholeBackground(weather, isDaylight, element){
             }
             break;
 
-        
-
         case 'flurries':
         case 'partly sunny w/ flurries':
         case 'mostly cloudy w/ flurries':
@@ -502,9 +543,6 @@ function setWholeBackground(weather, isDaylight, element){
 }
 
 function setConditionLabel(condition, linkingWord, element){
-    // let currIsDaytime = response.data[0].IsDayTime;
-    // let condition = response.data[0].WeatherText;
-    // console.log(condition);
     condition = condition.toLowerCase()
     element.innerText = condition;
     switch (condition)
@@ -627,42 +665,12 @@ async function getHourlyTemps(key){
             let condition = hourlyData[i].IconPhrase;
             setBackgroundColor(condition, isDaylight, weatherBoxes[i]);
             setWholeBackground(condition, isDaylight, iconBoxes[i]);
-
-
             
-
             if (isDaylight === false)
             {                   
                 hourlyUmbrella[i].src = 'Assets/umbrellaHourlyNight.svg';
                 hourlyTempDiv[i].style.borderColor = nightLineColor;
                 hourlyRainChanceDiv[i].style.borderColor = nightLineColor;
-
-                // let window510 = window.matchMedia('(max-width: 510px)');
-                // let window400 = window.matchMedia('(max-width: 400px)');
-
-                // function changeBorders(){
-                //     let window650 = window.matchMedia('(max-width: 650px)');
-
-                //     if (window650.matches)
-                //     {
-                //         console.log('it matches!')
-                //         hourlyTempDiv[i].style.borderColor = nightLineColor;
-                //         // hourlyTempDiv[i].style.borderTop = `1px solid ${nightLineColor}`;
-                //     }
-    
-                //     else
-                //     {
-                //         console.log('it does NOT match');
-                //         hourlyTempDiv[i].style.borderRight = `1px solid ${nightLineColor}`;
-                //         hourlyTempDiv[i].style.borderTop = `1px solid ${nightLineColor}`;
-    
-                //         hourlyRainChanceDiv[i].style.borderLeft = `1px solid ${nightLineColor}`;
-                //         hourlyRainChanceDiv[i].style.borderTop = `1px solid ${nightLineColor}`;
-                //     }
-                // }
-
-                // window.addEventListener('resize', changeBorders());
-
             }
         }
     })
