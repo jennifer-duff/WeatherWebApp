@@ -10,6 +10,12 @@ let forecastBoxStyle = window.getComputedStyle(forecastBox);
 let forecastBoxWidth = 2 * parseFloat(forecastBoxStyle.marginRight) + parseFloat(forecastBoxStyle.width)
 let forecastBoxHeight = parseFloat(forecastBoxStyle.height);
 
+window.addEventListener('resize', function() {
+    forecastBoxStyle = window.getComputedStyle(forecastBox);
+    forecastBoxWidth = 2 * parseFloat(forecastBoxStyle.marginRight) + parseFloat(forecastBoxStyle.width)
+    forecastBoxHeight = parseFloat(forecastBoxStyle.height);
+})
+
 let clickCounter = 0;
 
 function scrollToNext(){
@@ -774,6 +780,7 @@ navLinks.push(hamburgerNavBox[5]);
 window.addEventListener('resize', function() {
     hourlyOffset = sections[1].offsetTop - 100;
     dailyOffset= sections[2].offsetTop - 100;
+    //forecastBoxStyle = window.getComputedStyle(forecastBox);
 })
 
 //starting position
