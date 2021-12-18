@@ -208,8 +208,8 @@ for (let i = 0; i < dotNavs.length; i++){
 }
 
 // ----------------------------------------------------------------------
-console.log(`forecastBoxWidth: ${forecastBoxWidth}`);
-console.log(`forecastBoxWidth * 3 =  ${forecastBoxWidth * 3}`);
+// console.log(`forecastBoxWidth: ${forecastBoxWidth}`);
+// console.log(`forecastBoxWidth * 3 =  ${forecastBoxWidth * 3}`);
 
 carousel.addEventListener('scroll', function(){
     let carouselScrollPos = carousel.scrollLeft;

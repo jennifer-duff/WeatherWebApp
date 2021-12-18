@@ -460,9 +460,9 @@
         margin-left: -5px;
     }
 
-    .lowerTile{
+    /* .lowerTile{
         height: 100px;
-    }
+    } */
 
     .highLowBox{
         padding: 0 14px;
@@ -643,6 +643,11 @@
 
     .conditionLabel{
         font-size: 18pt;
+    }
+
+    .lowerTile{
+        height: 100px;
+        grid-template-columns: 1.20fr 1.20fr 0.8fr;
     }
 
     .highLowLabels{
