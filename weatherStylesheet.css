@@ -212,6 +212,7 @@ section{
 
 #backToTopArrow{
     max-height: 25px;
+    max-width: 25px;
 }
 
 #backToTop:hover{
