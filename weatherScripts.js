@@ -138,7 +138,7 @@ function scrollBackByNine(){
 
 function scroll(){
     let activeDotNum = findActiveDot();
-    console.log(`activeDotNum: ${activeDotNum}`);
+    //console.log(`activeDotNum: ${activeDotNum}`);
     let activeDotElement = dotNavs[activeDotNum - 1];
     let nextDotID = this.id;
     let nextDotElement = document.querySelector(`#${nextDotID}`);
@@ -165,14 +165,14 @@ function scroll(){
 
     if ((nextDotNum - activeDotNum) === 1 )
     {
-        console.log('scrolling forward by 3')
+        //console.log('scrolling forward by 3')
         scrollForwardByThree();
         activeDotElement.classList.toggle('dotNavActive');
         nextDotElement.classList.add('dotNavActive');
     }
     else if ((nextDotNum - activeDotNum) === 2 )
     {
-        console.log('scrolling forward by 6')
+        //console.log('scrolling forward by 6')
         scrollForwardBySix();
         activeDotElement.classList.toggle('dotNavActive');
         nextDotElement.classList.add('dotNavActive');
@@ -180,7 +180,7 @@ function scroll(){
     }
     else if ((nextDotNum - activeDotNum) === 3 )
     {
-        console.log('scrolling forward by 9')
+        //console.log('scrolling forward by 9')
         scrollForwardByNine();
         activeDotElement.classList.toggle('dotNavActive');
         nextDotElement.classList.add('dotNavActive');
@@ -229,7 +229,7 @@ carousel.addEventListener('scroll', function(){
         secondDot.classList.remove('dotNavActive');
         thirdDot.classList.remove('dotNavActive');
         fourthDot.classList.remove('dotNavActive');
-        console.log('first viewPane');
+        //console.log('first viewPane');
     }
     else if ((carouselScrollPos >= carouselViewPane) && (carouselScrollPos < (carouselViewPane * 2)))
     {
@@ -237,7 +237,7 @@ carousel.addEventListener('scroll', function(){
         secondDot.classList.add('dotNavActive');
         thirdDot.classList.remove('dotNavActive');
         fourthDot.classList.remove('dotNavActive');
-        console.log('second viewPane');
+        //console.log('second viewPane');
     }
     else if ((carouselScrollPos >= (carouselViewPane * 2)) && (carouselScrollPos < (carouselViewPane * 3)))
     {
@@ -245,7 +245,7 @@ carousel.addEventListener('scroll', function(){
         secondDot.classList.remove('dotNavActive');
         thirdDot.classList.add('dotNavActive');
         fourthDot.classList.remove('dotNavActive');
-        console.log('third viewPane');
+        //console.log('third viewPane');
     }
     else if ((carouselScrollPos >= (carouselViewPane * 3)) && (carouselScrollPos < (carouselViewPane * 4)))
     {
@@ -253,7 +253,7 @@ carousel.addEventListener('scroll', function(){
         secondDot.classList.remove('dotNavActive');
         thirdDot.classList.remove('dotNavActive');
         fourthDot.classList.add('dotNavActive');
-        console.log('fourth viewPane');
+        //console.log('fourth viewPane');
     }
 })
 
@@ -586,7 +586,7 @@ let key = ''
 
 
 
-async function getLocationKey(location) {
+async function getLocationKeyStr(location) {
     let response = await axios.get(`https://dataservice.accuweather.com/locations/v1/cities/search?apikey=mZDDGnloK5jU8t1fbOA952AYshZ4mJYN&q=${location}`)
         .then(function (response){
             // console.log(`location key: ${response.data[0].Key}`);
@@ -886,6 +886,47 @@ document.body.addEventListener('click', function(event){
 // }
 
 //------------------------- Set All Conditions ------------------------------
+
+//set info
+function setInfo(key){
+    getCurrCondition(key);
+    getHighLowTemps(key);
+    getHourlyTemps(key);
+    getDailyForecasts(key);
+}
+
+
+// lookup weather @ user's current position via coordinates
+async function getLocationKeyCoord(lat, long) {
+    let response = await axios.get(`http://dataservice.accuweather.com/locations/v1/cities/geoposition/search?apikey=mZDDGnloK5jU8t1fbOA952AYshZ4mJYN&q=${lat}%2C%20${long}`)
+        .then(function (response){
+            console.log(response);
+
+            key = response.data.Key;
+            console.log(key);
+
+            locationInputElement.value = response.data.ParentCity.LocalizedName;
+
+            setInfo(key);
+        })
+        .catch(function (error){
+            console.log(error);
+        })
+}
+
+
+// get user's current position on load, to show current conditions
+window.addEventListener('load', (event) => {
+    navigator.geolocation.getCurrentPosition((position) => {
+        let latitude = position.coords.latitude;
+        let longitude = position.coords.longitude;
+        console.log(latitude, longitude);
+        getLocationKeyCoord(latitude, longitude);
+    });
+});
+
+
+// allow user to specify location to lookup conditions
 locationInputElement.addEventListener('change', async function() {
     if (locationInputElement.value === null || locationInputElement.value === '')
     {
@@ -895,11 +936,7 @@ locationInputElement.addEventListener('change', async function() {
     {
         strUserLocation = locationInputElement.value;
         console.log(strUserLocation);
-        await getLocationKey(strUserLocation);
-        getCurrCondition(key);
-        getHighLowTemps(key);
-        getHourlyTemps(key);
-        getDailyForecasts(key);
+        await getLocationKeyStr(strUserLocation);
+        setInfo(key);
     }
 })
-
