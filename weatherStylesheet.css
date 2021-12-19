@@ -463,11 +463,13 @@ h3{
     line-height: 100%;
     display: inline-block;
     vertical-align: center;
+    font-weight: 200;
 }
 
 .hourlyRainChanceLabel{
     line-height: 80%;
     margin: 0;
+    font-weight: 300;
 }
 
 .hourlyUmbrella{

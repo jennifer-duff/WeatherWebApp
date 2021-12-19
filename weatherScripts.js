@@ -612,7 +612,7 @@ async function getCurrCondition(key){
             //set current condition label
             let currIsDaytime = response.data[0].IsDayTime;
             let condition = response.data[0].WeatherText;
-            console.log(condition);
+            //console.log(condition);
             let element = currWeather;
             let linkingWord = currLinkingWord;
             setConditionLabel(condition, linkingWord, element);
@@ -644,6 +644,7 @@ let forecastTemps = document.querySelectorAll('.forecastTemp');
 let timeLabels = document.querySelectorAll('.timeLabel');
 let hourlyTempDiv = document.querySelectorAll('.hourlyTemp');
 let hourlyRainChanceDiv = document.querySelectorAll('.hourlyRainChanceDiv');
+let hourlyRainChanceLabel= document.querySelectorAll('.hourlyRainChanceLabel')
 let hourlyUmbrella = document.querySelectorAll('.hourlyUmbrella');
 
 async function getHourlyTemps(key){
@@ -663,6 +664,9 @@ async function getHourlyTemps(key){
 
             //set temps
             forecastTemps[i].innerText = hourlyData[i].Temperature.Value
+
+            //set %rain
+            hourlyRainChanceLabel[i].innerText = hourlyData[i].RainProbability;
 
             //check if it's day vs night
             let isDaylight = hourlyData[i].IsDaylight;
@@ -719,7 +723,7 @@ function getDate(){
     {
         datesArray[i] = datesArray[i].toString();
         datesArray[i] = datesArray[i].substring(0, (datesArray[i].indexOf('/', 3)));
-        console.log(datesArray[i]);
+        //console.log(datesArray[i]);
         }
 
     //console.log(datesArray);
@@ -900,10 +904,10 @@ function setInfo(key){
 async function getLocationKeyCoord(lat, long) {
     let response = await axios.get(`https://dataservice.accuweather.com/locations/v1/cities/geoposition/search?apikey=mZDDGnloK5jU8t1fbOA952AYshZ4mJYN&q=${lat}%2C%20${long}`)
         .then(function (response){
-            console.log(response);
+            //console.log(response);
 
             key = response.data.Key;
-            console.log(key);
+            //console.log(key);
 
             locationInputElement.value = response.data.ParentCity.LocalizedName;
 
@@ -920,7 +924,7 @@ window.addEventListener('load', (event) => {
     navigator.geolocation.getCurrentPosition((position) => {
         let latitude = position.coords.latitude;
         let longitude = position.coords.longitude;
-        console.log(latitude, longitude);
+        //console.log(latitude, longitude);
         getLocationKeyCoord(latitude, longitude);
     });
 });
