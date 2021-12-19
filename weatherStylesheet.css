@@ -183,9 +183,6 @@ section{
     box-shadow: 10px 10px 0px var(--shadow);
 }
 
-
-
-
 #backToTop{
     box-sizing: border-box;
     background-color: var(--lightBrandColor);
@@ -205,8 +202,16 @@ section{
     line-height: 100%;
     text-decoration: none;
     text-align: center;
-    padding-top: 14px;
+    /* padding-top: 14px; */
+    padding: 5px;
     transition: background-color 0.2s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#backToTopArrow{
+    height: 25px;
 }
 
 #backToTop:hover{

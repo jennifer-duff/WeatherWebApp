@@ -114,8 +114,10 @@
         width: 45px;
         height: 45px;
         right: 20px;
-        top: 91vh;
-        padding-top: 10px;
+    }
+
+    #backToTopArrow{
+        height: 20px;
     }
     
     nav{
@@ -383,9 +385,9 @@
         font-size: 20pt;
     }
 
-    #backToTop{
+    /* #backToTop{
         top: 80vh;
-    }
+    } */
 
     /* /*---------- hourly forecast /*---------- */
     .forecastBox{
