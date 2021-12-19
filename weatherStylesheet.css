@@ -190,7 +190,7 @@ section{
     width: 55px;
     height: 55px;
     position: fixed;
-    bottom: 10vh;
+    bottom: 5vh;
     right: 50px;
     border-radius: 50%;
     z-index: 3;
@@ -211,7 +211,7 @@ section{
 }
 
 #backToTopArrow{
-    height: 25px;
+    max-height: 25px;
 }
 
 #backToTop:hover{
