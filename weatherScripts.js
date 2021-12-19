@@ -898,7 +898,7 @@ function setInfo(key){
 
 // lookup weather @ user's current position via coordinates
 async function getLocationKeyCoord(lat, long) {
-    let response = await axios.get(`http://dataservice.accuweather.com/locations/v1/cities/geoposition/search?apikey=mZDDGnloK5jU8t1fbOA952AYshZ4mJYN&q=${lat}%2C%20${long}`)
+    let response = await axios.get(`https://dataservice.accuweather.com/locations/v1/cities/geoposition/search?apikey=mZDDGnloK5jU8t1fbOA952AYshZ4mJYN&q=${lat}%2C%20${long}`)
         .then(function (response){
             console.log(response);
 
