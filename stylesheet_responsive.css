@@ -429,7 +429,7 @@
 
     .hourlyUmbrella{
         width: 12pt;
-        margin-right: 1px;
+        margin-right: 5px;
     }
 
     .hourlyRainChanceDiv{
@@ -491,26 +491,29 @@
 }
 
 @media (max-width: 400px){
-    /* section{
-        padding: 100px 7% 0 5%;
-    } */
+
+    #inputContainer{
+        flex-wrap: nowrap;
+    }
 
     #geotagIcon{
         margin-right: 5px;
     }
 
     #locationInput{
-        width: 150px;
+        min-width: 120px;
+        max-width: 140px;
         padding: 0 8px;
     }
 
     #goButton{
         font-size: 11pt;
-        padding: 7px;
+        padding: 5px;
+        margin: 0 7px 0 5px;
     }
     
     #menuIcon{
-        width: 30px;
+        width: 25px;
         margin-bottom: -10px;
     }
 
