@@ -436,9 +436,6 @@
         margin-top: 5px;
     }
 
-    /* .arrow:last-of-type{
-        margin: 0;
-    } */
 
     /*---------- 5-Day Forecast ----------*/
     .dayTile{
@@ -458,10 +455,6 @@
     .fiveDayDegreeSign{
         margin-left: -5px;
     }
-
-    /* .lowerTile{
-        height: 100px;
-    } */
 
     .highLowBox{
         padding: 0 14px;
@@ -491,7 +484,7 @@
 
     .umbrella{
         width: 35px;
-        margin: 0 30% -10px 30%;
+        margin: 0 25% -10px 25%;
     }
 
     
@@ -667,7 +660,7 @@
     }
     .umbrella{
         width: 27px;
-        margin: 0 30% -10px 0;
+        margin: 0 0 -10px 10%;
     }
 
 }
