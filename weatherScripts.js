@@ -283,6 +283,7 @@ let partSunWithRainImg = "url('Assets/partlySunnyWithRain.svg')";
 
 let nightColor = '#363F61';
 let nightLineColor = '#DBD9D5'
+let dayLineColor = '#000000';
 
 let clearNightImg = "url('Assets/moon.svg')";
 let mostlyClearNightImg = "url('Assets/mostlyClearmoon.svg')";
@@ -676,6 +677,13 @@ async function getHourlyTemps(key){
             setBackgroundColor(condition, isDaylight, weatherBoxes[i]);
             setWholeBackground(condition, isDaylight, iconBoxes[i]);
             
+            if (isDaylight === true)
+            {                   
+                hourlyUmbrella[i].src = 'Assets/umbrellaHourly.svg';
+                hourlyTempDiv[i].style.borderColor = 'black';
+                hourlyRainChanceDiv[i].style.borderColor = 'black';
+            }
+
             if (isDaylight === false)
             {                   
                 hourlyUmbrella[i].src = 'Assets/umbrellaHourlyNight.svg';
@@ -939,7 +947,7 @@ locationInputElement.addEventListener('change', async function() {
     else
     {
         strUserLocation = locationInputElement.value;
-        console.log(strUserLocation);
+        // console.log(strUserLocation);
         await getLocationKeyStr(strUserLocation);
         setInfo(key);
     }
