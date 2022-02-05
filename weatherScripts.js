@@ -286,7 +286,7 @@ let nightLineColor = '#DBD9D5'
 let dayLineColor = '#000000';
 
 let clearNightImg = "url('Assets/moon.svg')";
-let mostlyClearNightImg = "url('Assets/mostlyClearmoon.svg')";
+let mostlyClearNightImg = "url('Assets/mostlyClearMoon.svg')";
 let mostlyCloudyNightImg = "url('Assets/cloudyMoon.svg')";
 let cloudyNightImg = "url('Assets/nightCloud.svg')";
 
