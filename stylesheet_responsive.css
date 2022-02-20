@@ -669,4 +669,14 @@
         margin: 0 0 -10px 10%;
     }
 
+    /* --------- FOOTER ------------*/
+    #apiCredit{
+        font-size: 12pt;
+    }
+    
+    footer img{
+        width: 125px;
+        margin-left: 5px;
+        margin-bottom: -3px;
+    }
 }
