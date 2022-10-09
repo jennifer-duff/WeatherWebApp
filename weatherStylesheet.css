@@ -1,47 +1,46 @@
 /* --------------------------- GENERAL ---------------------------*/
-:root{
+:root {
     --darkBrandColor: rgb(68, 124, 128);
     --brandColor: rgb(80, 145, 150);
     --lightBrandColor: rgb(97, 176, 182);
     --softBlack: rgb(44, 44, 44);
     /* --softWhite: rgb(252, 249, 245); */
-    --softWhite: #FFFDFA;
+    --softWhite: #fffdfa;
     --shadow: rgb(49, 49, 49);
     --rainColor: rgb(174, 207, 230);
-    --sun: #FFE194;
+    --sun: #ffe194;
+    --transparent: rgba(255, 255, 255, 0);
     /* --mostlyCloudy: #fff9eb; */
 }
 
-
-
-html{
+html {
     box-sizing: border-box;
     scroll-behavior: smooth;
     position: relative;
-    right: 3px;
+    /* right: 3px; */
     background-color: var(--white);
     /* border-left: 3px solid var(--softBlack); */
 }
 
-body{
+body {
     box-sizing: border-box;
     margin: 0;
-    font-family: stratos, stratos-lights, Inter, 'Helvetica Nue', sans-serif;
+    font-family: stratos, stratos-lights, Inter, "Helvetica Nue", sans-serif;
     background-color: var(--white);
 }
 
-a{
+a {
     color: var(--darkBrandColor);
     cursor: pointer;
 }
 
-button{
+button {
     cursor: pointer;
 }
 
 /* --------------------------- HEADER ---------------------------*/
-header{
-    background-color: var(--softWhite);
+header {
+    background-color: var(--transparent);
     box-sizing: border-box;
     padding: 25px 10% 20px 10%;
     height: 100px;
@@ -51,30 +50,31 @@ header{
     justify-content: space-between;
     align-items: center;
     margin: 0px;
-    z-index: 4;
-    box-shadow: 5px 5px 0px var(--softBlack);
-    position: fixed;
-    top: -10px;
-    border-bottom-left-radius: 10px;
+    z-index: 100;
+    /* box-shadow: 5px 5px 0px var(--softBlack); */
+    position: absolute;
+    /* top: -10px; */
+    /* border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     border: 3px solid var(--softBlack);
-    border-top: none;
+    border-top: none;*/
     border-left: 6px solid var(--softBlack);
+    border-right: 3px solid var(--softBlack);
 }
 
-
-#geotagIcon{
+#geotagIcon {
     width: 18px;
     position: relative;
     top: 8px;
     margin-right: 7px;
+    background-color: transparent;
 }
 
-#locationInput{
+#locationInput {
     appearance: none;
     -webkit-appearance: none;
     box-sizing: border-box;
-    font-family: stratos-lights, stratos, Inter, 'Helvetica Nue', sans-serif;
+    font-family: stratos-lights, stratos, Inter, "Helvetica Nue", sans-serif;
     font-weight: 300;
     font-size: 12pt;
     width: 250px;
@@ -84,19 +84,35 @@ header{
     box-shadow: 3px 3px 0px var(--softBlack);
     height: 35px;
     color: black;
-    line-height: 100%;;
-    background-color: var(--softWhite);
+    line-height: 100%;
+    background-color: var(--transparent);
 }
 
-#locationInput::placeholder{
+#locationInput:active,
+#locationInput:focus,
+#locationInput:hover {
+    appearance: none;
+    -webkit-appearance: none;
+    outline: 1.5px solid var(--softBlack);
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+#locationInput:-webkit-autofill,
+#locationInput:-webkit-autofill:hover,
+#locationInput:-webkit-autofill:focus,
+#locationInput:-webkit-autofill:active {
+    transition: background-color 5000s ease-in-out 0s;
+    background-color: var(--transparent);
+}
+
+#locationInput::placeholder {
     color: rgb(124, 124, 124);
-    
 }
 
-#goButton{
+#goButton {
     box-sizing: border-box;
     margin-left: 10px;
-    font-family: stratos, stratos-lights, Inter, 'Helvetica Nue', sans-serif;
+    font-family: stratos, stratos-lights, Inter, "Helvetica Nue", sans-serif;
     font-weight: 300;
     font-size: 14pt;
     border-radius: 5px;
@@ -110,27 +126,27 @@ header{
     transition: background-color 0.2s ease-in-out;
 }
 
-#goButton:hover{
+#goButton:hover {
     background-color: var(--brandColor);
 }
 
-#menuIcon{
+#menuIcon {
     display: none;
     width: 45px;
 }
 
-#hamburgerNav{
+#hamburgerNav {
     display: none;
 }
 
-nav{
+nav {
     display: flex;
     min-width: 200px;
     width: 60%;
     justify-content: space-between;
 }
 
-nav a{
+nav a {
     color: var(--softBlack);
     text-decoration: none;
     font-size: 18pt;
@@ -138,18 +154,18 @@ nav a{
     line-height: 100%;
     width: 100%;
     position: relative;
-    transition: font-weight 0.15s ease-in-out;   
+    transition: font-weight 0.15s ease-in-out;
 }
 
-nav a:hover{
+nav a:hover {
     font-weight: 700;
 }
 
-nav div:nth-of-type(2){
+nav div:nth-of-type(2) {
     margin: 0 15px;
 }
 
-.navUnderline{
+.navUnderline {
     height: 6px;
     width: 100%;
     position: relative;
@@ -158,21 +174,21 @@ nav div:nth-of-type(2){
     background-color: var(--lightBrandColor);
 }
 
-#hamburgerNav div:nth-of-type(2) div{
+#hamburgerNav div:nth-of-type(2) div {
     width: 83%;
 }
 
-#hamburgerNav div:nth-of-type(3) div{
+#hamburgerNav div:nth-of-type(3) div {
     width: 80%;
 }
 
 /* --------------------------- MAIN ---------------------------*/
-main{
+main {
     box-sizing: border-box;
     padding: 0;
 }
 
-section{
+section {
     box-sizing: border-box;
     padding: 100px 20% 0 20%;
     margin-top: -75px;
@@ -186,7 +202,7 @@ section{
     box-shadow: 10px 10px 0px var(--shadow);
 }
 
-#backToTop{
+#backToTop {
     box-sizing: border-box;
     background-color: var(--lightBrandColor);
     color: var(--softBlack);
@@ -199,7 +215,7 @@ section{
     z-index: 3;
     box-shadow: 3px 3px 0 var(--softBlack);
     border: 1px solid var(--softBlack);
-    font-family: stratos, Inter, 'Helvetica Nue', sans-serif;
+    font-family: stratos, Inter, "Helvetica Nue", sans-serif;
     font-weight: 500;
     font-size: 20pt;
     line-height: 100%;
@@ -213,27 +229,26 @@ section{
     align-items: center;
 }
 
-#backToTopArrow{
+#backToTopArrow {
     height: 25px;
     width: 25px;
 }
 
-#backToTop:hover{
+#backToTop:hover {
     background-color: var(--brandColor);
 }
 
 /* -------------------- Current Weather Section -------------------*/
 
-#currWeatherSection{
+#currWeatherSection {
     box-sizing: border-box;
-    margin-top: 92px;
-    height: calc(100vh - 92px);
+    margin-top: 0px;
+    height: 100vh;
     width: 100%;
     background-color: var(--softWhite);
     z-index: 2;
-    /* padding-top: 250px;
-    padding-bottom: 100px; */
-    padding: 0 10%;
+    padding-top: 100px;
+    /* padding: 0 10%; */
     z-index: 3;
     display: flex;
     flex-wrap: wrap;
@@ -242,9 +257,9 @@ section{
     flex-direction: column;
 }
 
-h1{
+h1 {
     box-sizing: border-box;
-    font-family: stratos-lights, stratos, Inter, 'Helvetica Nue', sans-serif;
+    font-family: stratos-lights, stratos, Inter, "Helvetica Nue", sans-serif;
     font-weight: 200;
     font-size: 40pt;
     margin: 0;
@@ -253,23 +268,24 @@ h1{
     text-align: center;
 }
 
-#currTemp, #degreeSign, #currWeather{
-    font-family: stratos, Inter, 'Helvetica Nue', sans-serif;
+#currTemp,
+#degreeSign,
+#currWeather {
+    font-family: stratos, Inter, "Helvetica Nue", sans-serif;
     font-weight: 500;
     font-size: 60pt;
 }
 
-#degreeSign{
+#degreeSign {
     margin-left: -15px;
 }
 
-#linkingWord{
+#linkingWord {
     margin-left: -13px;
-
 }
 
-#highLow{
-    font-family: stratos-lights, stratos, Inter, 'Helvetica Nue', sans-serif;
+#highLow {
+    font-family: stratos-lights, stratos, Inter, "Helvetica Nue", sans-serif;
     text-align: center;
     font-size: 25pt;
     font-weight: 200;
@@ -277,12 +293,12 @@ h1{
     /* margin-bottom: 5vh; */
 }
 
-#highLow span{
-    font-family: stratos, Inter, 'Helvetica Nue', sans-serif;
+#highLow span {
+    font-family: stratos, Inter, "Helvetica Nue", sans-serif;
     font-weight: 400;
 }
 
-#weatherIconDiv{
+#weatherIconDiv {
     box-sizing: border-box;
     display: flex;
     flex-wrap: nowrap;
@@ -291,13 +307,13 @@ h1{
     background-origin: border-box;
     background-position: center;
     background-repeat: no-repeat;
-    background-image: url('Assets/cloud.svg');
+    background-image: url("Assets/cloud.svg");
     height: 375px;
     width: 100%;
     margin: 50px 0 50px 0;
 }
 
-#currTempBox{
+#currTempBox {
     box-sizing: border-box;
     font-size: 90pt;
     line-height: 100%;
@@ -307,7 +323,7 @@ h1{
     height: 100%;
 }
 
-#currTemp{
+#currTemp {
     height: 100%;
     padding: 0;
     margin: 0;
@@ -315,17 +331,16 @@ h1{
     height: 100%;
 }
 
-
 /* ---------------------- Hourly Forecast Box -----------------------*/
-#hourlyForecastSection{
+#hourlyForecastSection {
     /* margin-top: 10px; */
-    background-color: var(--softWhite);  
+    background-color: var(--softWhite);
     /* height: 850px;  */
-    padding-bottom: 150px; 
+    padding-bottom: 150px;
     z-index: 2;
 }
 
-h2{
+h2 {
     font-size: 45pt;
     font-weight: 600;
     margin: 0 0 50px 0;
@@ -333,7 +348,7 @@ h2{
     position: relative;
 }
 
-.underline{
+.underline {
     height: 15px;
     width: 430px;
     background-color: var(--brandColor);
@@ -341,14 +356,14 @@ h2{
     top: 153px;
 }
 
-h3{
+h3 {
     font-size: 25pt;
     font-weight: 400;
     margin: 0 0 10px 0;
     line-height: 100%;
 }
 
-#carouselContainer{
+#carouselContainer {
     margin: 70px 0 40px 0;
     box-sizing: border-box;
     display: flex;
@@ -358,7 +373,7 @@ h3{
     /* border: 1px solid black; */
 }
 
-#carousel{
+#carousel {
     display: flex;
     align-content: flex-start;
     flex-wrap: nowrap;
@@ -370,16 +385,17 @@ h3{
     left: -30px;
 }
 
-#carousel, #dotNavContainer{
+#carousel,
+#dotNavContainer {
     width: calc((16vw * 3) + (4 * 1vw) + 8px);
     /*formula = (weatherBox width * 4) + (numWeatherBoxMargins * marginWidth*) + boxShadow of last box*/
 }
 
-#carousel::-webkit-scrollbar{
+#carousel::-webkit-scrollbar {
     display: none;
 }
 
-.arrow{
+.arrow {
     margin: 0;
     width: 30px;
     height: 20px;
@@ -389,40 +405,40 @@ h3{
     left: 30px;
 }
 
-.arrow:first-of-type{
+.arrow:first-of-type {
     left: -60px;
 }
 
-.arrow:last-of-type{
+.arrow:last-of-type {
     left: 0px;
 }
 
-.forecastBox{
+.forecastBox {
     width: 1fr;
     margin: 0 1vw 8px 1vw;
     scroll-snap-align: start;
 }
 
-.forecastBox:last-of-type{
+.forecastBox:last-of-type {
     margin-right: 8px;
 }
 
-.weatherBox{
+.weatherBox {
     box-sizing: border-box;
     width: 16vw;
     height: 16vw;
     padding: 20px;
     display: grid;
-    grid-template-areas: 
+    grid-template-areas:
         "c c"
         "a b";
     grid-template-rows: 3fr 1.25fr;
-    grid-template-columns: 0.60fr 1fr;
+    grid-template-columns: 0.6fr 1fr;
     gap: 0px;
     justify-content: center;
     align-items: center;
     text-align: center;
-    font-family: stratos-lights, stratos, Inter, 'Helvetica Nue', sans-serif;
+    font-family: stratos-lights, stratos, Inter, "Helvetica Nue", sans-serif;
     font-size: 24pt;
     font-weight: 300;
     border: 2px solid var(--softBlack);
@@ -430,11 +446,11 @@ h3{
     border-radius: 10px;
 }
 
-.iconBox{
+.iconBox {
     box-sizing: border-box;
-    background-image: url('Assets/sun.svg');
+    background-image: url("Assets/sun.svg");
     background-repeat: no-repeat;
-    background-size: 65%;
+    background-size: contain;
     background-position: center;
     width: 100%;
     height: 100%;
@@ -442,7 +458,7 @@ h3{
     margin-bottom: 20px;
 }
 
-.hourlyTemp{
+.hourlyTemp {
     line-height: 115%;
     margin: 0;
     grid-area: a;
@@ -455,7 +471,7 @@ h3{
     align-items: center;
 }
 
-.hourlyRainChanceDiv{
+.hourlyRainChanceDiv {
     text-align: center;
     grid-area: b;
     border-left: 1px solid var(--softBlack);
@@ -469,7 +485,7 @@ h3{
     align-items: center;
 }
 
-.hourlyRainChance{
+.hourlyRainChance {
     margin: 0;
     line-height: 100%;
     display: inline-block;
@@ -477,18 +493,18 @@ h3{
     font-weight: 200;
 }
 
-.hourlyRainChanceLabel{
+.hourlyRainChanceLabel {
     line-height: 80%;
     margin: 0;
     font-weight: 300;
 }
 
-.hourlyUmbrella{
+.hourlyUmbrella {
     width: 22pt;
     margin: 0px 6px 0 0px;
 }
 
-#dotNavContainer{
+#dotNavContainer {
     display: flex;
     justify-content: center;
     height: 20px;
@@ -497,7 +513,7 @@ h3{
     left: 0px;
 }
 
-.dotNav{
+.dotNav {
     background-color: rgb(190, 190, 190);
     width: 15px;
     height: 15px;
@@ -506,32 +522,31 @@ h3{
     transition: background-color 0.2s ease-in-out;
 }
 
-.dotNavActive{
+.dotNavActive {
     background-color: rgb(138, 135, 135);
 }
 
-.dotNav:hover{
+.dotNav:hover {
     cursor: pointer;
     background-color: rgb(138, 135, 135);
 }
 
 /* -------------------- 5-Day Forecast Section -------------------*/
-#fiveDayForecastSection{
+#fiveDayForecastSection {
     margin-top: -75px;
     background-color: var(--softWhite);
     z-index: 1;
     margin-bottom: 0px;
 }
 
-.date{
-    font-weight:600;
+.date {
+    font-weight: 600;
     font-size: 28pt;
     margin: 0 0 5px 0;
     padding: 0;
 }
 
-
-.dayTile{
+.dayTile {
     box-sizing: border-box;
     border: 2px solid var(--softBlack);
     border-radius: 10px;
@@ -546,8 +561,8 @@ h3{
     margin-bottom: 200px;
 } */
 
-.conditionLabel{
-    font-family: stratos-lights, stratos, Inter, 'Helvetica Nue', sans-serif;
+.conditionLabel {
+    font-family: stratos-lights, stratos, Inter, "Helvetica Nue", sans-serif;
     font-weight: 200;
     font-size: 32pt;
     margin: -7px 0 40px 0;
@@ -556,20 +571,22 @@ h3{
     line-height: 125%;
 }
 
-.fiveDayTemp, .fiveDayDegreeSign, .fiveDayWeather{
-    font-family: stratos, Inter, 'Helvetica Nue', sans-serif;
+.fiveDayTemp,
+.fiveDayDegreeSign,
+.fiveDayWeather {
+    font-family: stratos, Inter, "Helvetica Nue", sans-serif;
     font-weight: 500;
 }
 
-.fiveDayDegreeSign{
+.fiveDayDegreeSign {
     margin-left: -10px;
 }
 
-.fiveDayLinkingWord{
+.fiveDayLinkingWord {
     margin-left: -5px;
 }
 
-.lowerTile{
+.lowerTile {
     box-sizing: border-box;
     display: grid;
     grid-template-columns: 1fr 1.15fr 1fr;
@@ -583,14 +600,14 @@ h3{
     opacity: 0;
 } */
 
-.conditionBox{
-    background-image: url('Assets/raincloud.svg');
+.conditionBox {
+    background-image: url("Assets/raincloud.svg");
     background-position: center;
     background-repeat: no-repeat;
     width: 85%;
 }
 
-.highLowBox{
+.highLowBox {
     border-left: 1px solid var(--softBlack);
     display: flex;
     justify-content: center;
@@ -599,14 +616,15 @@ h3{
     padding: 0 20px;
 }
 
-.highLowBox, .rainChanceBox{
-    font-family: stratos-lights, stratos, Inter, 'Helvetica Nue', sans-serif;
+.highLowBox,
+.rainChanceBox {
+    font-family: stratos-lights, stratos, Inter, "Helvetica Nue", sans-serif;
     font-weight: 200;
     /* padding: 0 20px; */
     /* margin: 0 0px 0 60px; */
 }
 
-.highLowLabels{
+.highLowLabels {
     /* margin: 0 0px 0 60px;
     padding: 50px 60px 0 60px;  */
     display: grid;
@@ -622,20 +640,24 @@ h3{
     padding: 0;
 }
 
-.highLowLabels p{
+.highLowLabels p {
     margin: 0;
 }
 
-.highTempLabel, .lowTempLabel{
+.highTempLabel,
+.lowTempLabel {
     width: 100%;
 }
 
-.highTempLabel, .fiveDayDegree, .lowTempLabel, .chanceRain{
-    font-family: stratos, Inter, 'Helvetica Nue', sans-serif;
+.highTempLabel,
+.fiveDayDegree,
+.lowTempLabel,
+.chanceRain {
+    font-family: stratos, Inter, "Helvetica Nue", sans-serif;
     font-weight: 500;
 }
 
-.rainChanceBox{
+.rainChanceBox {
     /* padding: 60px 0px 0 60px;     */
     border-left: 1px solid var(--softBlack);
     display: flex;
@@ -646,26 +668,25 @@ h3{
     /* height: 150px; */
 }
 
-.umbrella{
+.umbrella {
     width: 70px;
     display: inline-block;
     margin-right: 15px;
     margin-bottom: 10px;
 }
 
-.rainChanceLabel{
+.rainChanceLabel {
     margin: 0 0 0 0;
     display: inline-block;
     font-size: 30pt;
 }
 
-.chanceRain{
+.chanceRain {
     margin-right: 2px;
 }
 
-
 /* -------------------- Footer -------------------*/
-footer{
+footer {
     background-color: var(--softWhite);
     height: 200px;
     width: 100%;
@@ -688,8 +709,8 @@ footer{
     padding: 0 5%;
 }
 
-#apiCredit{
-    font-family: stratos-lights, stratos, Inter, 'Helvetica Nue', sans-serif;
+#apiCredit {
+    font-family: stratos-lights, stratos, Inter, "Helvetica Nue", sans-serif;
     margin: 0 0 0px 0;
     padding-top: 20px;
     font-weight: 300;
@@ -698,17 +719,17 @@ footer{
     line-height: 160%;
 }
 
-.bold{
-    font-family: stratos, Inter, 'Helvetica Nue', sans-serif;
+.bold {
+    font-family: stratos, Inter, "Helvetica Nue", sans-serif;
     font-weight: 600;
 }
 
-#jbDesignLink{
+#jbDesignLink {
     /* text-decoration: none; */
     color: black;
 }
 
-footer img{
+footer img {
     display: inline;
     width: 150px;
     margin-left: 5px;
