@@ -239,8 +239,8 @@ carousel.addEventListener("scroll", function () {
 let backToTop = document.querySelectorAll("#backToTop")[0];
 let sections = document.querySelectorAll("section");
 
-let hourlyOffset = sections[1].offsetTop - 100;
-let dailyOffset = sections[2].offsetTop - 100;
+let hourlyOffset = sections[1].offsetTop;
+let dailyOffset = sections[2].offsetTop;
 
 let navLinks = [];
 let desktopNav = document.querySelector("nav").childNodes;

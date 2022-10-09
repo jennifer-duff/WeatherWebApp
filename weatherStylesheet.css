@@ -190,8 +190,8 @@ main {
 
 section {
     box-sizing: border-box;
-    padding: 100px 20% 0 20%;
-    margin-top: -75px;
+    padding: 50px 20% 0 20%;
+    margin-top: -10px;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     border: 3px solid var(--softBlack);
@@ -533,7 +533,7 @@ h3 {
 
 /* -------------------- 5-Day Forecast Section -------------------*/
 #fiveDayForecastSection {
-    margin-top: -75px;
+    /* margin-top: -75px; */
     background-color: var(--softWhite);
     z-index: 1;
     margin-bottom: 0px;
